@@ -24,11 +24,20 @@ internal class Program
         */
 
         MathematicalOperation operation = new MathematicalOperation();
-        Console.WriteLine("The first operation is:  −1 + (5 × 6)");   
+        Console.WriteLine("The first operation is:  -1 + (5 multiply 6)");   
         Console.WriteLine("The result is: " + operation.calculateFirstOperation());
 
-        Console.WriteLine("The second operation is:  38 + 5 𝑚𝑜𝑑 7");
+        Console.WriteLine("The second operation is:  38 + (5 Modulo 7)");
         Console.WriteLine("The result is: " + operation.calculateSecondOperation());
+
+        Console.WriteLine("The third operation is:  14 + ((-3 multiply 6) / 7)");
+        Console.WriteLine("The result is: " + operation.calculateThirdOperation());
+
+        Console.WriteLine("The fourth operation is:  2 + ((13 / 6) × 6) + √7");
+        Console.WriteLine("The result is: " + operation.calculateFourthOperation());
+
+        Console.WriteLine("The fifth operation is:  ( 6 ^ 4 + 5 ^ 7) / (9 Modulo 4)");
+        Console.WriteLine("The result is: " + operation.calculateFifthOperation());
 
 
 
