@@ -8,5 +8,13 @@ internal class Program
         HelloName greeting = new HelloName();
         greeting.PrintHelloName();
 
+        // Exercise 2: Write a C# program to print the sum of two numbers and the division of those two numbers
+        SumAndDivision calculation= new SumAndDivision();
+        calculation.printNumbers();
+        Console.WriteLine("The sum of the numbers is: " + calculation.CalculateSum());
+        Console.WriteLine("The division of the numbers is: " + calculation.CalculateDivision());
+
+        Console.ReadLine();
+
     }
 }
