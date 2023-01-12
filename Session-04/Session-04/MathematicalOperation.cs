@@ -5,7 +5,7 @@ namespace Session_04
     public class MathematicalOperation
     {
         // It calculates the operation −1 + (5 × 6)
-        public int calculateFirstOperation()
+        public int CalculateFirstOperation()
         { 
             int firstNumber = -1;
             int secondNumber = 5;
@@ -15,7 +15,7 @@ namespace Session_04
         }
 
         // It calculates the operation 38 + 5 𝑚𝑜𝑑 7
-        public int calculateSecondOperation()
+        public int CalculateSecondOperation()
         {
             int firstNumber = 38;
             int secondNumber = 5;
@@ -25,7 +25,7 @@ namespace Session_04
         }
 
         // It calculates the operation 14 + ((-3 × 6) / 7)
-        public double calculateThirdOperation()
+        public double CalculateThirdOperation()
         {
             int firstNumber = 14;
             int secondNumber = -3;
@@ -36,7 +36,7 @@ namespace Session_04
         }
 
         // It calculates the operation 2 + ((13 / 6) × 6) + √7
-        public double calculateFourthOperation()
+        public double CalculateFourthOperation()
         {
             int firstNumber = 2;
             int secondNumber = 13;
@@ -48,7 +48,7 @@ namespace Session_04
         }
 
         // It calculates the operation ( 6 ^ 4 + 5 ^ 7) / (9 Modulo 4)
-        public double calculateFifthOperation()
+        public double CalculateFifthOperation()
         {
             int firstNumber = 6;
             int secondNumber = 4;

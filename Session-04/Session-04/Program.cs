@@ -11,7 +11,7 @@ internal class Program
 
         // Exercise 2: Write a C# program to print the sum of two numbers and the division of those two numbers
         SumAndDivision calculation= new SumAndDivision();
-        calculation.printNumbers();
+        calculation.PrintNumbers();
         Console.WriteLine("The sum of the numbers is: " + calculation.CalculateSum());
         Console.WriteLine("The division of the numbers is: " + calculation.CalculateDivision());
 
@@ -25,19 +25,19 @@ internal class Program
 
         MathematicalOperation operation = new MathematicalOperation();
         Console.WriteLine("The first operation is:  -1 + (5 multiply 6)");   
-        Console.WriteLine("The result is: " + operation.calculateFirstOperation());
+        Console.WriteLine("The result is: " + operation.CalculateFirstOperation());
 
         Console.WriteLine("The second operation is:  38 + (5 Modulo 7)");
-        Console.WriteLine("The result is: " + operation.calculateSecondOperation());
+        Console.WriteLine("The result is: " + operation.CalculateSecondOperation());
 
         Console.WriteLine("The third operation is:  14 + ((-3 multiply 6) / 7)");
-        Console.WriteLine("The result is: " + operation.calculateThirdOperation());
+        Console.WriteLine("The result is: " + operation.CalculateThirdOperation());
 
         Console.WriteLine("The fourth operation is:  2 + ((13 / 6) × 6) + √7");
-        Console.WriteLine("The result is: " + operation.calculateFourthOperation());
+        Console.WriteLine("The result is: " + operation.CalculateFourthOperation());
 
         Console.WriteLine("The fifth operation is:  ( 6 ^ 4 + 5 ^ 7) / (9 Modulo 4)");
-        Console.WriteLine("The result is: " + operation.calculateFifthOperation());
+        Console.WriteLine("The result is: " + operation.CalculateFifthOperation());
 
 
         /* Exercise 4: Write a C# program that assigns an age (number) (for example 20) and
@@ -46,9 +46,7 @@ internal class Program
          */
 
         GenderAndAge genderAndAgeAssignment= new GenderAndAge();   
-        genderAndAgeAssignment.printGenderAndAge(); 
-
-
+        genderAndAgeAssignment.PrintGenderAndAge(); 
 
 
         Console.ReadLine();

@@ -7,7 +7,7 @@ namespace Session_04
         double firstNumber = 8.2;
         double secondNumber = 9.5;
 
-        public void printNumbers()
+        public void PrintNumbers()
         {
             Console.WriteLine("The numbers are: " + firstNumber + "  " + secondNumber);        
         }
