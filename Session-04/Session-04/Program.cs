@@ -1,5 +1,6 @@
 ﻿using Session_04;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 internal class Program
 {
@@ -46,7 +47,12 @@ internal class Program
          */
 
         GenderAndAge genderAndAgeAssignment= new GenderAndAge();   
-        genderAndAgeAssignment.PrintGenderAndAge(); 
+        genderAndAgeAssignment.PrintGenderAndAge();
+
+        // Exercise 7: Write a C# program to convert from Celsius degrees to Kelvin and Fahrenheit 
+        KelvinAndFahrenheit temperature  = new KelvinAndFahrenheit();
+        temperature.printTemperatureConversion();
+       
 
 
         Console.ReadLine();
