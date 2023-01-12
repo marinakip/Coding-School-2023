@@ -40,6 +40,15 @@ internal class Program
         Console.WriteLine("The result is: " + operation.calculateFifthOperation());
 
 
+        /* Exercise 4: Write a C# program that assigns an age (number) (for example 20) and
+         * a gender (string) (for example female) and displays something like: 
+         * "You are female and look younger than 20." 
+         */
+
+        GenderAndAge genderAndAgeAssignment= new GenderAndAge();   
+        genderAndAgeAssignment.printGenderAndAge(); 
+
+
 
 
         Console.ReadLine();
