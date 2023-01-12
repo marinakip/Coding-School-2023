@@ -49,13 +49,31 @@ internal class Program
         GenderAndAge genderAndAgeAssignment= new GenderAndAge();   
         genderAndAgeAssignment.PrintGenderAndAge();
 
+        /* Exercise 5: Write a C# program that takes an integer representing seconds (for example 45678) 
+        *  and converts it to :
+        *   • Minutes
+        *   • Hours
+        *   • Days
+        *   • Years
+        */
+
+        //TODO: Exercise 5
+
+        // Exercise 6: Rewrite Program #5 using .Net Libraries
+
+        SecondsConversion seconds = new SecondsConversion();
+        seconds.PrintConversion();
+
+
+
         // Exercise 7: Write a C# program to convert from Celsius degrees to Kelvin and Fahrenheit 
+
         KelvinAndFahrenheit temperature  = new KelvinAndFahrenheit();
         temperature.printTemperatureConversion();
-       
+
 
 
         Console.ReadLine();
 
-    }
+     }
 }
