@@ -26,21 +26,25 @@ internal class Program
         Console.Clear(); //HACK: To clear console cache because it keeps showing previous results, no errors and build is successful
         Console.WriteLine($"EXERCISE {exercises[1]} {Environment.NewLine}");
         Console.WriteLine($"What do you want to calculate? ");
-        Console.Write("1. Sum \t");
+        Console.Write("1. Sum \t");                             //TODO: Fix output in one line
         Console.Write($"2. Product {Environment.NewLine}");
         string selection = Console.ReadLine();    //TODO: Check if it is an integer
-        int selectionNumber = Convert.ToInt32(selection);    
-        if(selectionNumber == 1){
-            Console.WriteLine("Please insert n value to calculate the Sum of 1,...,n :");
-            string number = Console.ReadLine();    //TODO: Check if it is an integer
-            int n = Convert.ToInt32(number);
+        int selectionNumber = Convert.ToInt32(selection);
+        Console.WriteLine("Please insert n value to calculate the Sum of 1,...,n :");
+        string number = Console.ReadLine();    //TODO: Check if it is an integer and not negative
+        int n = Convert.ToInt32(number);
+
+        
+
+        if (selectionNumber == 1){
             Sum sum = new Sum();
-            int result = sum.CalculateSum(n);
-            Console.WriteLine($"The sum of {n} numbers is: {result}");
+            int resultSum = sum.CalculateSum(n);
+            Console.WriteLine($"The sum of {n} numbers is: {resultSum}");
         }
         else{
-            //Product product = new Product();
-            //product.calculateProduct(n);   
+            Product product = new Product();
+            int resultProduct = product.CalculateProduct(n);
+            Console.WriteLine($"The product of {n} numbers is: {resultProduct}");
         }             
 
 
