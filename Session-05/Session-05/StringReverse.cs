@@ -30,7 +30,8 @@ namespace Session_05
             return backwardCharacterArray;
         }
         public void PrintReverseString(){
-            char[] reversedArray = GetReversedArray();    
+            char[] reversedArray = GetReversedArray();
+            Console.Write("The reversed string is: ");
             foreach (char character in reversedArray){
                 Console.Write(character);
             }
