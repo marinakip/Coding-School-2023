@@ -1,4 +1,5 @@
 ﻿using Session_05;
+using System;
 using System.ComponentModel;
 using System.Net.Http.Headers;
 
@@ -56,7 +57,16 @@ internal class Program
        
         Prime primeNumber = new Prime();
         primeNumber.CalculateAllPrimes(primesUpperBound);
-      
+
+
+        // Exercise 4: Write a C# program to multiply all values from Array1 with all values
+        // from Array2 and display the results in a new Array.
+        //  • Array1: [2, 4, 9, 12]
+        //  • Array2: [1, 3, 7, 10]
+
+        // Exercise 5: Write a C# program to sort the given array of integers from the lowest
+        //to the highest number.
+        //• Array: [ 0, -2, 1, 20, -31, 50 , -4, 17, 89, 100 ]
       
 
         Console.ReadLine();
