@@ -60,7 +60,7 @@ internal class Program
         Prime primeNumber = new Prime();
         primeNumber.CalculateAllPrimes(primesUpperBound);
 
-        */
+        
 
         // Exercise 4: Write a C# program to multiply all values from Array1 with all values
         // from Array2 and display the results in a new Array.
@@ -77,10 +77,19 @@ internal class Program
         Console.WriteLine($"{Environment.NewLine}The cartesian product of the array is: ");
         cartesianProduct.printCartesianProduct();
 
+        */
+
         // Exercise 5: Write a C# program to sort the given array of integers from the lowest
         //to the highest number.
         //• Array: [ 0, -2, 1, 20, -31, 50 , -4, 17, 89, 100 ]
-      
+
+       
+        Sorting sorting = new Sorting();
+        Console.WriteLine("The array to be sorted is: ");
+        sorting.PrintArray1();
+        Console.WriteLine($"{Environment.NewLine}The sorted array is: ");
+        sorting.PrintSortedArray();
+
 
         Console.ReadLine();
        
