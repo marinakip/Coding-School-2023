@@ -21,7 +21,7 @@ internal class Program
         Console.Write($"Please insert your name to show it reversed: ");
        
         string name = Console.ReadLine();
-        //TODO: Do Regex Validation
+        //TODO: Do Regex input validation for name input
         while (name != null){
             if (int.TryParse(name, out int numericValue))
             {
@@ -66,7 +66,7 @@ internal class Program
 
         // Exercise 3: Write a C# program that asks the user for an integer (n) and finds all the prime numbers from 1 to n.
 
-        Console.WriteLine($"EXERCISE {exercises[2]} {Environment.NewLine}");
+        Console.WriteLine($"{Environment.NewLine}EXERCISE {exercises[2]} {Environment.NewLine}");
         Console.Write("Please insert n value to find all the prime numbers from 1 to n:");
         string input = Console.ReadLine();    //TODO: Check if it is an integer and not negative
         int primesUpperBound = Convert.ToInt32(input);       //TODO: REFACTOR EXTRACT METHOD FOR INPUT and if string is number and not negative
@@ -75,14 +75,14 @@ internal class Program
         Prime primeNumber = new Prime();
         primeNumber.CalculateAllPrimes(primesUpperBound);
 
-        
+
 
         // Exercise 4: Write a C# program to multiply all values from Array1 with all values
         // from Array2 and display the results in a new Array.
         //  • Array1: [2, 4, 9, 12]
         //  • Array2: [1, 3, 7, 10]
-
-        Console.WriteLine($"EXERCISE {exercises[3]} {Environment.NewLine}");
+        Console.WriteLine($"{Environment.NewLine}");
+        Console.WriteLine($"{Environment.NewLine}EXERCISE {exercises[3]} {Environment.NewLine}");
         CartesianProduct cartesianProduct = new CartesianProduct();
         Console.WriteLine($"The arrays for the cartesian product are: ");
         cartesianProduct.printArray1();
@@ -92,13 +92,14 @@ internal class Program
         Console.WriteLine($"{Environment.NewLine}The cartesian product of the array is: ");
         cartesianProduct.printCartesianProduct();
 
-        
+
 
         // Exercise 5: Write a C# program to sort the given array of integers from the lowest
         //to the highest number.
         //• Array: [ 0, -2, 1, 20, -31, 50 , -4, 17, 89, 100 ]
 
-       
+        Console.WriteLine($"{Environment.NewLine}");
+        Console.WriteLine($"{Environment.NewLine}EXERCISE {exercises[4]} {Environment.NewLine}");
         Sorting sorting = new Sorting();
         Console.WriteLine("The array to be sorted is: ");
         sorting.PrintArray1();
