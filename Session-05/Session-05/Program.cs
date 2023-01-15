@@ -44,7 +44,7 @@ internal class Program
         
         Console.WriteLine($"EXERCISE {exercises[1]} {Environment.NewLine}");
         Console.WriteLine($"What do you want to calculate? ");
-        Console.Write("1. Sum \t");                             //TODO: Fix output in one line
+        Console.Write("1. Sum \t");                             //TODO: Fix output with String Builder
         Console.Write($"2. Product {Environment.NewLine}");
         string selection = Console.ReadLine();    //TODO: Check if it is an integer
         int selectionNumber = Convert.ToInt32(selection);
