@@ -13,7 +13,7 @@ internal class Program
         int sessionNumber = 5;
         Console.WriteLine($"SESSION-{sessionNumber:00} EXERCISES STARTING.... {Environment.NewLine}");
 
-        /*
+        
         
         // Exercise 1: Write a C# program that reverses a given string (your name).
 
@@ -77,7 +77,7 @@ internal class Program
         Console.WriteLine($"{Environment.NewLine}The cartesian product of the array is: ");
         cartesianProduct.printCartesianProduct();
 
-        */
+        
 
         // Exercise 5: Write a C# program to sort the given array of integers from the lowest
         //to the highest number.
