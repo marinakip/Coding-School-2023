@@ -13,6 +13,7 @@ internal class Program
         int sessionNumber = 5;
         Console.WriteLine($"SESSION-{sessionNumber:00} EXERCISES STARTING.... {Environment.NewLine}");
 
+        /*
         
         // Exercise 1: Write a C# program that reverses a given string (your name).
 
@@ -47,9 +48,10 @@ internal class Program
             Console.WriteLine($"The product of {n} numbers is: {resultProduct}");
         }
 
-        
+
         // Exercise 3: Write a C# program that asks the user for an integer (n) and finds all the prime numbers from 1 to n.
-        
+
+        Console.WriteLine($"EXERCISE {exercises[2]} {Environment.NewLine}");
         Console.Write("Please insert n value to find all the prime numbers from 1 to n:");
         string input = Console.ReadLine();    //TODO: Check if it is an integer and not negative
         int primesUpperBound = Convert.ToInt32(input);       //TODO: REFACTOR EXTRACT METHOD FOR INPUT and if string is number and not negative
@@ -58,11 +60,22 @@ internal class Program
         Prime primeNumber = new Prime();
         primeNumber.CalculateAllPrimes(primesUpperBound);
 
+        */
 
         // Exercise 4: Write a C# program to multiply all values from Array1 with all values
         // from Array2 and display the results in a new Array.
         //  • Array1: [2, 4, 9, 12]
         //  • Array2: [1, 3, 7, 10]
+
+        Console.WriteLine($"EXERCISE {exercises[3]} {Environment.NewLine}");
+        CartesianProduct cartesianProduct = new CartesianProduct();
+        Console.WriteLine($"The arrays for the cartesian product are: ");
+        cartesianProduct.printArray1();
+        Console.WriteLine();
+        cartesianProduct.printArray2();
+     
+        Console.WriteLine($"{Environment.NewLine}The cartesian product of the array is: ");
+        cartesianProduct.printCartesianProduct();
 
         // Exercise 5: Write a C# program to sort the given array of integers from the lowest
         //to the highest number.
