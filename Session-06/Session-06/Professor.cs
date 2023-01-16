@@ -22,8 +22,13 @@ namespace Session_06
             Courses = courses;
         }
 
-        //Methods
-        public void Teach(Course course, DateTime? date) { }
+        // Inheritance Constructors
+        public Professor(Guid id) :base(id) { }
+        public Professor(Guid id, string name) : base(id, name) { }
+        public Professor(Guid id, string name, int age) : base(id, name, age) { }
+
+            //Methods
+            public void Teach(Course course, DateTime? date) { }
         public void SetGrade(int studentID, int courseID, double? grade) { }
         public void GetName() { }    
 
