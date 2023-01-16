@@ -32,6 +32,6 @@ namespace Session_06
         // Methods
         public void GetName() {}
 
-        public void SetName() {}
+        public void SetName(string name) {}
     }
 }
