@@ -29,8 +29,8 @@ namespace Session_06
 
         //Methods
         public void Teach(Course course, DateTime? date) { }
-        public void SetGrade(int studentID, int courseID, double? grade) { }
-        public void GetName() { }    
+        public void SetGrade(int studentID, Guid courseID, int? grade) { }
+        public void GetName() { }    // it is inherited so we can remove it from here
 
      }
 }
