@@ -12,7 +12,8 @@ namespace Session_06
         public Guid ID { get; set; }
         public Guid StudentID { get; set; } 
         public Guid CourseID { get; set; }
-        public int GradeNumber { get; set; }  //cannot take Grade as name
+        public int GradeNumber { get; set; }  //cannot take Grade as name Compiler Error CS0542
+                                        //'user-defined type' : member names cannot be the same as their enclosing type
 
         // Constructors
         public Grade() { }
