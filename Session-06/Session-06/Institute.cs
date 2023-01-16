@@ -34,4 +34,4 @@ namespace Session_06
         public void SetName(string name) { }
     }
 }
-}
+
