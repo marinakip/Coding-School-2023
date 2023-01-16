@@ -27,8 +27,8 @@ namespace Session_06
         public Professor(Guid id, string name) : base(id, name) { }
         public Professor(Guid id, string name, int age) : base(id, name, age) { }
 
-            //Methods
-            public void Teach(Course course, DateTime? date) { }
+        //Methods
+        public void Teach(Course course, DateTime? date) { }
         public void SetGrade(int studentID, int courseID, double? grade) { }
         public void GetName() { }    
 

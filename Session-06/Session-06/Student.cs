@@ -23,6 +23,11 @@ namespace Session_06
             Courses = courses;
         }
 
+        // Inheritance Constructors
+        public Student(Guid id) : base(id) { }
+        public Student(Guid id, string name) : base(id, name) { }
+        public Student(Guid id, string name, int age) : base(id, name, age) { }
+
 
         // Methods
         public void Attend(Course course, DateTime date) { }    
