@@ -1,4 +1,5 @@
 ﻿using Session_07;
+using System.ComponentModel.DataAnnotations;
 /// <summary>
 /// Message Logger implementation to keep track of different user transactions:
 /// The user has the options to:
@@ -9,17 +10,31 @@
 /// Use case: The user is asked to choose between convert, uppercase or reverse. If the selection is valid 
 /// the logger displays a message in the form (ID, timestamp, Corvert/Uppercase/Reverse) when the request started
 /// and another message when the resolver executed the action (ID, timestamp, sucessful message / error)
-/// Also all the console writelines should be written through the message logger, in the array messages.
-/// 
+///
 /// </summary>
 
 internal class Program {
     private static void Main(string[] args) {
+
         
-        MessageLogger messageLogger = new MessageLogger();
+        ConsolePrompt consolePrompt = new ConsolePrompt();
+        consolePrompt.DisplayUserOptions();
+        //consolePrompt.GetUserSelection();
+        
+        //MessageLogger messageLogger = new MessageLogger();
+
+        //try {
+        //    messageLogger.ReadAll();
+        //} catch (Exception exception) {    
+        //    Console.WriteLine(exception.Message);
+        //    throw;
+        //} 
 
 
-       
+        Console.ReadLine();
+
+
+
 
     }
 }
