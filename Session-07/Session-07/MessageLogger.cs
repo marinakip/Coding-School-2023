@@ -16,17 +16,43 @@
         // Methods
 
         /// <summary>
-        /// It returns the messages array with all the logs
+        /// It writes to the console all the messages from the  message array
         /// </summary>
-        public Message[] ReadAll() { //should return Message[]
-            return Messages;
+        public void ReadAll() {
+            Message[] messagesArray = GetMessagesArray();
+            foreach (Message message in messagesArray) {
+                Console.WriteLine(message?.ToString());  
+            };
         }
         /// <summary>
         /// It clears all the messages from the array, so the array length should be zero 
         /// </summary>
-        public void Clear(out int messagesLength) {
-            messagesLength = 0;  
+        public void Clear() {
+            Message[] messagesArray = GetMessagesArray();
+            int length = messagesArray.Length;  
+            Array.Clear(messagesArray, 0, length);
         }
-        public void Write(Message message) { }
+
+        /// <summary>
+        /// It writes the message given to the messages array 
+        /// </summary>
+        /// <param name="message"></param>
+        public void Write(Message message) {
+            Message[] messagesArray= GetMessagesArray();
+            for (int i = 0; i < messagesArray.Length; i++) {  
+                if (messagesArray[i] == null) {
+                    messagesArray[i] = message;
+                    break;
+                }
+            }
+                
+         }
+
+        // Help method to return Messages array because it was a property
+        // It didn't feel right to use Message.Length
+        private Message[] GetMessagesArray() {
+            return Messages;
+        }
+           
     }
 }
