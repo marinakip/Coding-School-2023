@@ -5,7 +5,9 @@
         public Message[] Messages { get; set; } 
 
         // Constructors
-        //public MessageLogger() { } // Unessesary 
+        public MessageLogger() {
+            Messages = new Message[1000];  // 1000 is the maximum capacity of messages that the logger keeps
+        } 
         public MessageLogger(Message[] messages) {
             Messages = messages;    
         }

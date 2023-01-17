@@ -13,7 +13,9 @@ namespace Session_07 {
         public string? Output { get; set; }
 
         // Constructors
-        //public ActionResponse() { }  // Unnessesary
+        public ActionResponse() {
+            ResponseID = Guid.NewGuid();    
+        } 
         public ActionResponse(Guid requestID, Guid responseID) {
             RequestID = requestID;
             ResponseID = responseID; 

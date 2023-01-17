@@ -15,21 +15,23 @@ namespace Session_07 {
 
         // Constructors
 
-        // Unnessary constructors
-        //public ActionRequest() { }
-        //
-        //public ActionRequest(Guid requestID) { 
-        //    RequestID = requestID;
-        //}
 
-        //public ActionRequest(Guid requestID, string input) {
-        //    RequestID = requestID;
-        //    Input = input;
-        //}
+        public ActionRequest() {
+            RequestID = Guid.NewGuid(); 
 
-        // Only this construtor is actually needed, the others don't make sense
-        public ActionRequest(Guid requestID, string input, ActionEnum enumerator) {
+        }
+
+        public ActionRequest(Guid requestID) {
             RequestID = requestID;
+        }
+
+        public ActionRequest(Guid requestID, string input) {
+            RequestID = requestID;
+            Input = input;
+        }
+
+        public ActionRequest(Guid requestID, string input, ActionEnum enumerator) {
+            RequestID = Guid.NewGuid(); ;
             Input = input;
             Action = enumerator;    
         }
