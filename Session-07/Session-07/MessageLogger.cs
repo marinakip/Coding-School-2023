@@ -2,7 +2,8 @@
     public class MessageLogger {
 
         // Properties
-        public Message[] Messages { get; set; } 
+        public Message[] Messages { get; set; }
+        
 
         // Constructors
         public MessageLogger() {
@@ -13,11 +14,18 @@
         }
 
         // Methods
-        public void ReadAll() { //should return Message[]
 
+        /// <summary>
+        /// It returns the messages array with all the logs
+        /// </summary>
+        public Message[] ReadAll() { //should return Message[]
+            return Messages;
         }
-        public void Clear() {
-
+        /// <summary>
+        /// It clears all the messages from the array, so the array length should be zero 
+        /// </summary>
+        public void Clear(out int messagesLength) {
+            messagesLength = 0;  
         }
         public void Write(Message message) { }
     }

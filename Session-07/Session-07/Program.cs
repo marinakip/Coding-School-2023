@@ -9,15 +9,16 @@
 /// Use case: The user is asked to choose between convert, uppercase or reverse. If the selection is valid 
 /// the logger displays a message in the form (ID, timestamp, Corvert/Uppercase/Reverse) when the request started
 /// and another message when the resolver executed the action (ID, timestamp, sucessful message / error)
+/// Also all the console writelines should be written through the message logger, in the array messages.
 /// 
 /// </summary>
 
 internal class Program {
     private static void Main(string[] args) {
-        Console.WriteLine("Please choose from the options:");
-        Consoole
         
         MessageLogger messageLogger = new MessageLogger();
+
+
        
 
     }
