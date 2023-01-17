@@ -7,12 +7,9 @@
         public string? MessageText { get; set; }   //FIX: Renamed because of error CS0542: member names 
                                                    //     cannot be the same as their enclosing type
         // Constructors
-        public Message() {
-            ID = Guid.NewGuid();    
-            TimeStamp = DateTime.Now;
-            MessageText = "";
+        public Message(Guid id) {
+            ID = id;    
         }
-
         public Message(Guid id, DateTime date) {
             ID = id;
             TimeStamp = date;
