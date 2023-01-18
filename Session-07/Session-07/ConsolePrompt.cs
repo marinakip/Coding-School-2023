@@ -18,7 +18,27 @@ internal class ConsolePrompt {
         Console.WriteLine(stringBuilder);
     }
 
-    public void GetUserSelection() {
+    public int GetUserSelection() {
+        int inputNumber = 0;
+        try {
+            string? input = Console.ReadLine();
+            while (input != null) {
+                int selectionNumber;
+                bool result = int.TryParse(input,  out selectionNumber);
+                if (result){
+                    inputNumber = selectionNumber;
+                    return inputNumber;
+                } else {
+                    Console.WriteLine("Your input is invalid. Please try again.");
+                }
+                input = Console.ReadLine();
+            }
+        } catch (Exception exception) {
+            Console.WriteLine(exception.ToString());
+            throw;
+        }
+        return 0; //is not a valid choice , only 1,2,3 is valid choices.
         
     }
+
 }
