@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace Session_07 {
     public class ActionEntity {
+        // Properties
         public Guid RequestID { get; set; }
+
+        // Constructor
+        public ActionEntity() {
+            RequestID = Guid.NewGuid();
+        }
+
     }
 }

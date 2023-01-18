@@ -11,8 +11,8 @@ namespace Session_07 {
         public string? Output { get; set; }
 
         // Constructors
-        public ActionResponse() {
-            ResponseID = Guid.NewGuid();
+        public ActionResponse() : base() {
+            //ResponseID = Guid.NewGuid();
             Output = string.Empty;
         }
     }

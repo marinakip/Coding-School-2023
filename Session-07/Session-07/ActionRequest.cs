@@ -13,8 +13,14 @@ namespace Session_07 {
         public ActionEnum Action { get; set; }
 
         // Constructor
-        public ActionRequest() {
-            RequestID = Guid.NewGuid();
+        public ActionRequest() : base() {
+        }
+
+        public ActionRequest(string input, ActionEnum action) : base() {
+            //RequestID = Guid.NewGuid();
+            Input = input;  
+            Action = action;    
+
         }
 
     }
