@@ -19,21 +19,30 @@ namespace Session_07 {
         public ActionResponse Execute(ActionRequest request) {
             switch (request.Action) {
                 case ActionEnum.Convert:
-                    
+                    Log("CONVERT");
                     //Convert();
                     break;
                 case ActionEnum.Uppercase:
+                    Log("UPPERCASE");
                     // ToUpper();
                     break;
                 case ActionEnum.Reverse:
+                    Log("REVERSE");
                     // Reverse();
                     break;
                 default:
+                    Log("ERROR");
+                    // ERROR MESSAGE
                     break;
             }
 
 
             return null;
+        }
+
+        private static void Log(String text) {
+            Console.WriteLine("----------");
+            Console.WriteLine(text);
         }
     }
 }

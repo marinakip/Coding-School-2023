@@ -2,13 +2,20 @@
 using System.ComponentModel.DataAnnotations;
 
 internal class Program {
-    private static void Main(string[] args) {        
+    private static void Main(string[] args) {
 
-        //ActionResponse response = new ActionResponse(); 
+        ActionRequest request = new ActionRequest();
+        ActionResponse response = new ActionResponse();
+        MessageLogger messageLogger = new MessageLogger();
 
-        //ActionResolver resolver = new ActionResolver();
+        ActionResolver resolver = new ActionResolver(messageLogger);
 
-        //response = resolver.Execute(request);
+        try {
+            response = resolver.Execute(request);
+        } catch (Exception exception) {
+            Console.WriteLine(exception.ToString());
+            throw;
+        }
 
         //MessageLogger messageLogger = new MessageLogger();
 
