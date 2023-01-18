@@ -19,16 +19,24 @@ internal class Program {
         
         ConsolePrompt consolePrompt = new ConsolePrompt();
         consolePrompt.DisplayUserOptions();
-        //consolePrompt.GetUserSelection();
-        
+        int userSelection = consolePrompt.GetUserSelection();
+        //Console.WriteLine("The input is " + userSelection); //for testing
+
+        //ActionRequest request = new ActionRequest();
+        //ActionResponse response = new ActionResponse();
+
+        //ActionResolver resolver = new ActionResolver();
+
+        //response = resolver.Execute(request);
+
         //MessageLogger messageLogger = new MessageLogger();
 
         //try {
         //    messageLogger.ReadAll();
-        //} catch (Exception exception) {    
-        //    Console.WriteLine(exception.Message);
+        //} catch (Exception exception) {
+        //    Console.WriteLine(exception.ToString());
         //    throw;
-        //} 
+        //}
 
 
         Console.ReadLine();
