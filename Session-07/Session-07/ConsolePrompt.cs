@@ -53,4 +53,21 @@ internal class ConsolePrompt {
             return false;
         }
     }
+
+    public void PromptUserForInput(int userSelection) {
+        switch (userSelection) {
+            case 1:
+                Console.WriteLine("Please give a decimal number to convert to binary");
+                break;
+            case 2:
+                Console.WriteLine("Please give a word or a sentence to convert to uppercase the longest word in your input");
+                break;
+            case 3:
+                Console.WriteLine("Please give a string to reverse");
+                break;
+            default:
+                Console.WriteLine("Something went wrong, please contact support.");
+                break;
+        }
+    }
 }

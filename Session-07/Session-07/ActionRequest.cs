@@ -15,11 +15,7 @@ namespace Session_07 {
 
         // Constructors
 
-
-        public ActionRequest() {
-            RequestID = Guid.NewGuid(); 
-
-        }
+        public ActionRequest() {}
 
         public ActionRequest(Guid requestID) {
             RequestID = requestID;
@@ -31,7 +27,7 @@ namespace Session_07 {
         }
 
         public ActionRequest(Guid requestID, string input, ActionEnum enumerator) {
-            RequestID = Guid.NewGuid(); ;
+            RequestID = requestID;
             Input = input;
             Action = enumerator;    
         }

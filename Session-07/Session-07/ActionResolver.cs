@@ -10,12 +10,27 @@ namespace Session_07 {
         public MessageLogger Logger { get; set; }
 
         // Constructor
+        
         public ActionResolver(MessageLogger logger) {
             Logger = logger;    
         }
 
         // Methods
         public ActionResponse Execute(ActionRequest request) {
+            switch (request.Action) {
+                case ActionEnum.Convert:
+                    
+                    //Convert();
+                    break;
+                case ActionEnum.Uppercase:
+                    // ToUpper();
+                    break;
+                case ActionEnum.Reverse:
+                    // Reverse();
+                    break;
+                default:
+                    break;
+            }
 
 
             return null;
