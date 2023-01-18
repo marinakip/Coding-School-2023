@@ -13,23 +13,10 @@ namespace Session_07 {
         public string? Input { get; set; }
         public ActionEnum Action { get; set; }
 
-        // Constructors
-
-        public ActionRequest() {}
-
-        public ActionRequest(Guid requestID) {
-            RequestID = requestID;
+        // Constructor
+        public ActionRequest() {
+            RequestID = Guid.NewGuid();
         }
 
-        public ActionRequest(Guid requestID, string input) {
-            RequestID = requestID;
-            Input = input;
-        }
-
-        public ActionRequest(Guid requestID, string input, ActionEnum enumerator) {
-            RequestID = requestID;
-            Input = input;
-            Action = enumerator;    
-        }
     }
 }

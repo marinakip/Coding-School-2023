@@ -14,16 +14,9 @@ namespace Session_07 {
 
         // Constructors
         public ActionResponse() {
-            ResponseID = Guid.NewGuid();    
-        } 
-        public ActionResponse(Guid requestID, Guid responseID) {
-            RequestID = requestID;
-            ResponseID = responseID; 
+            RequestID = Guid.NewGuid();
+            ResponseID = Guid.NewGuid();
+            Output = string.Empty;
         }
-        public ActionResponse(Guid requestID, Guid responseID, string? output) {
-            RequestID = requestID;
-            ResponseID = responseID;
-            Output = output;
-        }   
     }
 }
