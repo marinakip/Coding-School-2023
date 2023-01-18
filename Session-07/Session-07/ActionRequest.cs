@@ -17,7 +17,6 @@ namespace Session_07 {
         }
 
         public ActionRequest(string input, ActionEnum action) : base() {
-            //RequestID = Guid.NewGuid();
             Input = input;  
             Action = action;    
 

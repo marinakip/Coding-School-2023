@@ -4,7 +4,10 @@ using System.ComponentModel.DataAnnotations;
 internal class Program {
     private static void Main(string[] args) {
 
-        ActionRequest request = new ActionRequest();
+        ActionRequest request = new ActionRequest() { 
+            Input = "Marina",
+            Action = ActionEnum.Reverse
+        };
         ActionResponse response = new ActionResponse();
         MessageLogger messageLogger = new MessageLogger();
 
