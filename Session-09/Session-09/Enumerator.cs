@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Session_09 {
-    internal class Enumerator {
+    public class Enumerator {
         enum CalcOperation {
             Addition,
             Substraction,

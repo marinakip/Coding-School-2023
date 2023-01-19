@@ -225,16 +225,6 @@
             this.button17.Text = "x²";
             this.button17.UseVisualStyleBackColor = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.LightCyan;
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(317, 37);
-            this.textBox1.TabIndex = 17;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // button18
             // 
             this.button18.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -246,6 +236,17 @@
             this.button18.Text = "CE";
             this.button18.UseVisualStyleBackColor = false;
             this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.LightCyan;
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(12, 12);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(317, 37);
+            this.textBox1.TabIndex = 17;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // Form1
             // 
@@ -278,6 +279,22 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {
+            throw new NotImplementedException();
+        }
+
+        private void button18_Click(object sender, EventArgs e) {
+            throw new NotImplementedException();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e) {
+            throw new NotImplementedException();
+        }
+
+        private void button14_Click(object sender, EventArgs e) {
+            throw new NotImplementedException();
         }
 
         #endregion
