@@ -51,7 +51,10 @@ namespace Session_09 {
 
         private int ConvertStringNumberToInteger(string stringNumber) {
             textBox1.Text += stringNumber;
-            int number = Convert.ToInt32(textBox1.Text);
+            int number = 0;
+            if (Int32.TryParse(stringNumber, out number)) {
+                //parsing successful
+            }            
             return number;
         }
 
@@ -59,19 +62,19 @@ namespace Session_09 {
             textBox1.Text += enumeratorString;
             try {
                 switch (enumeratorString) {
-                    case " + ":
+                    case "+":
                         _calcOperation = CalcOperation.Addition;
                         break;
-                    case " - ":
+                    case "-":
                         _calcOperation = CalcOperation.Substraction;
                         break;
-                    case " * ":
+                    case "*":
                         _calcOperation = CalcOperation.Multiplication;
                         break;
-                    case " / ":
+                    case "/":
                         _calcOperation = CalcOperation.Division;
                         break;
-                    case " ^ ":
+                    case "^":
                         _calcOperation = CalcOperation.RaiseToPower;
                         break;
                     case "Sqrt":
