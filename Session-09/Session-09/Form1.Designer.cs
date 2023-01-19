@@ -187,7 +187,7 @@
             this.button13.TabIndex = 12;
             this.button13.Text = "0";
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            
             // 
             // button14
             // 
@@ -273,8 +273,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Text = "Form1";           
             this.ResumeLayout(false);
             this.PerformLayout();
 

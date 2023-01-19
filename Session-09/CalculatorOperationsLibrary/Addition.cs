@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CalculatorOperationsLibrary {
-    internal class Addition {
+    public class Addition {
 
         public Addition(){}
 

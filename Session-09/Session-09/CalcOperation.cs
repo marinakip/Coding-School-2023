@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Session_09 {
-    public class Enumerator {
         enum CalcOperation {
             Addition,
             Substraction,
@@ -14,5 +13,5 @@ namespace Session_09 {
             RaiseToPower,
             SquareRoot
         }
-    }
+    
 }
