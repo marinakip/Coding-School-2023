@@ -2,10 +2,12 @@ namespace Session_09 {
     public partial class Form1 : Form {
 
         #region Properties
-        private decimal? _valueLeft = null;
-        private decimal? _valueRight = null;
+        private decimal? _valueLeft = null;   // valueLeft is at the left side of operation
+        private decimal? _valueRight = null;  // valueRight is at the right side of operation
         private decimal? _calculationResult = null;
         private CalcOperation _calcOperation;
+
+
         #endregion
 
         #region Constructor
@@ -24,10 +26,46 @@ namespace Session_09 {
         }
 
         private void button1_Click(object sender, EventArgs e) {  //1
+            ClearAllValues();
+
+            textBox1.Text += " 1 ";
+
+            assignValue(1);
 
         }
 
+        private void ClearAllValues() {
+            if (ExistCalculationResult()) {  //TODO: change name - bad name
+
+                textBox1.Text = string.Empty;    //textBox1 is calculator display
+                _valueLeft = null;
+                _valueRight = null;
+                _calculationResult = null;
+            }
+        }
+
+        private bool ExistCalculationResult() { //TODO: change name - bad name
+            return _calculationResult != null;
+        }
+
+        private void assignValue(int number) {
+            if (IsLeftValueEmpty()) {
+                _valueLeft = number;
+            } else {
+                _valueRight = number;
+            }
+        }
+
+        private bool IsLeftValueEmpty() {
+            return _valueLeft == null;
+        }
+
         private void button2_Click(object sender, EventArgs e) { //2
+            ClearAllValues();
+
+            textBox1.Text += " 2 ";
+
+            assignValue(1);
 
         }
 
@@ -60,10 +98,20 @@ namespace Session_09 {
         }
 
         private void button14_Click(object sender, EventArgs e) { //=
+            ClearAllValues();
+
+            textBox1.Text += " = ";
+
+            assignValue(1);
 
         }
 
         private void button4_Click(object sender, EventArgs e) { //+
+            ClearAllValues();
+
+            textBox1.Text += " + ";
+
+            assignValue(1);
 
         }
 
