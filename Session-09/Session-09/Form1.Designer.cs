@@ -41,6 +41,7 @@
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button18 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -234,12 +235,25 @@
             this.textBox1.TabIndex = 17;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.button18.Font = new System.Drawing.Font("Calibri", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button18.Location = new System.Drawing.Point(11, 79);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(75, 44);
+            this.button18.TabIndex = 18;
+            this.button18.Text = "CE";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MidnightBlue;
             this.ClientSize = new System.Drawing.Size(341, 345);
+            this.Controls.Add(this.button18);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button17);
             this.Controls.Add(this.button16);
@@ -286,5 +300,6 @@
         private Button button16;
         private Button button17;
         private TextBox textBox1;
+        private Button button18;
     }
 }
