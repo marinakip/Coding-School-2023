@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace CalculatorOperationsLibrary {
-    internal class DivisionOperation : IDivisionOperations {
+    public class DivisionOperation : IDivisionOperations {
         public DivisionOperation() { }
         public decimal Divide(decimal valueLeft, decimal valueRight) {
             decimal result = valueLeft / valueRight;
