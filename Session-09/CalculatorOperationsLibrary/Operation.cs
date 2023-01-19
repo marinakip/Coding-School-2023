@@ -1,5 +1,5 @@
 ﻿namespace CalculatorOperationsLibrary {
-    public class Operation {
+    public class Operation : IOperations {
         public Operation() { }
         public decimal Add(decimal valueLeft, decimal valueRight) {
             decimal result = valueLeft + valueRight;
