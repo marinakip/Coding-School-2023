@@ -3,13 +3,15 @@ using CalculatorOperationsLibrary;
 using System;
 using System.ComponentModel;
 using System.Net.Http.Headers;
+using System.Text.RegularExpressions;
 
 namespace Session_09 {
     public partial class Form1 : Form {
 
-        //TODO: RENAME  - textBox1 is calculator display
-        //TODO Check Division
-
+        // textBox1 is calculator display. CAN'T BE RENAMED because the designer breaks
+        // Works only for simple operations, doesn't show result correctly when it has more than one digits
+        
+        
         #region Properties
 
         private decimal? _valueLeft = null;   // valueLeft is at the left side of operation
@@ -27,6 +29,7 @@ namespace Session_09 {
         #endregion
 
         #region Methods
+
         private void ClearAllValues() {
             if (ExistCalculationResult()) {  //TODO: change name - bad name
                 textBox1.Text = string.Empty;    
@@ -132,6 +135,38 @@ namespace Session_09 {
             } catch (Exception) {
                 throw new Exception("Something went wrong. Unsupported Operation.");
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e) {  //doesn't work
+                                                               //TODO: Resolve expression e.g "1+2=3"
+                                                               //TODO: Advanced: Resolve expression e.g "10,4+210,5 ="
+
+            // Regex     /[\d|Sqrt(?:+-\/*^)|Sqrt(?=)\d]/gm
+            // Possible Matches
+            //      1+Sqrt4=
+            //      1 + 1=            
+            //      11111 + 563214 =
+            //      Sqrt4+1=
+
+            TestRegex();
+
+        }
+
+        private static void TestRegex() {
+            string pattern = @"[\d|Sqrt(?:+-\/*^)|Sqrt(?=)\d]";
+            Regex regex = new Regex(pattern);
+            string test = "1+2=3";
+
+            Match match = Regex.Match(test, pattern);
+            if (match.Success) {
+                MessageBox.Show("Expression matches");
+            } else {
+                MessageBox.Show("Expression not matches.");
+            }
+            string[] parts = Regex.Split(test, pattern);
+            MessageBox.Show("Left Value: " + parts[0]);
+            MessageBox.Show("Right Value: " + parts[1]);
+            MessageBox.Show("Result: " + parts[2]);
         }
         #endregion
 
