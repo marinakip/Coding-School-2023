@@ -15,7 +15,7 @@ namespace UniversityEntitiesLibrary {
         #endregion Properties
 
         #region Constructors
-        public University() { }
+        public University() : base() { }
         public University(Student[]? students) {
             Students = students;
         }
@@ -40,12 +40,39 @@ namespace UniversityEntitiesLibrary {
         public University(Guid id) : base(id) { }
         public University(Guid id, string name) : base(id, name) { }
         public University(Guid id, string name, int yearsInService) : base(id, name, yearsInService) { }
+        public University(Guid id, String name, int yearsInService, Student[]? students) : base(id, name, yearsInService) {
+            Students = students;
+        }
+
+        public University(Guid id, String name, int yearsInService, Student[]? students, Course[]? courses) : base(id, name, yearsInService) {
+            Students = students;
+            Courses = courses;
+        }
+
+        public University(Guid id, String name, int yearsInService, Student[]? students, Course[]? courses, Grade[]? grades) : base(id, name, yearsInService) {
+            Students = students;
+            Courses = courses;
+            Grades = grades;
+        }
+
+        public University(Guid id, String name, int yearsInService, Student[]? students, Course[]? courses, Grade[]? grades, Schedule[]? scheduledCourse) : base(id, name, yearsInService) {
+            Students = students;
+            Courses = courses;
+            Grades = grades;
+            ScheduledCourse = scheduledCourse;
+        }
         #endregion Inheritance Constructors
 
         #region Methods
-        public void GetStudents() { }
-        public void GetCourses() { }
-        public void GetGrades() { }
+        public Student[] GetStudents() {
+            return Students;
+        }
+        public Course[] GetCourses() {
+            return Courses;
+        }
+        public Grade[] GetGrades() {
+            return Grades;
+        }
         public void SetSchedule(Guid courseID, Guid ProfessorID, DateTime date) { }
         #endregion Methods
     }

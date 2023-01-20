@@ -25,9 +25,13 @@
         #endregion Constructors
 
         #region Methods
-        public void GetName() { }
+        public String GetName() {
+            return Name;
+        }
 
-        public void SetName(string name) { }
+        public void SetName(string name) {
+            Name = name;
+        }
         #endregion Methods
     }
 }

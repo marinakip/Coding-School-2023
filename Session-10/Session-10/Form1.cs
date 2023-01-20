@@ -10,6 +10,7 @@ namespace Session_10 {
         private void btnLoad_Click(object sender, EventArgs e) {
             Serializer serializer = new Serializer();
             try {
+                //TODO: Check if file exists before serializing
                 _university = serializer.DeserializeFromFile<University>("university.json");
                 //_university = serializer.DeserializeFromFile<T>("university.json");
                 // maybe check with GetType , to check if T is University

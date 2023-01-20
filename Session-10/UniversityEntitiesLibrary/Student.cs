@@ -13,7 +13,7 @@ namespace UniversityEntitiesLibrary {
         #endregion Properties
 
         #region Constructors
-        public Student() { }
+        public Student() :base() { }
 
         public Student(int registrationNumber) {
             RegistrationNumber = registrationNumber;
@@ -28,6 +28,9 @@ namespace UniversityEntitiesLibrary {
         public Student(Guid id) : base(id) { }
         public Student(Guid id, string name) : base(id, name) { }
         public Student(Guid id, string name, int age) : base(id, name, age) { }
+        public Student(Guid id, String name, int age, int registrationNumber) : base(id, name, age) {
+            RegistrationNumber = registrationNumber;
+        }
         #endregion Inheritance Constructors
 
 
