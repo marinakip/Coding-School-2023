@@ -49,6 +49,7 @@
             this.grvStudents.RowTemplate.Height = 25;
             this.grvStudents.Size = new System.Drawing.Size(932, 130);
             this.grvStudents.TabIndex = 0;
+            this.grvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvStudents_CellContentClick);
             // 
             // grvGrades
             // 
@@ -184,6 +185,7 @@
             this.Controls.Add(this.grvStudents);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grvStudents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvGrades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCourses)).EndInit();
