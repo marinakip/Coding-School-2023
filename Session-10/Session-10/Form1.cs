@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using UniversityEntitiesLibrary;
 
 namespace Session_10 {
@@ -17,6 +18,7 @@ namespace Session_10 {
                 // maybe check with GetType , to check if T is University
                 MessageBox.Show("File Loaded Successfully!");                
             } catch (Exception) {
+                MessageBox.Show("File loading Failed");
                 throw new Exception("File loading Failed");
             }
             
@@ -53,7 +55,8 @@ namespace Session_10 {
                 Age = 19,
                 RegistrationNumber= random.Next()
                 //UniversityID = unis[0].ID,
-        };
+            };
+
             _students.Add(student1);
 
             Student student2 = new Student() {
@@ -64,6 +67,20 @@ namespace Session_10 {
             };
             _students.Add(student2);
 
+            Student student3 = new Student() {
+                ID = Guid.NewGuid(),
+                Name = "Paulo Pedersen", //TODO: Maybe Split it later
+                Age = 20,
+                RegistrationNumber = random.Next()
+                //UniversityID = unis[0].ID,                
+            };
+            _students.Add(student3);
+            //_students.ToArray();
+            grvStudents.DataSource= _students;  
+
+        }
+
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e) {
 
         }
     }

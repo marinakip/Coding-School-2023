@@ -23,6 +23,7 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.grvStudents = new System.Windows.Forms.DataGridView();
             this.grvGrades = new System.Windows.Forms.DataGridView();
             this.grvCourses = new System.Windows.Forms.DataGridView();
@@ -34,10 +35,12 @@
             this.labelGrades = new System.Windows.Forms.Label();
             this.labelCourses = new System.Windows.Forms.Label();
             this.labelSceduledCourses = new System.Windows.Forms.Label();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grvStudents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvGrades)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCourses)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvScheduledCourses)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // grvStudents
@@ -166,6 +169,10 @@
             this.labelSceduledCourses.TabIndex = 10;
             this.labelSceduledCourses.Text = "Sceduled Courses";
             // 
+            // bindingSource1
+            // 
+            this.bindingSource1.CurrentChanged += new System.EventHandler(this.bindingSource1_CurrentChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -190,6 +197,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grvGrades)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvCourses)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grvScheduledCourses)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +216,6 @@
         private Label labelGrades;
         private Label labelCourses;
         private Label labelSceduledCourses;
+        private BindingSource bindingSource1;
     }
 }
