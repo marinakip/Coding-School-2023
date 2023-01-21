@@ -80,7 +80,7 @@ namespace Session_10 {
         #region Populate Form
         private void PopulateForm() {
             PopulateStudents(5);
-            PopulateGrades();
+            PopulateGrades(15);
             PopulateCourses();
             PopulateScheduledCourses();
         }
@@ -88,13 +88,17 @@ namespace Session_10 {
 
 
         #region Students
-        private void PopulateStudents(int studentNumber) {
+        private void PopulateStudents(int studentsNumber) {           
+            AddStudentsToGridView(studentsNumber);
+        }
+
+        private void AddStudentsToGridView(int studentNumber) {
             _students = new List<Student>();
             Random random = new Random(DateTime.Now.Second);  // seed from the clock added to be more accurate for randomness
                                                               // to keep generating the same result, a hard coded integer should be used as seed
 
             generateMultipleStudents(random, studentNumber); // max is 6 students because the array studentNames has 6 hard coded names                     
-    
+
             grvStudents.DataSource = _students;
         }
 
@@ -108,7 +112,8 @@ namespace Session_10 {
         private Student generateStudent(Random random) {
             List<string> studentNames = new List<string>() { "John Doe", "Jane Doe", "John Dewey", "Paulo Pedersen", "Thalia Thomson", "Claudia Hilton" };
             int randomIndex = random.Next(0, studentNames.Count - 1);
-            string studentName = studentNames[randomIndex];  //TODO: FIX BUG - the same random name is generated more than once
+            string studentName = studentNames[randomIndex];  //TODO: FIX BUG - the same random name is generated more than once, maybe just iterate through the array (easy fix)
+                                                             // or keep random integer in a seperate array and check if exists (not needed,it is too much for this project)
             Student student = createStudent(random, studentName);
             return student;
         }
@@ -135,70 +140,43 @@ namespace Session_10 {
         #region Grades
 
         // Grade has ID, StudentID, CourseID, GradeNumber
-        private void PopulateGrades() {
+        private void PopulateGrades(int times) {
+            AddGradesToGridView(times);
+        }
+
+        private void AddGradesToGridView(int times) {
             _grades = new List<Grade>();
-            Random random = new Random(DateTime.Now.Second);
-
-            Grade softwareEngineering = new Grade() {
-                ID = Guid.NewGuid(),
-                StudentID = _students[0].ID,
-                CourseID = Guid.NewGuid(),
-                GradeNumber = random.Next(1, 10)
-            };
-            _grades.Add(softwareEngineering);
-
-            Grade advancedSoftwareEngineering = new Grade() {
-                ID = Guid.NewGuid(),
-                StudentID = _students[0].ID,
-                CourseID = Guid.NewGuid(),
-                GradeNumber = random.Next(1, 10)
-            };
-            _grades.Add(advancedSoftwareEngineering);
-
-            Grade computationalTheory = new Grade() {
-                ID = Guid.NewGuid(),
-                StudentID = _students[0].ID,
-                CourseID = Guid.NewGuid(),
-                GradeNumber = random.Next(1, 10)
-            };
-            _grades.Add(computationalTheory);
-
-            Grade algorithmicComplexity = new Grade() {
-                ID = Guid.NewGuid(),
-                StudentID = _students[0].ID,
-                CourseID = Guid.NewGuid(),
-                GradeNumber = random.Next(1, 10)
-            };
-            _grades.Add(algorithmicComplexity);
-
-            Grade complexDataManagement = new Grade() {
-                ID = Guid.NewGuid(),
-                StudentID = _students[0].ID,
-                CourseID = Guid.NewGuid(),
-                GradeNumber = random.Next(1, 10)
-            };
-            _grades.Add(complexDataManagement);
-
-            Grade graphTheory = new Grade() {
-                ID = Guid.NewGuid(),
-                StudentID = _students[0].ID,
-                CourseID = Guid.NewGuid(),
-                GradeNumber = random.Next(1, 10)
-            };
-            _grades.Add(graphTheory);
-
-            Grade probabilityStatistics = new Grade() {
-                ID = Guid.NewGuid(),
-                StudentID = _students[0].ID,
-                CourseID = Guid.NewGuid(),
-                GradeNumber = random.Next(1, 10)
-            };
-            _grades.Add(probabilityStatistics);
-
+            createMultipleGrades(times);
             grvGrades.DataSource = _grades;
+        }
 
+        private void createMultipleGrades(int times) {
+            for (int i = 0; i < times; i++) {
+                Grade grade = createOneGrade();
+                _grades.Add(grade);
+            }            
+        }
+
+        private Grade createOneGrade() {
+            Random random = new Random(DateTime.Now.Second);
+            int randomIndex = random.Next(0, _students.Count - 1);
+            Grade grade = createGrade(random, randomIndex);
+            return grade;
+        }
+
+        private Grade createGrade(Random random, int randomStudentIndex) {
+            Grade grade = new Grade() {
+                ID = Guid.NewGuid(),
+                StudentID = _students[randomStudentIndex].ID,
+                CourseID = Guid.NewGuid(),
+                GradeNumber = random.Next(1, 10)
+            };
+            return grade;
         }
         #endregion Grades
+
+
+
 
         private void PopulateCourses() {
 
