@@ -5,7 +5,9 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session-10", "Session-10\Session-10.csproj", "{A28A4FB3-15D2-4848-A47F-B9BC0E7BD060}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniversityEntitiesLibrary", "UniversityEntitiesLibrary\UniversityEntitiesLibrary.csproj", "{F87055BF-8BF5-4602-8430-2266B6AE1FCE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UniversityEntitiesLibrary", "UniversityEntitiesLibrary\UniversityEntitiesLibrary.csproj", "{F87055BF-8BF5-4602-8430-2266B6AE1FCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModelLibrary", "DataModelLibrary\DataModelLibrary.csproj", "{599F13CF-D6CA-40F2-B4CB-1D69CD6DC8C6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{F87055BF-8BF5-4602-8430-2266B6AE1FCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F87055BF-8BF5-4602-8430-2266B6AE1FCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F87055BF-8BF5-4602-8430-2266B6AE1FCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{599F13CF-D6CA-40F2-B4CB-1D69CD6DC8C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{599F13CF-D6CA-40F2-B4CB-1D69CD6DC8C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{599F13CF-D6CA-40F2-B4CB-1D69CD6DC8C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{599F13CF-D6CA-40F2-B4CB-1D69CD6DC8C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

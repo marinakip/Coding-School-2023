@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics.Metrics;
 using System.Runtime.CompilerServices;
 using UniversityEntitiesLibrary;
+using DataModelLibrary;
 
 namespace Session_10 {
 
     //TODO: After observation, initialization methods for all grids have the same functionality
     //      Possible fix: Maybe for better refactoring, use something abstract like a Generic and then 
     //      in a switch check with typeof which class object we want to create
-    //      Also, all these methods maybe belong in a different file as this too much for a Form class
+    //TODO: Also, all these methods maybe belong in a different file as this too much for a Form class
     //TODO: In SAVE maybe give the functionality to save different grids in different files
     //TODO: If this functionality is needed, in serializer we need to check what type is the json file for LOAD
     public partial class Form1 : Form {
@@ -30,37 +31,41 @@ namespace Session_10 {
 
         #region Buttons Load & Save
         private void btnLoad_Click(object sender, EventArgs e) {
-            Loading();
+            IUniversityRecords universityRecords = new UniversityRecords();
+            universityRecords.Loading();
+            //Loading();
         }
 
-        private void Loading() {
-            Serializer serializer = new Serializer();
-            try {
-                //TODO: Check if file exists before serializing
-                _university = serializer.DeserializeFromFile<University>("university.json");
-                //_university = serializer.DeserializeFromFile<T>("university.json");
-                // maybe check with GetType or typeof, to check if T is University
-                MessageBox.Show("File Loaded Successfully!");
-            } catch (Exception) {
-                MessageBox.Show("File loading Failed");
-                throw new Exception("File loading Failed");
-            }
-        }
+        //private void Loading() {
+        //    Serializer serializer = new Serializer();
+        //    try {
+        //        //TODO: Check if file exists before serializing
+        //        _university = serializer.DeserializeFromFile<University>("university.json");
+        //        //_university = serializer.DeserializeFromFile<T>("university.json");
+        //        // maybe check with GetType or typeof, to check if T is University
+        //        MessageBox.Show("File Loaded Successfully!");
+        //    } catch (Exception) {
+        //        MessageBox.Show("File loading Failed");
+        //        throw new Exception("File loading Failed");
+        //    }
+        //}
 
         private void btnSave_Click(object sender, EventArgs e) {
-            Save();
+            IUniversityRecords universityRecords = new UniversityRecords();
+            universityRecords.Save();
+            //Save();
         }
 
-        private void Save() {
-            Serializer serializer = new Serializer();
-            try {
-                serializer.SerializeToFile(_university, "university.json");
-                MessageBox.Show("Save Done!");
-            } catch (Exception exception) {
-                MessageBox.Show("Save Failed");
-                throw;
-            }
-        }
+        //private void Save() {
+        //    Serializer serializer = new Serializer();
+        //    try {
+        //        serializer.SerializeToFile(_university, "university.json");
+        //        MessageBox.Show("Save Done!");
+        //    } catch (Exception exception) {
+        //        MessageBox.Show("Save Failed");
+        //        throw;
+        //    }
+        //}
         #endregion Buttons Load & Save
 
         #region Form Load
