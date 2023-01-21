@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.Runtime.CompilerServices;
 using UniversityEntitiesLibrary;
 
@@ -76,51 +77,47 @@ namespace Session_10 {
         private void PopulateStudents() {
             _students = new List<Student>();
             Random random = new Random(DateTime.Now.Second);  // seed from the clock added to be more accurate for randomness
+                                                              // to keep generating the same result, a hard coded integer should be used as seed
 
+            generateMultipleStudents(random, 2); // max is 6 students because the array studentNames has 6 hard coded names
+                        
+            //_students.ToArray();
+
+            grvStudents.DataSource = _students;
+
+
+        }
+
+        private void generateMultipleStudents(Random random, int times) {
+            for (int i = 0; i < times; i++) {
+                Student student = generateStudent(random);
+                _students.Add(student);
+            }
+        }
+
+        private Student generateStudent(Random random) {
+            List<string> studentNames = new List<string>() { "John Doe", "Jane Doe", "John Dewey", "Paulo Pedersen", "Thalia Thomson", "Claudia Hilton" };
+            int randomIndex = random.Next(0, studentNames.Count - 1);
+            string studentName = studentNames[randomIndex];
+            Student student = createStudent(random, studentName);
+            return student;
+        }
+
+        private Student createStudent(Random random, string studentName) {
             // Gender, Undergraduate and UniversityID don't exist in the original class diagram
             // For this reason, they are not initialized here
 
             //Student has only id, name, age, registrationNumber
 
-            Student student1 = new Student() {
-                ID = Guid.NewGuid(),    
-                Name = "Jane Doe",                 //TODO: Maybe needs split later
+            Student student = new Student() {
+                ID = Guid.NewGuid(),
+                Name = studentName,                 //TODO: Maybe needs split later
                 Age = random.Next(18, 30),         // univeristy students must be at least 18 , 30 was used as max value because previous rand gave many values > 50 
-                RegistrationNumber= random.Next(10000000, 99999999)   // needs an integer so random.Next() is used
-                                                                     // min and max value is used as a length check,
-                                                                      // so the random registrationNumber has the same length for all students
+                RegistrationNumber = random.Next(10000000, 99999999)   // needs an integer so random.Next() is used
+                                                                       // min and max value is used as a length check,
+                                                                       // so the random registrationNumber has the same length for all students
             };
-
-            _students.Add(student1);
-             
-            Student student2 = new Student() {
-                ID = Guid.NewGuid(),
-                Name = "John Dewey",  // to use random names too we can have two arrays, one with firstnames and one with surnames and do random there.
-                Age = random.Next(18, 30),
-                RegistrationNumber = random.Next(10000000, 99999999)
-            };
-            _students.Add(student2);
-
-            Student student3 = new Student() {
-                ID = Guid.NewGuid(),
-                Name = "Paulo Pedersen", 
-                Age = random.Next(18, 30),
-                RegistrationNumber = random.Next(10000000, 99999999)
-            };
-            _students.Add(student3);
-
-            Student student4 = new Student() {
-                ID = Guid.NewGuid(),
-                Name = "Thalia Thomson",
-                Age = random.Next(18, 30),
-                RegistrationNumber = random.Next(10000000, 99999999)
-            };
-            _students.Add(student4);
-            //_students.ToArray();
-
-            grvStudents.DataSource = _students;  
-
-          
+            return student;
         }
 
         // Grade has ID, StudentID, CourseID, GradeNumber
