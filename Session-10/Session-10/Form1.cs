@@ -47,12 +47,16 @@ namespace Session_10 {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            //SetControlProperties();            
+            SetControlProperties();
+            PopulateForm();
+
+        }
+
+        private void PopulateForm() {
             PopulateStudents();
             PopulateGrades();
             PopulateCourses();
             PopulateScheduledCourses();
-
         }
 
         private void SetControlProperties() {
@@ -103,6 +107,14 @@ namespace Session_10 {
                 RegistrationNumber = random.Next()        
             };
             _students.Add(student3);
+
+            Student student4 = new Student() {
+                ID = Guid.NewGuid(),
+                Name = "Thalia Thomson",
+                Age = 22,
+                RegistrationNumber = random.Next()
+            };
+            _students.Add(student4);
             //_students.ToArray();
 
             grvStudents.DataSource = _students;  
@@ -110,8 +122,50 @@ namespace Session_10 {
           
         }
 
-
         private void PopulateGrades() {
+
+            Grade softwareEngineering = new Grade() {
+                ID = Guid.NewGuid(),
+                StudentID = _students[0].ID,
+                CourseID = Guid.NewGuid(),
+                GradeNumber = 7                
+            };
+            Grade AdvancedSoftwareEngineering = new Grade() {
+                ID = Guid.NewGuid(),
+                StudentID = _students[0].ID,
+                CourseID = Guid.NewGuid(),
+                GradeNumber = 8
+            };
+            Grade computationalTheory = new Grade() {
+                ID = Guid.NewGuid(),
+                StudentID = _students[0].ID,
+                CourseID = Guid.NewGuid(),
+                GradeNumber = 5
+            };
+            Grade algorithmicComplexity = new Grade() {
+                ID = Guid.NewGuid(),
+                StudentID = _students[0].ID,
+                CourseID = Guid.NewGuid(),
+                GradeNumber = 5
+            };
+            Grade complexDataManagement = new Grade() {
+                ID = Guid.NewGuid(),
+                StudentID = _students[0].ID,
+                CourseID = Guid.NewGuid(),
+                GradeNumber = 7
+            };
+            Grade graphTheory = new Grade() {
+                ID = Guid.NewGuid(),
+                StudentID = _students[0].ID,
+                CourseID = Guid.NewGuid(),
+                GradeNumber = 8
+            };
+            Grade probabilityStatistics = new Grade() {
+                ID = Guid.NewGuid(),
+                StudentID = _students[0].ID,
+                CourseID = Guid.NewGuid(),
+                GradeNumber = 6
+            };
 
         }
 
