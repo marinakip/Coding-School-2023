@@ -81,7 +81,7 @@ namespace Session_10 {
         private void PopulateForm() {
             PopulateStudents(5);
             PopulateGrades(15);
-            PopulateCourses();
+            PopulateCourses(1);
             PopulateScheduledCourses();
         }
         #endregion Populate Form
@@ -94,7 +94,7 @@ namespace Session_10 {
 
         private void AddStudentsToGridView(int studentNumber) {
             _students = new List<Student>();
-            Random random = new Random(DateTime.Now.Second);  // seed from the clock added to be more accurate for randomness
+            Random random = new Random(DateTime.Now.Millisecond);  // seed from the clock added to be more accurate for randomness
                                                               // to keep generating the same result, a hard coded integer should be used as seed
 
             generateMultipleStudents(random, studentNumber); // max is 6 students because the array studentNames has 6 hard coded names                     
@@ -111,9 +111,12 @@ namespace Session_10 {
 
         private Student generateStudent(Random random) {
             List<string> studentNames = new List<string>() { "John Doe", "Jane Doe", "John Dewey", "Paulo Pedersen", "Thalia Thomson", "Claudia Hilton" };
-            int randomIndex = random.Next(0, studentNames.Count - 1);
-            string studentName = studentNames[randomIndex];  //TODO: FIX BUG - the same random name is generated more than once, maybe just iterate through the array (easy fix)
-                                                             // or keep random integer in a seperate array and check if exists (not needed,it is too much for this project)
+            Random randomNew = new Random();
+            int randomIndex = randomNew.Next(0, studentNames.Count - 1);
+            string studentName = studentNames[randomIndex];  
+            //TODO: FIX BUG - the same random name is generated more than once, maybe just iterate through the array (easy fix)
+            //or keep random integer in a seperate array and check if exists(not needed, it is too much for this project)
+
             Student student = createStudent(random, studentName);
             return student;
         }
@@ -138,8 +141,6 @@ namespace Session_10 {
         #endregion Students
 
         #region Grades
-
-        // Grade has ID, StudentID, CourseID, GradeNumber
         private void PopulateGrades(int times) {
             AddGradesToGridView(times);
         }
@@ -164,6 +165,7 @@ namespace Session_10 {
             return grade;
         }
 
+        // Grade has ID, StudentID, CourseID, GradeNumber
         private Grade createGrade(Random random, int randomStudentIndex) {
             Grade grade = new Grade() {
                 ID = Guid.NewGuid(),
@@ -176,15 +178,52 @@ namespace Session_10 {
         #endregion Grades
 
 
-
-
-        private void PopulateCourses() {
-
+        #region Courses
+        private void PopulateCourses(int times) {
+            AddCoursesToGridView(times);
         }
 
+        private void AddCoursesToGridView(int times) {
+            _courses = new List<Course>();
+            createMultipleCourses(times);
+            grvCourses.DataSource = _courses;
+        }
+
+        private void createMultipleCourses(int times) {            
+            for (int i = 0; i < times; i++) {
+                generateCourse();
+
+            }
+        }
+
+        private void generateCourse() {
+            string[] codes = { "ab123", "cvb4356" };
+            string[] subjects = { "23", "cvb4356" };
+
+            for (int k = 0; k < codes.Length; k++) {
+                for (int m = 0; m < subjects.Length; m++) {                    
+                    Course course = createOneCourse(codes[k], subjects[m]);
+                    _courses.Add(course);
+                }
+            }
+        }
+
+        // Course has ID, Code, Subject
+        private Course createOneCourse(string code, string subject) {
+            Course course = new Course() {
+                ID = Guid.NewGuid(),
+                Code = code,
+                Subject = subject,
+            };
+            return course;
+        }
+        #endregion Courses
+
+        #region Populated Scheduled Courses
         private void PopulateScheduledCourses() {
 
         }
+        #endregion Populated Scheduled Courses
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e) {
 
