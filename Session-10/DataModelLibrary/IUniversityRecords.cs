@@ -11,7 +11,7 @@ namespace DataModelLibrary {
         public void Save();
         public void GenerateMultipleStudents(Random random, int times, List<Student> _students);
         public void CreateMultipleGrades(int times, List<Grade> _grades, List<Student> _students);
-        public void CreateMultipleCourses(int times);
+        public void CreateMultipleCourses(int times, List<Course> _courses);
         public void PopulateScheduledCourses();
     }
 }

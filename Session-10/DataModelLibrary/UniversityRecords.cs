@@ -76,17 +76,6 @@ namespace DataModelLibrary {
 
         #endregion Students
 
-        //#region Grades
-        //private void PopulateGrades(int times) {
-        //    AddGradesToGridView(times);
-        //}
-
-        //private void AddGradesToGridView(int times) {
-        //    _grades = new List<Grade>();
-        //    createMultipleGrades(times);
-        //    grvGrades.DataSource = _grades;
-        //}
-
         #region Grades
         public void CreateMultipleGrades(int times, List<Grade> _grades, List<Student> _students) {
             for (int i = 0; i < times; i++) {
@@ -116,23 +105,14 @@ namespace DataModelLibrary {
         #endregion Grades
 
         #region Courses
-        //private void PopulateCourses(int times) {
-        //    AddCoursesToGridView(times);
-        //}
-
-        //private void AddCoursesToGridView(int times) {
-        //    _courses = new List<Course>();
-        //    createMultipleCourses(times);
-        //    grvCourses.DataSource = _courses;
-        //}
-
-        public void CreateMultipleCourses(int times) {
+        public void CreateMultipleCourses(int times, List<Course> _courses) {
             for (int i = 0; i < times; i++) {
-                GenerateCourse();
+                GenerateCourse(_courses);
             }
         }
 
-        private void GenerateCourse() {
+        private void GenerateCourse(List<Course> _courses) {
+            //TODO: Needs a dictionary
             string[] codes = { "MYY803", "MYY303", "MYY501", "MYY504", "MYE002", "MYE004" };
             string[] subjects = { "Software Engineering", "Theory of computation", "Computational Mathematics", "Machine Learning", "Advanced Software Development" };
 
