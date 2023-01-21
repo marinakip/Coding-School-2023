@@ -197,8 +197,8 @@ namespace Session_10 {
         }
 
         private void generateCourse() {
-            string[] codes = { "ab123", "cvb4356" };
-            string[] subjects = { "23", "cvb4356" };
+            string[] codes = { "MYY803", "MYY303", "MYY501", "MYY504", "MYE002", "MYE004" };
+            string[] subjects = { "Software Engineering", "Theory of computation", "Computational Mathematics", "Machine Learning", "Advanced Software Development" };
 
             for (int k = 0; k < codes.Length; k++) {
                 for (int m = 0; m < subjects.Length; m++) {                    
