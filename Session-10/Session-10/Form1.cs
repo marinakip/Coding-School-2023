@@ -71,7 +71,7 @@ namespace Session_10 {
 
         public void PopulateUniversityRecords() {
             PopulateStudents(5);
-            //PopulateGrades(15);
+            PopulateGrades(15);
             //PopulateCourses(1);
             //PopulateScheduledCourses();   //not yet implemented
         }

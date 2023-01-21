@@ -96,15 +96,15 @@ namespace DataModelLibrary {
         }
 
         private Grade CreateOneGrade(List<Student> _students) {
-            Random random = new Random(DateTime.Now.Second);
+            Random random = new Random();
             Console.WriteLine($"Students {_students.Count}");
             int randomIndex = random.Next(0, _students.Count - 1);
-            Grade grade = CreateGrade(random, randomIndex);
+            Grade grade = CreateGrade(random, randomIndex, _students);
             return grade;
         }
 
         // Grade has ID, StudentID, CourseID, GradeNumber
-        private Grade CreateGrade(Random random, int randomStudentIndex) {
+        private Grade CreateGrade(Random random, int randomStudentIndex, List<Student> _students) {
             Grade grade = new Grade() {
                 ID = Guid.NewGuid(),
                 StudentID = _students[randomStudentIndex].ID,
