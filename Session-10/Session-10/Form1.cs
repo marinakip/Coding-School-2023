@@ -14,10 +14,14 @@ namespace Session_10 {
         private List<Course> _courses;
         private List<Schedule> _scheduledCourses;
         #endregion Properties
+
+        #region Form Initialization
         public Form1() {
             InitializeComponent();
         }
+        #endregion Form Initialization
 
+        #region Buttons Load & Save
         private void btnLoad_Click(object sender, EventArgs e) {
             Serializer serializer = new Serializer();
             try {
@@ -43,30 +47,26 @@ namespace Session_10 {
                 throw;
             }
         }
+        #endregion Buttons Load & Save
 
         private void grvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
         }
 
+        #region Form Load
         private void Form1_Load(object sender, EventArgs e) {
             //SetControlProperties(); 
             PopulateForm();
-
         }
+        #endregion Form Load
 
-        private void PopulateForm() {
-            PopulateStudents(5);
-            PopulateGrades();
-            PopulateCourses();
-            PopulateScheduledCourses();
-        }
-
+        #region SetControlProperties
         private void SetControlProperties() {
             ClearGridview(grvStudents, _students);
             ClearGridview(grvGrades, _grades);
             ClearGridview(grvCourses, _courses);
             ClearGridview(grvScheduledCourses, _scheduledCourses);
-          
+
         }
 
         private void ClearGridview<T>(DataGridView gridView, List<T> list) {
@@ -74,18 +74,28 @@ namespace Session_10 {
             gridView.DataSource = list;
         }
 
+        #endregion SetControlProperties
+
+
+        #region Populate Form
+        private void PopulateForm() {
+            PopulateStudents(5);
+            PopulateGrades();
+            PopulateCourses();
+            PopulateScheduledCourses();
+        }
+        #endregion Populate Form
+
+
+        #region Students
         private void PopulateStudents(int studentNumber) {
             _students = new List<Student>();
             Random random = new Random(DateTime.Now.Second);  // seed from the clock added to be more accurate for randomness
                                                               // to keep generating the same result, a hard coded integer should be used as seed
 
-            generateMultipleStudents(random, studentNumber); // max is 6 students because the array studentNames has 6 hard coded names
-                        
-            //_students.ToArray();
-
+            generateMultipleStudents(random, studentNumber); // max is 6 students because the array studentNames has 6 hard coded names                     
+    
             grvStudents.DataSource = _students;
-
-
         }
 
         private void generateMultipleStudents(Random random, int times) {
@@ -98,7 +108,7 @@ namespace Session_10 {
         private Student generateStudent(Random random) {
             List<string> studentNames = new List<string>() { "John Doe", "Jane Doe", "John Dewey", "Paulo Pedersen", "Thalia Thomson", "Claudia Hilton" };
             int randomIndex = random.Next(0, studentNames.Count - 1);
-            string studentName = studentNames[randomIndex];
+            string studentName = studentNames[randomIndex];  //TODO: FIX BUG - the same random name is generated more than once
             Student student = createStudent(random, studentName);
             return student;
         }
@@ -119,6 +129,10 @@ namespace Session_10 {
             };
             return student;
         }
+
+        #endregion Students
+
+        #region Grades
 
         // Grade has ID, StudentID, CourseID, GradeNumber
         private void PopulateGrades() {
@@ -184,6 +198,7 @@ namespace Session_10 {
             grvGrades.DataSource = _grades;
 
         }
+        #endregion Grades
 
         private void PopulateCourses() {
 
