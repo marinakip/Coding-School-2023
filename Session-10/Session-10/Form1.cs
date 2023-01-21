@@ -55,7 +55,7 @@ namespace Session_10 {
         }
 
         private void PopulateForm() {
-            PopulateStudents();
+            PopulateStudents(5);
             PopulateGrades();
             PopulateCourses();
             PopulateScheduledCourses();
@@ -74,12 +74,12 @@ namespace Session_10 {
             gridView.DataSource = list;
         }
 
-        private void PopulateStudents() {
+        private void PopulateStudents(int studentNumber) {
             _students = new List<Student>();
             Random random = new Random(DateTime.Now.Second);  // seed from the clock added to be more accurate for randomness
                                                               // to keep generating the same result, a hard coded integer should be used as seed
 
-            generateMultipleStudents(random, 2); // max is 6 students because the array studentNames has 6 hard coded names
+            generateMultipleStudents(random, studentNumber); // max is 6 students because the array studentNames has 6 hard coded names
                         
             //_students.ToArray();
 
