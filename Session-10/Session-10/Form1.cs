@@ -22,7 +22,7 @@ namespace Session_10 {
                 //TODO: Check if file exists before serializing
                 _university = serializer.DeserializeFromFile<University>("university.json");
                 //_university = serializer.DeserializeFromFile<T>("university.json");
-                // maybe check with GetType , to check if T is University
+                // maybe check with GetType or typeof, to check if T is University
                 MessageBox.Show("File Loaded Successfully!");                
             } catch (Exception) {
                 MessageBox.Show("File loading Failed");
@@ -47,7 +47,7 @@ namespace Session_10 {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            SetControlProperties();
+            //SetControlProperties(); 
             PopulateForm();
 
         }
@@ -84,7 +84,7 @@ namespace Session_10 {
             Student student1 = new Student() {
                 ID = Guid.NewGuid(),    
                 Name = "Jane Doe", //TODO: Maybe needs split later
-                Age = 19,
+                Age = random.Next(18-99),
                 RegistrationNumber= random.Next(10000000, 99999999)   // needs an integer so random.Next() is used
                 //UniversityID = unis[0].ID,                          // min and max value is used as a length check,
                                                                       // so the random registrationNumber has the same length for all students
@@ -122,7 +122,9 @@ namespace Session_10 {
           
         }
 
+        // Grade has ID, StudentID, CourseID, GradeNumber
         private void PopulateGrades() {
+            _grades = new List<Grade>();
 
             Grade softwareEngineering = new Grade() {
                 ID = Guid.NewGuid(),
@@ -130,42 +132,57 @@ namespace Session_10 {
                 CourseID = Guid.NewGuid(),
                 GradeNumber = 7                
             };
-            Grade AdvancedSoftwareEngineering = new Grade() {
+            _grades.Add(softwareEngineering);
+
+            Grade advancedSoftwareEngineering = new Grade() {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
                 GradeNumber = 8
             };
+            _grades.Add(advancedSoftwareEngineering);
+
             Grade computationalTheory = new Grade() {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
                 GradeNumber = 5
             };
+            _grades.Add(computationalTheory);
+
             Grade algorithmicComplexity = new Grade() {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
                 GradeNumber = 5
             };
+            _grades.Add(algorithmicComplexity);
+
             Grade complexDataManagement = new Grade() {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
                 GradeNumber = 7
             };
+            _grades.Add(complexDataManagement);
+
             Grade graphTheory = new Grade() {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
                 GradeNumber = 8
             };
+            _grades.Add(graphTheory);
+
             Grade probabilityStatistics = new Grade() {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
                 GradeNumber = 6
             };
+            _grades.Add(probabilityStatistics);
+
+            grvGrades.DataSource = _grades;
 
         }
 
