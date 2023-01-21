@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UniversityEntitiesLibrary;
@@ -74,7 +75,7 @@ namespace Session_10 {
 
         private void PopulateStudents() {
             _students = new List<Student>();
-            Random random = new Random();
+            Random random = new Random(DateTime.Now.Second);  // seed from the clock added to be more accurate for randomness
 
             // Gender, Undergraduate and UniversityID don't exist in the original class diagram
             // For this reason, they are not initialized here
@@ -83,36 +84,36 @@ namespace Session_10 {
 
             Student student1 = new Student() {
                 ID = Guid.NewGuid(),    
-                Name = "Jane Doe", //TODO: Maybe needs split later
-                Age = random.Next(18-99),
+                Name = "Jane Doe",                 //TODO: Maybe needs split later
+                Age = random.Next(18, 30),         // univeristy students must be at least 18 , 30 was used as max value because previous rand gave many values > 50 
                 RegistrationNumber= random.Next(10000000, 99999999)   // needs an integer so random.Next() is used
-                //UniversityID = unis[0].ID,                          // min and max value is used as a length check,
+                                                                     // min and max value is used as a length check,
                                                                       // so the random registrationNumber has the same length for all students
             };
 
             _students.Add(student1);
-
+             
             Student student2 = new Student() {
                 ID = Guid.NewGuid(),
-                Name = "John Dewey", 
-                Age = 21,
-                RegistrationNumber = random.Next()
+                Name = "John Dewey",  // to use random names too we can have two arrays, one with firstnames and one with surnames and do random there.
+                Age = random.Next(18, 30),
+                RegistrationNumber = random.Next(10000000, 99999999)
             };
             _students.Add(student2);
 
             Student student3 = new Student() {
                 ID = Guid.NewGuid(),
                 Name = "Paulo Pedersen", 
-                Age = 20,
-                RegistrationNumber = random.Next()        
+                Age = random.Next(18, 30),
+                RegistrationNumber = random.Next(10000000, 99999999)
             };
             _students.Add(student3);
 
             Student student4 = new Student() {
                 ID = Guid.NewGuid(),
                 Name = "Thalia Thomson",
-                Age = 22,
-                RegistrationNumber = random.Next()
+                Age = random.Next(18, 30),
+                RegistrationNumber = random.Next(10000000, 99999999)
             };
             _students.Add(student4);
             //_students.ToArray();
@@ -125,12 +126,13 @@ namespace Session_10 {
         // Grade has ID, StudentID, CourseID, GradeNumber
         private void PopulateGrades() {
             _grades = new List<Grade>();
+            Random random = new Random(DateTime.Now.Second);
 
             Grade softwareEngineering = new Grade() {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
-                GradeNumber = 7                
+                GradeNumber = random.Next(1, 10)
             };
             _grades.Add(softwareEngineering);
 
@@ -138,7 +140,7 @@ namespace Session_10 {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
-                GradeNumber = 8
+                GradeNumber = random.Next(1, 10)
             };
             _grades.Add(advancedSoftwareEngineering);
 
@@ -146,7 +148,7 @@ namespace Session_10 {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
-                GradeNumber = 5
+                GradeNumber = random.Next(1, 10)
             };
             _grades.Add(computationalTheory);
 
@@ -154,7 +156,7 @@ namespace Session_10 {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
-                GradeNumber = 5
+                GradeNumber = random.Next(1, 10)
             };
             _grades.Add(algorithmicComplexity);
 
@@ -162,7 +164,7 @@ namespace Session_10 {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
-                GradeNumber = 7
+                GradeNumber = random.Next(1, 10)
             };
             _grades.Add(complexDataManagement);
 
@@ -170,7 +172,7 @@ namespace Session_10 {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
-                GradeNumber = 8
+                GradeNumber = random.Next(1, 10)
             };
             _grades.Add(graphTheory);
 
@@ -178,7 +180,7 @@ namespace Session_10 {
                 ID = Guid.NewGuid(),
                 StudentID = _students[0].ID,
                 CourseID = Guid.NewGuid(),
-                GradeNumber = 6
+                GradeNumber = random.Next(1, 10)
             };
             _grades.Add(probabilityStatistics);
 
