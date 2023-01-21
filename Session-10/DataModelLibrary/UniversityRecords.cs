@@ -37,6 +37,17 @@ namespace DataModelLibrary {
         }
         #endregion Loading & Save
 
+        #region University
+        public void CreateUniversity() {
+            Random random = new Random();
+            University university = new University() {
+                ID = Guid.NewGuid(),
+                Name = "University of Ioannina",
+                YearsInService = random.Next(30, 40)
+            };
+        }
+        #endregion University
+
         #region Students
         public void GenerateMultipleStudents(Random random, int times, List<Student> _students) {
             for (int i = 0; i < times; i++) {
@@ -135,6 +146,7 @@ namespace DataModelLibrary {
         }
         #endregion Courses
 
+        //TODO: Implement
         #region Populated Scheduled Courses
         public void PopulateScheduledCourses() {
 

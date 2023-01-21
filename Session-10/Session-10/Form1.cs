@@ -70,6 +70,9 @@ namespace Session_10 {
         }
 
         public void PopulateUniversityRecords() {
+            IUniversityRecords universityRecords = new UniversityRecords();
+            universityRecords.CreateUniversity();  
+            
             PopulateStudents(5); 
             PopulateGrades(15);
             PopulateCourses(1);
