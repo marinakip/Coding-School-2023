@@ -30,10 +30,10 @@ namespace Session_10 {
 
         #region Buttons Load & Save
         private void btnLoad_Click(object sender, EventArgs e) {
-            Load();
+            Loading();
         }
 
-        private void Load() {
+        private void Loading() {
             Serializer serializer = new Serializer();
             try {
                 //TODO: Check if file exists before serializing
@@ -63,10 +63,6 @@ namespace Session_10 {
         }
         #endregion Buttons Load & Save
 
-        private void grvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
-        }
-
         #region Form Load
         private void Form1_Load(object sender, EventArgs e) {
             //SetControlProperties(); 
@@ -90,7 +86,6 @@ namespace Session_10 {
 
         #endregion SetControlProperties
 
-
         #region Populate Form
         private void PopulateForm() {
             PopulateStudents(5);
@@ -99,7 +94,6 @@ namespace Session_10 {
             PopulateScheduledCourses();
         }
         #endregion Populate Form
-
 
         #region Students
         private void PopulateStudents(int studentsNumber) {           
@@ -239,6 +233,10 @@ namespace Session_10 {
         #endregion Populated Scheduled Courses
 
         private void bindingSource1_CurrentChanged(object sender, EventArgs e) {
+
+        }
+
+        private void grvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e) {
 
         }
     }
