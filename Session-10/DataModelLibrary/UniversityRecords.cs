@@ -16,8 +16,10 @@ namespace DataModelLibrary {
             try {
                 //TODO: Check if file exists before serializing 
                 _university = serializer.DeserializeFromFile<University>("university.json");
+
                 //_university = serializer.DeserializeFromFile<T>("university.json");
-                // maybe check with GetType or typeof, to check if T is University
+                // maybe check with GetType or typeof, to check if T is University or another class type
+                
                // MessageBox.Show("File Loaded Successfully!");
             } catch (Exception) {
                // MessageBox.Show("File loading Failed");
@@ -25,11 +27,17 @@ namespace DataModelLibrary {
             }
         }
 
-        public void Save(University university) {
+        public void Save(University university, List<Student> students, List<Grade> grades, List<Course> courses, List<Schedule> scheduledCourses) {
             Serializer serializer = new Serializer();
             try {
                 if(university != null) { 
                     serializer.SerializeToFile(university, "university.json");
+                    serializer.SerializeToFile(students, "students.json");
+                    serializer.SerializeToFile(grades, "grades.json");
+                    serializer.SerializeToFile(courses, "courses.json");
+                    //serializer.SerializeToFile(scheduledCourses, "scheduledCourses.json"); // not yet implemented
+                                                                                            // TODO: To create a single json file with all university data
+                                                                                            // concatenate all seperate jsons or maybe use T Generic? 
                     throw new Exception("Save Done Successfully!");  // cannot use message box because this is not a form
                     //MessageBox.Show("Save Done!");
                 } else {
