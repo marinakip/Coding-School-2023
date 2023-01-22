@@ -14,7 +14,7 @@ namespace DataModelLibrary {
         public void Loading() {
             Serializer serializer = new Serializer();
             try {
-                //TODO: Check if file exists before serializing
+                //TODO: Check if file exists before serializing 
                 _university = serializer.DeserializeFromFile<University>("university.json");
                 //_university = serializer.DeserializeFromFile<T>("university.json");
                 // maybe check with GetType or typeof, to check if T is University
@@ -25,11 +25,18 @@ namespace DataModelLibrary {
             }
         }
 
-        public void Save() {
+        public void Save(University university) {
             Serializer serializer = new Serializer();
             try {
-                serializer.SerializeToFile(_university, "university.json");
-               // MessageBox.Show("Save Done!");
+                if(university != null) { 
+                    serializer.SerializeToFile(university, "university.json");
+                    throw new Exception("Save Done Successfully!");  // cannot use message box because this is not a form
+                    //MessageBox.Show("Save Done!");
+                } else {
+                    throw new Exception("University doesn't have data");
+                }
+                //serializer.SerializeToFile(_university, "university.json");
+                
             } catch (Exception exception) {
                 //MessageBox.Show("Save Failed");
                 throw;
@@ -38,13 +45,14 @@ namespace DataModelLibrary {
         #endregion Loading & Save
 
         #region University
-        public void CreateUniversity() {
+        public University CreateUniversity() {
             Random random = new Random();
-            University university = new University() {
+            _university = new University() {
                 ID = Guid.NewGuid(),
                 Name = "University of Ioannina",
                 YearsInService = random.Next(30, 40)
             };
+            return _university;
         }
         #endregion University
 

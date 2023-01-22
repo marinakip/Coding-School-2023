@@ -8,8 +8,8 @@ using UniversityEntitiesLibrary;
 namespace DataModelLibrary {
     public interface IUniversityRecords {
         public void Loading();
-        public void Save();
-        public void CreateUniversity();
+        public void Save(University university);
+        public University CreateUniversity();
         public void GenerateMultipleStudents(Random random, int times, List<Student> _students);
         public void CreateMultipleGrades(int times, List<Grade> _grades, List<Student> _students);
         public void CreateMultipleCourses(int times, List<Course> _courses);

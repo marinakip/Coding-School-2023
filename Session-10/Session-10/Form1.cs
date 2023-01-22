@@ -38,7 +38,7 @@ namespace Session_10 {
 
         private void btnSave_Click(object sender, EventArgs e) {
             IUniversityRecords universityRecords = new UniversityRecords();
-            universityRecords.Save();
+            universityRecords.Save(_university); // pass university as argument because Save() is in another class in a library
         }
         #endregion Buttons Load & Save
 
@@ -71,7 +71,7 @@ namespace Session_10 {
 
         public void PopulateUniversityRecords() {
             IUniversityRecords universityRecords = new UniversityRecords();
-            universityRecords.CreateUniversity();  
+            _university = universityRecords.CreateUniversity();  
             
             PopulateStudents(5); 
             PopulateGrades(15);
