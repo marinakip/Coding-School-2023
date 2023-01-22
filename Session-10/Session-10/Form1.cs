@@ -9,10 +9,18 @@ namespace Session_10 {
 
     //TODO: After observation, initialization methods for all grids have the same functionality
     //      Possible fix: Maybe for better refactoring, use something abstract like a Generic and then 
-    //      in a switch check with typeof which class object we want to create
+    //      in a switch check with typeof which class object we want to create  #LOW_PRIORITY
 
-    //TODO: In SAVE maybe give the functionality to save different grids in different files
-    //TODO: If this functionality is needed, in serializer we need to check what type is the json file for LOAD
+    //TODO: In SAVE maybe give the functionality to save different grids in different files (DONE for Save method)
+    //TODO: If this functionality is needed, in serializer we need to check what type is the json file for LOAD #LOW_PRIORITY
+
+    //TODO: Implement bindingSource1_CurrentChanged() and grvStudents_CellContentClick() #MEDIUM_PRORITY
+
+    //TODO: Implement CellContentClick() for other grids #MEDIUM_PRIORITY
+
+    //TODO: --> Implement PopulateScheduledCourses(), also need to implement createMultipleProfessors and createProfessor and add to grid <-- #HIGH_PRIORITY #SECOND
+
+    //TODO: --> Implement methods in UniversityEntitiesLibrary  <-- #HIGH_PRIORITY  #FIRST
     public partial class Form1 : Form {
 
         #region Properties
@@ -91,7 +99,7 @@ namespace Session_10 {
                                                                    // to keep generating the same result, a hard coded integer should be used as seed
             IUniversityRecords universityRecords = new UniversityRecords();
             universityRecords.GenerateMultipleStudents(random, studentNumber, _students); // max is 6 students because the array studentNames has 6 hard coded names                     
-
+            // Possible fix for null students in university.json, GenerateMultipleStudents must return students list and then pass it in Save()
             grvStudents.DataSource = _students;
         }
         #endregion Students
@@ -122,19 +130,26 @@ namespace Session_10 {
         }
         #endregion Courses
 
-        //TODO: implement
+
         //#region Populated Scheduled Courses
+
+        //TODO: Implement Scheduled Courses
         //private void PopulateScheduledCourses() {
 
         //}
         //#endregion Populated Scheduled Courses
 
-        private void bindingSource1_CurrentChanged(object sender, EventArgs e) {
+        #region Form methods not yet implemented
 
+        private void bindingSource1_CurrentChanged(object sender, EventArgs e) {
+            //TODO: IMPLEMENT to change source when Load() is pressed
+            // When Load() is pressed call SetControlProperties to clear data that was randomly initialized
         }
 
         private void grvStudents_CellContentClick(object sender, DataGridViewCellEventArgs e) {
-
+            //TODO: IMPLEMENT to show a MessageBox or a new form with student's data when cell student in clicked 
+            //TODO: Also implement similar functionality to other grids if nessesary.
         }
+        #endregion Form methods not yet implemented
     }
 }
