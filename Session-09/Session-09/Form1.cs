@@ -104,6 +104,16 @@ namespace Session_09 {
             textBox1.Text += equalSymbol;
             Calculate();
             textBox1.Text += _calculationResult;
+            //string result = RegexParse(textBox1.Text); // Doesn't work
+            //textBox1.Text += result;
+        }
+
+        private string RegexParse(string input) {
+            string pattern = @"[\d|Sqrt(?:+-\/*^)|Sqrt(?=)\d]";
+            string calculationResult = "=" + _calculationResult.ToString();
+            // matches input textBox1.Text e.g 22+27= and replaces it with " = calculation result"
+            string result = Regex.Replace(input, pattern, calculationResult);            
+            return result;
         }
 
         private void Calculate() {
@@ -148,21 +158,20 @@ namespace Session_09 {
             //      11111 + 563214 =
             //      Sqrt4+1=
 
-            TestRegex();
+            //TestRegex();
 
         }
 
-        private static void TestRegex() {
+        private static void TestRegex(string textToParse, string replacement) {
             string pattern = @"[\d|Sqrt(?:+-\/*^)|Sqrt(?=)\d]";
-            Regex regex = new Regex(pattern);
-            string test = "1+2=3";
+            string test = "1+2=3"; 
+            //Match match = Regex.Match(test, pattern);
+            //if (match.Success) {
+            //    MessageBox.Show("Expression matches");
+            //} else {
+            //    MessageBox.Show("Expression not matches.");
+            //}
 
-            Match match = Regex.Match(test, pattern);
-            if (match.Success) {
-                MessageBox.Show("Expression matches");
-            } else {
-                MessageBox.Show("Expression not matches.");
-            }
             string[] parts = Regex.Split(test, pattern);
             MessageBox.Show("Left Value: " + parts[0]);
             MessageBox.Show("Right Value: " + parts[1]);
