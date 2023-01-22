@@ -50,7 +50,7 @@
             this.grvStudents.Location = new System.Drawing.Point(22, 92);
             this.grvStudents.Name = "grvStudents";
             this.grvStudents.RowTemplate.Height = 25;
-            this.grvStudents.Size = new System.Drawing.Size(932, 130);
+            this.grvStudents.Size = new System.Drawing.Size(472, 130);
             this.grvStudents.TabIndex = 0;
             this.grvStudents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grvStudents_CellContentClick);
             // 
@@ -58,30 +58,30 @@
             // 
             this.grvGrades.BackgroundColor = System.Drawing.Color.Linen;
             this.grvGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvGrades.Location = new System.Drawing.Point(22, 264);
+            this.grvGrades.Location = new System.Drawing.Point(529, 92);
             this.grvGrades.Name = "grvGrades";
             this.grvGrades.RowTemplate.Height = 25;
-            this.grvGrades.Size = new System.Drawing.Size(932, 130);
+            this.grvGrades.Size = new System.Drawing.Size(472, 130);
             this.grvGrades.TabIndex = 1;
             // 
             // grvCourses
             // 
             this.grvCourses.BackgroundColor = System.Drawing.Color.Linen;
             this.grvCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvCourses.Location = new System.Drawing.Point(22, 437);
+            this.grvCourses.Location = new System.Drawing.Point(22, 254);
             this.grvCourses.Name = "grvCourses";
             this.grvCourses.RowTemplate.Height = 25;
-            this.grvCourses.Size = new System.Drawing.Size(932, 130);
+            this.grvCourses.Size = new System.Drawing.Size(472, 130);
             this.grvCourses.TabIndex = 2;
             // 
             // grvScheduledCourses
             // 
             this.grvScheduledCourses.BackgroundColor = System.Drawing.Color.Linen;
             this.grvScheduledCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grvScheduledCourses.Location = new System.Drawing.Point(22, 610);
+            this.grvScheduledCourses.Location = new System.Drawing.Point(529, 254);
             this.grvScheduledCourses.Name = "grvScheduledCourses";
             this.grvScheduledCourses.RowTemplate.Height = 25;
-            this.grvScheduledCourses.Size = new System.Drawing.Size(932, 130);
+            this.grvScheduledCourses.Size = new System.Drawing.Size(472, 130);
             this.grvScheduledCourses.TabIndex = 3;
             // 
             // btnLoad
@@ -106,7 +106,7 @@
             this.btnSave.FlatAppearance.BorderSize = 10;
             this.btnSave.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnSave.ForeColor = System.Drawing.Color.Snow;
-            this.btnSave.Location = new System.Drawing.Point(871, 746);
+            this.btnSave.Location = new System.Drawing.Point(918, 390);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 30);
             this.btnSave.TabIndex = 5;
@@ -119,7 +119,7 @@
             this.labelHeader.AutoSize = true;
             this.labelHeader.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelHeader.ForeColor = System.Drawing.Color.Snow;
-            this.labelHeader.Location = new System.Drawing.Point(376, 20);
+            this.labelHeader.Location = new System.Drawing.Point(410, 23);
             this.labelHeader.Name = "labelHeader";
             this.labelHeader.Size = new System.Drawing.Size(201, 29);
             this.labelHeader.TabIndex = 6;
@@ -141,7 +141,7 @@
             this.labelGrades.AutoSize = true;
             this.labelGrades.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelGrades.ForeColor = System.Drawing.Color.Snow;
-            this.labelGrades.Location = new System.Drawing.Point(22, 243);
+            this.labelGrades.Location = new System.Drawing.Point(529, 71);
             this.labelGrades.Name = "labelGrades";
             this.labelGrades.Size = new System.Drawing.Size(52, 18);
             this.labelGrades.TabIndex = 8;
@@ -152,7 +152,7 @@
             this.labelCourses.AutoSize = true;
             this.labelCourses.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelCourses.ForeColor = System.Drawing.Color.Snow;
-            this.labelCourses.Location = new System.Drawing.Point(22, 416);
+            this.labelCourses.Location = new System.Drawing.Point(22, 233);
             this.labelCourses.Name = "labelCourses";
             this.labelCourses.Size = new System.Drawing.Size(57, 18);
             this.labelCourses.TabIndex = 9;
@@ -163,11 +163,11 @@
             this.labelSceduledCourses.AutoSize = true;
             this.labelSceduledCourses.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.labelSceduledCourses.ForeColor = System.Drawing.Color.Snow;
-            this.labelSceduledCourses.Location = new System.Drawing.Point(22, 589);
+            this.labelSceduledCourses.Location = new System.Drawing.Point(529, 233);
             this.labelSceduledCourses.Name = "labelSceduledCourses";
-            this.labelSceduledCourses.Size = new System.Drawing.Size(117, 18);
+            this.labelSceduledCourses.Size = new System.Drawing.Size(125, 18);
             this.labelSceduledCourses.TabIndex = 10;
-            this.labelSceduledCourses.Text = "Sceduled Courses";
+            this.labelSceduledCourses.Text = "Scheduled Courses";
             // 
             // bindingSource1
             // 
@@ -178,7 +178,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.ClientSize = new System.Drawing.Size(980, 796);
+            this.ClientSize = new System.Drawing.Size(1026, 432);
             this.Controls.Add(this.labelSceduledCourses);
             this.Controls.Add(this.labelCourses);
             this.Controls.Add(this.labelGrades);
