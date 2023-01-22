@@ -7,20 +7,21 @@ using DataModelLibrary;
 
 namespace Session_10 {
 
+    //TODO: --> Implement methods in UniversityEntitiesLibrary  <-- #HIGH_PRIORITY  #FIRST
+    //TODO: --> Implement PopulateScheduledCourses(), also need to implement createMultipleProfessors and createProfessor and add to grid <-- #HIGH_PRIORITY #SECOND
+   
+    //TODO: Implement CellContentClick() for other grids #MEDIUM_PRIORITY
+    //TODO: Implement bindingSource1_CurrentChanged() and grvStudents_CellContentClick() #MEDIUM_PRORITY
+
+    //TODO: In SAVE maybe give the functionality to save different grids in different files (DONE for Save method)     #DONE
+
+    //TODO: If this functionality is needed, in serializer we need to check what type is the json file for LOAD #LOW_PRIORITY
+
     //TODO: After observation, initialization methods for all grids have the same functionality
     //      Possible fix: Maybe for better refactoring, use something abstract like a Generic and then 
     //      in a switch check with typeof which class object we want to create  #LOW_PRIORITY
 
-    //TODO: In SAVE maybe give the functionality to save different grids in different files (DONE for Save method)
-    //TODO: If this functionality is needed, in serializer we need to check what type is the json file for LOAD #LOW_PRIORITY
-
-    //TODO: Implement bindingSource1_CurrentChanged() and grvStudents_CellContentClick() #MEDIUM_PRORITY
-
-    //TODO: Implement CellContentClick() for other grids #MEDIUM_PRIORITY
-
-    //TODO: --> Implement PopulateScheduledCourses(), also need to implement createMultipleProfessors and createProfessor and add to grid <-- #HIGH_PRIORITY #SECOND
-
-    //TODO: --> Implement methods in UniversityEntitiesLibrary  <-- #HIGH_PRIORITY  #FIRST
+    //TODO: Add documentation comments #LOW_PRIORITY
     public partial class Form1 : Form {
 
         #region Properties
