@@ -22,6 +22,10 @@ namespace Session_10 {
     //      in a switch check with typeof which class object we want to create  #LOW_PRIORITY
 
     //TODO: Add documentation comments #LOW_PRIORITY
+
+    //NOTE: All Create() methods that generate data (generate university, students, grades etc.) are in the DataModelLibrary and are accessed through interface IUniversityRecords
+    // All basic structure classes (Student, Grade, Course, University etc.) are in the UniversityEntititesLibrary (maybe an interface is also needed there too)
+    // All methods required for the view (the form1) is in this file
     public partial class Form1 : Form {
 
         #region Properties
