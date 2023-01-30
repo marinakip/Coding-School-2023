@@ -4,51 +4,63 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Session_16.Model {
-    public class Stock {
+namespace Session_16.Model.old_session_11_files
+{
+    public class Stock
+    {
         private double PetFoodQty { get; set; }
-        private int PetsNumber { get; set; }        
-        public Stock() {
+        private int PetsNumber { get; set; }
+        public Stock()
+        {
             PetFoodQty = 30;
             PetsNumber = 15;
         }
-        public Stock(double petFoodQty) {
+        public Stock(double petFoodQty)
+        {
             PetFoodQty = petFoodQty;
         }
-        public Stock(int petsNumber) {
+        public Stock(int petsNumber)
+        {
             PetsNumber = petsNumber;
         }
-        public Stock(double petFoodQty, int petsNumber) {
+        public Stock(double petFoodQty, int petsNumber)
+        {
             PetFoodQty = petFoodQty;
             PetsNumber = petsNumber;
         }
 
-        public double GetPetFoodStock() {
+        public double GetPetFoodStock()
+        {
             return PetFoodQty;
         }
 
-        public int GetPetsNumberStock() {
+        public int GetPetsNumberStock()
+        {
             return PetsNumber;
         }
-        public double AddPetFoodToStock(double petFoodQuantity) {
+        public double AddPetFoodToStock(double petFoodQuantity)
+        {
             PetFoodQty = GetPetFoodStock() + petFoodQuantity;
             return PetFoodQty;
         }
-        public double RemovePetFoodFromStock(double petFoodQuantity) {
+        public double RemovePetFoodFromStock(double petFoodQuantity)
+        {
             PetFoodQty = GetPetFoodStock() - petFoodQuantity;
             return PetFoodQty;
         }
 
-        public int AddPetsToStock(int petNumber){
+        public int AddPetsToStock(int petNumber)
+        {
             PetsNumber = GetPetsNumberStock() + petNumber;
             return PetsNumber;
         }
 
-        public int RemovePetsFromStock(int petNumber){
+        public int RemovePetsFromStock(int petNumber)
+        {
             PetsNumber = GetPetsNumberStock() - petNumber;
             return PetsNumber;
         }
-    }       
+    }
 }
 
 

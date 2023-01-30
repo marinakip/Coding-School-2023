@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Session_16.Model {
-    public class Employee : Person {
-        public enum EmployeeTypeEnum {
+namespace Session_16.Model.old_session_11_files
+{
+    public class Employee : Person
+    {
+        public enum EmployeeTypeEnum
+        {
             Manager,
             Staff
         }
@@ -14,19 +17,22 @@ namespace Session_16.Model {
         public double SalaryPerMonth { get; set; }
         public EmployeeTypeEnum EmployeeType { get; set; }
 
-        public string FullName {
-            get { return String.Format("{0} {1}", Name, Surname); }
+        public string FullName
+        {
+            get { return string.Format("{0} {1}", Name, Surname); }
         }
 
-        public Employee() {
+        public Employee()
+        {
             EmployeeID = Guid.NewGuid();
         }
 
 
-        public Employee(Guid employeeID, String name, String surname, double salaryPerMonth, EmployeeTypeEnum employeeType) : base(name,surname) {
+        public Employee(Guid employeeID, string name, string surname, double salaryPerMonth, EmployeeTypeEnum employeeType) : base(name, surname)
+        {
             EmployeeID = employeeID;
             SalaryPerMonth = salaryPerMonth;
             EmployeeType = employeeType;
-        }    
+        }
     }
 }

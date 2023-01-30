@@ -6,8 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Session_16.Model {
-    public class Transaction {
+namespace Session_16.Model.old_session_11_files
+{
+    public class Transaction
+    {
         public Guid TransactionID { get; set; }
         public DateTime TransactionDate { get; set; }
         public Guid CustomerID { get; set; }
@@ -19,10 +21,12 @@ namespace Session_16.Model {
         public double PetFoodPrice { get; set; }
         public double TotalPrice { get; set; }
 
-        public Transaction() {
+        public Transaction()
+        {
             TransactionID = Guid.NewGuid();
         }
-        public Transaction(Guid customerID, Guid employeeID, Guid petID, double petPrice, Guid petFoodID, double petFoodQty, double petFoodPrice, double totalPrice) {
+        public Transaction(Guid customerID, Guid employeeID, Guid petID, double petPrice, Guid petFoodID, double petFoodQty, double petFoodPrice, double totalPrice)
+        {
             TransactionID = Guid.NewGuid();
             TransactionDate = DateTime.Now;
             CustomerID = customerID;

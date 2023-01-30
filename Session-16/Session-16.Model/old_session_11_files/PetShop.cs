@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Session_16.Model {
+namespace Session_16.Model.old_session_11_files
+{
     public class PetShop
     {
         public List<Pet>? Pets { get; set; }
@@ -14,10 +15,11 @@ namespace Session_16.Model {
         public List<Employee>? Employees { get; set; }
         public List<PetFood>? PetFoods { get; set; }
         public List<Transaction>? Transactions { get; set; }
-        public List<MonthlyLedger>? MonthlyLedgers { get; set; }    
+        public List<MonthlyLedger>? MonthlyLedgers { get; set; }
         public Stock Stock { get; set; }
 
-        public void Initialize() {
+        public void Initialize()
+        {
             Stock stock = new Stock();
             Employee staffEmployee = CreateEmployee();
             Customer customer = CreateCustomer();
@@ -26,9 +28,11 @@ namespace Session_16.Model {
             double petFoodCost = 9.2;
             double petFoodPrice = petFoodQty * petFoodCost;
         }
-        public Pet CreatePet(string breed) {
+        public Pet CreatePet(string breed)
+        {
 
-            Pet pet = new Pet() {
+            Pet pet = new Pet()
+            {
                 PetID = Guid.NewGuid(),
                 Breed = breed,
                 AnimalType = Pet.AnimalTypeEnum.Dog,
@@ -38,8 +42,10 @@ namespace Session_16.Model {
             };
             return pet;
         }
-        public Customer CreateCustomer() {
-            Customer customer = new Customer() {
+        public Customer CreateCustomer()
+        {
+            Customer customer = new Customer()
+            {
                 CustomerID = Guid.NewGuid(),
                 Name = "John",
                 Surname = "Doe",
@@ -48,8 +54,10 @@ namespace Session_16.Model {
             };
             return customer;
         }
-        public Employee CreateEmployee() {
-            Employee employee = new Employee() {
+        public Employee CreateEmployee()
+        {
+            Employee employee = new Employee()
+            {
                 EmployeeID = Guid.NewGuid(),
                 Name = "Jane",
                 Surname = "Dewey",
@@ -58,16 +66,19 @@ namespace Session_16.Model {
             };
             return employee;
         }
-        public void AddTransaction(Employee employee, Customer customer, Pet pet, PetFood petFood, double petFoodQty, double profit) {
+        public void AddTransaction(Employee employee, Customer customer, Pet pet, PetFood petFood, double petFoodQty, double profit)
+        {
             List<Transaction> transactions = new List<Transaction>();
             Transaction transaction = CreateTransaction(employee, customer, pet, petFood, petFoodQty, profit);
             transactions.Add(transaction);
         }
-        public Transaction CreateTransaction(Employee employee, Customer customer, Pet pet, PetFood petFood, double petFoodQty, double profit) {
+        public Transaction CreateTransaction(Employee employee, Customer customer, Pet pet, PetFood petFood, double petFoodQty, double profit)
+        {
 
-            double petFoodPrice = (petFood.Cost * petFoodQty) + profit;
+            double petFoodPrice = petFood.Cost * petFoodQty + profit;
 
-            Transaction transaction = new Transaction() { //customerID, employeeID, petID,  petPrice, petFoodID,  petFoodQty,  petFoodPrice,  totalPrice
+            Transaction transaction = new Transaction()
+            { //customerID, employeeID, petID,  petPrice, petFoodID,  petFoodQty,  petFoodPrice,  totalPrice
                 CustomerID = customer.CustomerID,
                 EmployeeID = employee.EmployeeID,
                 PetID = pet.PetID,
@@ -77,8 +88,9 @@ namespace Session_16.Model {
                 PetFoodPrice = petFoodPrice
             };
             return transaction;
-        }       
-        public PetShop() {
+        }
+        public PetShop()
+        {
             Pets = new List<Pet>();
             Customers = new List<Customer>();
             Employees = new List<Employee>();
@@ -87,5 +99,5 @@ namespace Session_16.Model {
             MonthlyLedgers = new List<MonthlyLedger>();
             Stock = new Stock();
         }
-    }   
+    }
 }
