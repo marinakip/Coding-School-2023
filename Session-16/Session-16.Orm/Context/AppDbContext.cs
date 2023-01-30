@@ -16,6 +16,7 @@ namespace Session_16.Orm.Context
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new MonthlyLedgerConfiguration());
+            modelBuilder.ApplyConfiguration(new PetReportConfiguration());
             base.OnModelCreating(modelBuilder); 
         }
 
