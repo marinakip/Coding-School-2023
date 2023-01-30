@@ -1,19 +1,21 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Session_16.Model;
+using Session_16.Orm.Configurations;
 
 namespace Session_16.Orm.Context
 {
     public class AppDbContext : DbContext {
 
-        public DbSet<Person> People { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
+            modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             base.OnModelCreating(modelBuilder); 
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            //optionsBuilder.UseSqlServer("Data Source=MARINA-KIPOUROU; Initial Catalog=PetShopDb;Integrated Security=True;" +
-            //    "Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;");
+            optionsBuilder.UseSqlServer("Data Source=MARINA-KIPOUROU; Initial Catalog=PetShopDb;Integrated Security=SSPI;" +
+                "Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;");
             base.OnConfiguring(optionsBuilder);
         }
 
