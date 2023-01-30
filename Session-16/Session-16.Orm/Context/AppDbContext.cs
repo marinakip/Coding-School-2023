@@ -8,6 +8,11 @@ namespace Session_16.Orm.Context
 
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Pet> Pets { get; set; }    
+        public DbSet<PetFood> PetFoods { get; set; }    
+        public DbSet<Employee> Employees { get; set; }  
+        public DbSet<Transaction> Transactions { get; set; }
+        public DbSet<MonthlyLedger> MonthlyLedgers { get; set; } 
+        public DbSet<PetReport> PetReports { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
