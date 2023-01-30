@@ -23,12 +23,33 @@
         ///  the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.components = new System.ComponentModel.Container();
+            this.btnTestDatabase = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnTestDatabase
+            // 
+            this.btnTestDatabase.Location = new System.Drawing.Point(220, 63);
+            this.btnTestDatabase.Name = "btnTestDatabase";
+            this.btnTestDatabase.Size = new System.Drawing.Size(118, 23);
+            this.btnTestDatabase.TabIndex = 0;
+            this.btnTestDatabase.Text = "Test Database";
+            this.btnTestDatabase.UseVisualStyleBackColor = true;
+            this.btnTestDatabase.Click += new System.EventHandler(this.btnTestDatabase_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnTestDatabase);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Button btnTestDatabase;
     }
 }
