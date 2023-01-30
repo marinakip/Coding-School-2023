@@ -41,7 +41,7 @@ namespace Session_16.Model {
                             totalSoldDog++;
                             break;                       
                         default:
-                            MessageBox.Show("Invalid Animal Type");
+                            //MessageBox.Show("Invalid Animal Type");
                             break;
                     }
                 }                
