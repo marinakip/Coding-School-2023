@@ -20,8 +20,11 @@ namespace Session_16.Model {
 
         public string TIN { get; set; }
 
-        public Customer() {
+        public Customer(string name, string surname, string phone) {
             CustomerID = Guid.NewGuid();
+            Name = name;    
+            Surname = surname;  
+            Phone = phone;  
         }
 
         public Customer(Guid customerID, string name, string surname, string phone, string tIN) {

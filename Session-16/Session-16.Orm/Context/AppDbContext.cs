@@ -7,9 +7,11 @@ namespace Session_16.Orm.Context
     public class AppDbContext : DbContext {
 
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<Pet> Pets { get; set; }    
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
+            modelBuilder.ApplyConfiguration(new PetConfiguration());
             base.OnModelCreating(modelBuilder); 
         }
 
