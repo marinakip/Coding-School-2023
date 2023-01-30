@@ -13,6 +13,7 @@ namespace Session_16.Orm.Context
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new PetConfiguration());
             modelBuilder.ApplyConfiguration(new PetFoodConfiguration());
+            modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             base.OnModelCreating(modelBuilder); 
         }
 
