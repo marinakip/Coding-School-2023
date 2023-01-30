@@ -12,6 +12,7 @@ namespace Session_16.Orm.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
             modelBuilder.ApplyConfiguration(new PetConfiguration());
+            modelBuilder.ApplyConfiguration(new PetFoodConfiguration());
             base.OnModelCreating(modelBuilder); 
         }
 
