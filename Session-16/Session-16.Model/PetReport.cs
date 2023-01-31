@@ -26,10 +26,10 @@ namespace Session_16.Model {
 
         public int TotalSold { get; set; }
 
-        public PetReport(int year, int month, AnimalType animalType) {
+        public PetReport(int year, int month, AnimalType typeAnimal) {
             Year = year;
             Month = month;
-            TypeAnimal = animalType;
+            TypeAnimal = typeAnimal;
         }
     }
 }
