@@ -23,7 +23,7 @@ namespace Session_16.Orm.Configurations
             //    .HasConversion(v => v.ToString(), v => (EmployeeType)Enum.Parse(typeof(EmployeeType), v))
             //    .HasMaxLength(14)
             //    .IsRequired(true);
-            builder.Property(employee => employee.SalaryPerMonth).HasPrecision(9);
+            builder.Property(employee => employee.SalaryPerMonth);
         }
     }
 }

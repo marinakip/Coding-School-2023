@@ -16,8 +16,8 @@ namespace Session_16.Orm.Configurations {
             builder.Property(pet => pet.Breed).HasMaxLength(20).IsRequired(true);
             builder.Property(pet => pet.Type).HasMaxLength(15).IsRequired(true);
             builder.Property(pet => pet.Status).HasMaxLength(20).IsRequired(true);
-            builder.Property(pet => pet.Price).HasPrecision(10);
-            builder.Property(pet => pet.Cost).HasPrecision(10);
+            builder.Property(pet => pet.Price);
+            builder.Property(pet => pet.Cost);
 
         }
     }

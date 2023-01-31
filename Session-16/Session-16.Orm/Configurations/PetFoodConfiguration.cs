@@ -13,9 +13,9 @@ namespace Session_16.Orm.Configurations {
             builder.ToTable("PetFood");
             builder.HasKey(petFood => petFood.PetFoodID);
             builder.Property(petFood => petFood.PetFoodID).ValueGeneratedOnAdd();
-            builder.Property(petFood => petFood.AnimalType).HasMaxLength(15).IsRequired(true);          
-            builder.Property(petFood => petFood.PetFoodPrice).HasMaxLength(10);
-            builder.Property(petFood => petFood.PetFoodCost).HasMaxLength(10);
+            builder.Property(petFood => petFood.AnimalType).HasMaxLength(15).IsRequired(true);
+            builder.Property(petFood => petFood.PetFoodPrice);
+            builder.Property(petFood => petFood.PetFoodCost);
         }
     }
 }
