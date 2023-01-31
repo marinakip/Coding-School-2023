@@ -11,11 +11,12 @@ namespace Session_16.Orm.Configurations {
     public class PetReportConfiguration : IEntityTypeConfiguration<PetReport> {
         public void Configure(EntityTypeBuilder<PetReport> builder) {
             builder.ToTable("PetReport");
-            builder.HasKey(petReport => new { petReport.Month, petReport.Year });
+            builder.HasKey(petReport => petReport.PetReportID);
+            builder.Property(petReport => petReport.PetReportID).ValueGeneratedOnAdd();
             builder.Property(petReport => petReport.Year).HasMaxLength(10).IsRequired(true);
             builder.Property(petReport => petReport.Month).HasMaxLength(10).IsRequired(true);
             builder.Property(petReport => petReport.TypeAnimal).HasMaxLength(10).IsRequired(true);
-            builder.Property(petReport => petReport.TotalSold).HasMaxLength(10);
+            builder.Property(petReport => petReport.TotalSold);
         }
     }
 }

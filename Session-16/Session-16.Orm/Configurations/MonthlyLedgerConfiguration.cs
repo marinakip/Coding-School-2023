@@ -11,12 +11,13 @@ namespace Session_16.Orm.Configurations {
     public class MonthlyLedgerConfiguration : IEntityTypeConfiguration<MonthlyLedger> {
         public void Configure(EntityTypeBuilder<MonthlyLedger> builder) {
             builder.ToTable("MonthlyLedger");
-            builder.HasKey(monthlyLedger => new { monthlyLedger.Month, monthlyLedger.Year});
-            builder.Property(monthlyLedger => monthlyLedger.Year).HasPrecision(10).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Month).HasPrecision(10).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Income).HasPrecision(10).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Expenses).HasPrecision(10).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Total).HasPrecision(10);
+            builder.HasKey(monthlyLedger => monthlyLedger.MonthlyLedgerID);
+            builder.Property(monthlyLedger => monthlyLedger.MonthlyLedgerID).ValueGeneratedOnAdd();            
+            builder.Property(monthlyLedger => monthlyLedger.Year).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Month).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Income).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Expenses).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Total);
         }
     }
 }
