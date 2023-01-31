@@ -12,11 +12,11 @@ namespace Session_16.Orm.Configurations {
         public void Configure(EntityTypeBuilder<MonthlyLedger> builder) {
             builder.ToTable("MonthlyLedger");
             builder.HasKey(monthlyLedger => new { monthlyLedger.Month, monthlyLedger.Year});
-            builder.Property(monthlyLedger => monthlyLedger.Year).HasMaxLength(10).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Month).HasMaxLength(10).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Income).HasMaxLength(10).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Expenses).HasMaxLength(10).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Total).HasMaxLength(15);
+            builder.Property(monthlyLedger => monthlyLedger.Year).HasPrecision(10).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Month).HasPrecision(10).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Income).HasPrecision(10).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Expenses).HasPrecision(10).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Total).HasPrecision(10);
         }
     }
 }
