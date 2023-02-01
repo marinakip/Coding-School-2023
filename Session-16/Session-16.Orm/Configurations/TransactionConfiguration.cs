@@ -26,12 +26,20 @@ namespace Session_16.Orm.Configurations {
             builder.HasOne(transaction => transaction.Customer)
                 .WithOne(customer => customer.Transaction)
                 .HasForeignKey<Transaction>(transaction => transaction.CustomerID);
+
             builder.HasOne(transaction => transaction.Pet)
                 .WithOne(pet => pet.Transaction)
                 .HasForeignKey<Transaction>(transaction => transaction.PetID);
+
             builder.HasOne(transaction => transaction.Employee)
                 .WithOne(employee => employee.Transaction)
                 .HasForeignKey<Transaction>(transaction => transaction.EmployeeID);
+
+            builder.HasOne(transaction => transaction.PetFood)
+               .WithOne(petFood => petFood.Transaction)
+               .HasForeignKey<Transaction>(transaction => transaction.PetFoodID);
+
+
         }
     }
 }
