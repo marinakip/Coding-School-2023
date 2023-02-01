@@ -20,6 +20,10 @@ namespace Session_16.Model {
 
         public string TIN { get; set; }
 
+        #region Relations
+        public Transaction Transaction { get; set; } = null!;   
+        #endregion Relations
+
         public Customer(string name, string surname, string phone) {
             CustomerID = Guid.NewGuid();
             Name = name;    

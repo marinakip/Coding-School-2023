@@ -20,6 +20,10 @@ namespace Session_16.Model {
         public double PetFoodPrice { get; set; }        
         public double PetFoodCost { get; set; }
 
+        #region Relations
+        public Transaction Transaction { get; set; } = null!;
+        #endregion Relations
+
         public PetFood(AnimalType animalType) {
             PetFoodID = Guid.NewGuid();
             AnimalType = animalType;

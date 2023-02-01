@@ -13,20 +13,27 @@ namespace Session_16.Model {
         [Required]
         public DateTime TransactionDate { get; set; }
 
+        #region Relations
+
         [Required]
         public Guid CustomerID { get; set; }
+        public Customer Customer { get; set; } = null!;
 
         [Required]
         public Guid EmployeeID { get; set; }
+        public Employee Employee { get; set; } = null!;
 
         [Required]
         public Guid PetID { get; set; }
-
-        public double PetPrice { get; set; }
+        public Pet Pet { get; set; } = null!;
 
         [Required]
         public Guid PetFoodID { get; set; }
+        public PetFood PetFood { get; set; } = null!;
 
+        #endregion Relations
+
+        public double PetPrice { get; set; }     
         public double PetFoodQty { get; set; }
         public double PetFoodPrice { get; set; }
         public double TotalPrice { get; set; }

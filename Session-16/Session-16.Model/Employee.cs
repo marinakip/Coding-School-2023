@@ -25,6 +25,10 @@ namespace Session_16.Model {
         public EmployeeType TypeEmployee { get; set; }
         public double SalaryPerMonth { get; set; }
 
+        #region Relations
+        public Transaction Transaction { get; set; } = null!;
+        #endregion Relations
+
         public Employee(String name, String surname, EmployeeType typeEmployee) {
             EmployeeID = Guid.NewGuid();
             Name = name;
