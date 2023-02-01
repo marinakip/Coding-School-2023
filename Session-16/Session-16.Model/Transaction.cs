@@ -29,7 +29,7 @@ namespace Session_16.Model {
 
         [Required]
         public Guid PetFoodID { get; set; }
-        public PetFood PetFood { get; set; } = null!;
+        public List<PetFood> PetFoods { get; set; } = null!;
 
         #endregion Relations
 

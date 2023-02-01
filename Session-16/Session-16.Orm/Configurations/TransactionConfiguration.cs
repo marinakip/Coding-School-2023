@@ -35,9 +35,7 @@ namespace Session_16.Orm.Configurations {
                 .WithOne(employee => employee.Transaction)
                 .HasForeignKey<Transaction>(transaction => transaction.EmployeeID);
 
-            builder.HasOne(transaction => transaction.PetFood)
-               .WithOne(petFood => petFood.Transaction)
-               .HasForeignKey<Transaction>(transaction => transaction.PetFoodID);
+           
 
 
         }

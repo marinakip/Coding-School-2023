@@ -16,6 +16,10 @@ namespace Session_16.Orm.Configurations {
             builder.Property(petFood => petFood.AnimalType).HasMaxLength(15).IsRequired(true);
             builder.Property(petFood => petFood.PetFoodPrice);
             builder.Property(petFood => petFood.PetFoodCost);
+
+            builder.HasOne(petFood => petFood.Transaction)
+              .WithMany(transaction => transaction.PetFoods)
+              .HasForeignKey(transaction => transaction.PetFoodID);
         }
     }
 }
