@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using static Session_16.Model.old_session_11_files.Pet;
 
 namespace Session_16.Model {
-    public class PetReport : EntityBase {
+    public class PetReport {
 
         public enum AnimalType {
             Bird,
@@ -15,7 +15,7 @@ namespace Session_16.Model {
             Dog
         }
 
-        //public Guid PetReportID { get; set; }   
+        public Guid PetReportID { get; set; }   
 
         [Required]
         public int Year { get; set; }
@@ -29,7 +29,7 @@ namespace Session_16.Model {
         public int TotalSold { get; set; }
 
         public PetReport(int year, int month, AnimalType typeAnimal) {
-           // PetReportID = Guid.NewGuid();
+            PetReportID = Guid.NewGuid();
             Year = year;
             Month = month;
             TypeAnimal = typeAnimal;

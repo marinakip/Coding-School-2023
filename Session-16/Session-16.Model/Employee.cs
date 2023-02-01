@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 using static Session_16.Model.old_session_11_files.Employee;
 
 namespace Session_16.Model {
-    public class Employee : EntityBase {
+    public class Employee {
         public enum EmployeeType {
             Manager,
             Staff
         }
 
-        //public Guid EmployeeID { get; set; }
+        public Guid EmployeeID { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -30,13 +30,13 @@ namespace Session_16.Model {
         #endregion Relations
 
         public Employee(String name, String surname, EmployeeType typeEmployee) {
-            //EmployeeID = Guid.NewGuid();
+            EmployeeID = Guid.NewGuid();
             Name = name;
             Surname = surname;
             TypeEmployee = typeEmployee;
         }
         public Employee(String name, String surname, EmployeeType typeEmployee, double salaryPerMonth) {
-            //EmployeeID = Guid.NewGuid();
+            EmployeeID = Guid.NewGuid();
             Name = name;
             Surname = surname;
             TypeEmployee = typeEmployee;

@@ -12,8 +12,8 @@ namespace Session_16.Model {
         Cat,
         Dog
     }
-    public class PetFood : EntityBase {
-        //public Guid PetFoodID { get; set; }
+    public class PetFood {
+        public Guid PetFoodID { get; set; }
 
         [Required]
         public AnimalType AnimalType { get; set; }        
@@ -21,11 +21,12 @@ namespace Session_16.Model {
         public double PetFoodCost { get; set; }
 
         #region Relations
+        public Guid TransactionID { get; set; } 
         public Transaction Transaction { get; set; } = null!;
         #endregion Relations
 
         public PetFood(AnimalType animalType) {
-           // PetFoodID = Guid.NewGuid();
+            PetFoodID = Guid.NewGuid();
             AnimalType = animalType;
         }
         

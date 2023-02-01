@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 namespace Session_16.Model {
 
     /* In Each Transaction we have 1 Employee, 1 Customer that can buy 1 Pet but can buy many PetFoods, so we use List<PetFood> PetFoods */
-    public class Transaction : EntityBase {
-        //public Guid TransactionID { get; set; }
+    public class Transaction {
+        public Guid TransactionID { get; set; }
 
         [Required]
         public DateTime TransactionDate { get; set; }
@@ -41,7 +41,7 @@ namespace Session_16.Model {
         public double TotalPrice { get; set; }
 
         public Transaction(Guid customerID, Guid employeeID, Guid petID, Guid petFoodID) {
-            //TransactionID = Guid.NewGuid();
+            TransactionID = Guid.NewGuid();
             TransactionDate = DateTime.Now;
             CustomerID = customerID;
             EmployeeID = employeeID;

@@ -14,8 +14,8 @@ namespace Session_16.Orm.Configurations
     public class EmployeeConfiguration : IEntityTypeConfiguration<Employee> {
         public void Configure(EntityTypeBuilder<Employee> builder) {
             builder.ToTable("Employee");
-            builder.HasKey(employee => employee.Id);
-            builder.Property(employee => employee.Id).ValueGeneratedOnAdd();
+            builder.HasKey(employee => employee.EmployeeID);
+            builder.Property(employee => employee.EmployeeID).ValueGeneratedOnAdd();
             builder.Property(employee => employee.Name).HasMaxLength(50).IsRequired(true);
             builder.Property(employee => employee.Surname).HasMaxLength(50).IsRequired(true);
             builder.Property(employee => employee.TypeEmployee).HasMaxLength(14).IsRequired(true);
