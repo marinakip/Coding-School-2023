@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Session_16.Model {
+
+    /* In Each Transaction we have 1 Employee, 1 Customer that can buy 1 Pet but can buy many PetFoods, so we use List<PetFood> PetFoods */
     public class Transaction {
         public Guid TransactionID { get; set; }
 
