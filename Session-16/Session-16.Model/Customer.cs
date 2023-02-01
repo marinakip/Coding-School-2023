@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Session_16.Model {
-    public class Customer {
-        public Guid CustomerID { get; set; }
+    public class Customer : EntityBase {
+        //public Guid CustomerID { get; set; }
 
         [Required]
         public string Name { get; set; }
@@ -25,14 +25,14 @@ namespace Session_16.Model {
         #endregion Relations
 
         public Customer(string name, string surname, string phone) {
-            CustomerID = Guid.NewGuid();
+            //CustomerID = Guid.NewGuid();
             Name = name;    
             Surname = surname;  
             Phone = phone;  
         }
 
         public Customer(Guid customerID, string name, string surname, string phone, string tIN) {
-            CustomerID = customerID;
+            //CustomerID = customerID;
             Name = name;
             Surname = surname;
             Phone = phone;

@@ -9,9 +9,9 @@ namespace Session_16.Orm.Repositories {
     public interface IEntityRepository<TEntity>
         where TEntity : IEntityBase {
         IList<TEntity> GetAll();
-        TEntity? GetById(int id);
+        TEntity? GetById(Guid id);
         void Add(TEntity entity);
-        void Update(int id, TEntity entity);
-        void Delete(int id);
+        void Update(Guid id, TEntity entity);
+        void Delete(Guid id);
     }
 }

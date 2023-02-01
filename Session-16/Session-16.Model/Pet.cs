@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using static Session_16.Model.old_session_11_files.Pet;
 
 namespace Session_16.Model {
-    public class Pet {
+    public class Pet : EntityBase {
         public enum AnimalType {
             Bird,
             Cat,
@@ -19,7 +19,7 @@ namespace Session_16.Model {
             Recovering
         }
 
-        public Guid PetID { get; set; }
+        //public Guid PetID { get; set; }
 
         [Required]
         public string Breed { get; set; }
@@ -37,14 +37,14 @@ namespace Session_16.Model {
         #endregion Relations
 
         public Pet(string breed, AnimalType type, PetStatus status) {
-            PetID= Guid.NewGuid();  
+            //PetID= Guid.NewGuid();  
             Breed= breed;
             Type= type;
             Status= status; 
         }
 
         public Pet(Guid petID, string breed, AnimalType animalType, PetStatus status, double price, double cost) {
-            PetID = petID;
+           // PetID = petID;
             Breed = breed;
             Type = animalType;
             Status = status;

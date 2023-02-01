@@ -12,8 +12,8 @@ namespace Session_16.Model {
         Cat,
         Dog
     }
-    public class PetFood {
-        public Guid PetFoodID { get; set; }
+    public class PetFood : EntityBase {
+        //public Guid PetFoodID { get; set; }
 
         [Required]
         public AnimalType AnimalType { get; set; }        
@@ -25,7 +25,7 @@ namespace Session_16.Model {
         #endregion Relations
 
         public PetFood(AnimalType animalType) {
-            PetFoodID = Guid.NewGuid();
+           // PetFoodID = Guid.NewGuid();
             AnimalType = animalType;
         }
         

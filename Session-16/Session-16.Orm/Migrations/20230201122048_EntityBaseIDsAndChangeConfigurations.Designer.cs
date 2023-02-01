@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Session_16.Orm.Context;
 
@@ -11,9 +12,11 @@ using Session_16.Orm.Context;
 namespace Session16.Orm.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230201122048_EntityBaseIDsAndChangeConfigurations")]
+    partial class EntityBaseIDsAndChangeConfigurations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +27,7 @@ namespace Session16.Orm.Migrations
 
             modelBuilder.Entity("Session_16.Model.Customer", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -48,14 +51,14 @@ namespace Session16.Orm.Migrations
                         .HasMaxLength(9)
                         .HasColumnType("nvarchar(9)");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Customer", (string)null);
                 });
 
             modelBuilder.Entity("Session_16.Model.Employee", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -76,14 +79,14 @@ namespace Session16.Orm.Migrations
                         .HasMaxLength(14)
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Employee", (string)null);
                 });
 
             modelBuilder.Entity("Session_16.Model.MonthlyLedger", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -102,14 +105,14 @@ namespace Session16.Orm.Migrations
                     b.Property<int>("Year")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("MonthlyLedger", (string)null);
                 });
 
             modelBuilder.Entity("Session_16.Model.Pet", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -132,14 +135,14 @@ namespace Session16.Orm.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("Pet", (string)null);
                 });
 
             modelBuilder.Entity("Session_16.Model.PetFood", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -153,14 +156,14 @@ namespace Session16.Orm.Migrations
                     b.Property<double>("PetFoodPrice")
                         .HasColumnType("float");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("PetFood", (string)null);
                 });
 
             modelBuilder.Entity("Session_16.Model.PetReport", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -179,14 +182,14 @@ namespace Session16.Orm.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.ToTable("PetReport", (string)null);
                 });
 
             modelBuilder.Entity("Session_16.Model.Transaction", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<Guid>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -221,7 +224,7 @@ namespace Session16.Orm.Migrations
                     b.Property<DateTime>("TransactionDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.HasKey("ID");
 
                     b.HasIndex("CustomerID")
                         .IsUnique();
@@ -239,7 +242,7 @@ namespace Session16.Orm.Migrations
                 {
                     b.HasOne("Session_16.Model.Transaction", "Transaction")
                         .WithMany("PetFoods")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("ID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

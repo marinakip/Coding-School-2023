@@ -1,4 +1,6 @@
-﻿using Session_16.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using Session_16.Model;
+using Session_16.Orm.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,25 +12,44 @@ namespace Session_16.Orm.Repositories {
     //TODO: Add inheritance from EntityBase in all model classes, remove IDs
     //TODO: Add inheritance from IEntityRepository and create all repos
     //TODO: Add functionality in Form1 with repos
-    public class CustomerRepository {  //: IEntityRepository<Customer> {
+    public class CustomerRepository : IEntityRepository<Customer> {
         public void Add(Customer entity) {
-            throw new NotImplementedException();
+            using var context = new AppDbContext();
+            context.Add(entity);
+            context.SaveChanges();
         }
 
-        public void Delete(int id) {
-            throw new NotImplementedException();
+        public void Delete(Guid id) {
+            using var context = new AppDbContext();
+            var dbCustomer = context.Customers.Where(customer => customer.Id == id).SingleOrDefault();
+            if (dbCustomer is null)
+                return;
+            context.Remove(dbCustomer);
+            context.SaveChanges();
         }
 
         public IList<Customer> GetAll() {
-            throw new NotImplementedException();
+            using var context = new AppDbContext();
+            return (IList<Customer>)context.Customers;
         }
 
-        public Customer? GetById(int id) {
-            throw new NotImplementedException();
+        public Customer? GetById(Guid id) {
+            using var context = new AppDbContext();
+            return context.Customers.Where(customer => customer.Id == id)
+                .Include(customer => customer.Transaction)
+                .SingleOrDefault();
         }
 
-        public void Update(int id, Customer entity) {
-            throw new NotImplementedException();
+        public void Update(Guid id, Customer entity) {
+            using var context = new AppDbContext();
+            var dbCustomer = context.Customers.Where(customer => customer.Id == id).SingleOrDefault();
+            if (dbCustomer is null)
+                return;
+            dbCustomer.Name = entity.Name;
+            dbCustomer.Surname = entity.Surname;
+            dbCustomer.Phone = entity.Phone;
+            //dbCustomer.TIN = entity.TIN; //should not change
+            context.SaveChanges();
         }
     }
 }

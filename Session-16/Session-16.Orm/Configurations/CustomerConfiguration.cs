@@ -11,8 +11,8 @@ namespace Session_16.Orm.Configurations {
     public class CustomerConfiguration : IEntityTypeConfiguration<Customer> {
         public void Configure(EntityTypeBuilder<Customer> builder) {
             builder.ToTable("Customer");
-            builder.HasKey(customer => customer.CustomerID);
-            builder.Property(customer => customer.CustomerID).ValueGeneratedOnAdd();    
+            builder.HasKey(customer => customer.Id);
+            builder.Property(customer => customer.Id).ValueGeneratedOnAdd();    
             builder.Property(customer => customer.Name).HasMaxLength(50).IsRequired(true); 
             builder.Property(customer => customer.Surname).HasMaxLength(50).IsRequired(true);
             builder.Property(customer => customer.Phone).HasMaxLength(14).IsRequired(true);

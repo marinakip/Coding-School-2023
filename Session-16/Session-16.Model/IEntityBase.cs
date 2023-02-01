@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Session_16.Model {
     public interface IEntityBase {
-        int Id { get; set; }
+        Guid Id { get; set; }
     }
 }

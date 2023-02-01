@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Session_16.Model {
     public abstract class EntityBase : IEntityBase {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
+
+        //public EntityBase() {
+        //    Id = Guid.NewGuid();
+        //}
     }
 }
