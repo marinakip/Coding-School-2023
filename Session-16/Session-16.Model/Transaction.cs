@@ -26,9 +26,7 @@ namespace Session_16.Model {
         public Customer Customer { get; set; } = null!;
         
         public Guid EmployeeID { get; set; }
-        public Employee Employee { get; set; } = null!;
-
-        
+        public Employee Employee { get; set; } = null!;       
 
         #endregion Relations
 
