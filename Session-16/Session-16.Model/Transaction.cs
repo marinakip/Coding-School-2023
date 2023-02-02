@@ -22,26 +22,20 @@ namespace Session_16.Model {
         public double TotalPrice { get; set; }
         #endregion Properties
 
-        #region Relations
-
-        [Required]
+        #region Relations        
         public Guid CustomerID { get; set; }
         public Customer Customer { get; set; } = null!;
-
-        [Required]
+        
         public Guid EmployeeID { get; set; }
         public Employee Employee { get; set; } = null!;
-
-        [Required]
+        
         public Guid PetID { get; set; }
         public Pet Pet { get; set; } = null!;
-
-        [Required]
+        
         public Guid PetFoodID { get; set; }
         public List<PetFood> PetFoods { get; set; } = null!;
 
         #endregion Relations
-
 
         public Transaction(Guid customerID, Guid employeeID, Guid petID, Guid petFoodID) {
             TransactionID = Guid.NewGuid();
