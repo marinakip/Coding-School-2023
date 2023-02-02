@@ -33,7 +33,7 @@ namespace Session_16.Model {
         public double Cost { get; set; }
 
         #region Relations
-        public Transaction Transaction { get; set; } = null!;
+        public TransactionLine TransactionLine { get; set; } = null!;
         #endregion Relations
 
         public Pet(string breed, AnimalType type, PetStatus status) {

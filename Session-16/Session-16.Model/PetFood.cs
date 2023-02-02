@@ -21,8 +21,8 @@ namespace Session_16.Model {
         public double PetFoodCost { get; set; }
 
         #region Relations
-        public Guid TransactionID { get; set; } 
-        public Transaction Transaction { get; set; } = null!;
+        //public Guid TransactionLineID { get; set; } 
+        public TransactionLine TransactionLine { get; set; } = null!;
         #endregion Relations
 
         public PetFood(AnimalType animalType) {
