@@ -19,15 +19,6 @@ namespace Session_16.Orm.Repositories {
             context.SaveChanges();
         }
 
-        public void Delete(Guid id) {
-            using var context = new AppDbContext();
-            var dbCustomer = context.Customers.Where(customer => customer.CustomerID == id).SingleOrDefault();
-            if (dbCustomer is null)
-                return;
-            context.Remove(dbCustomer);
-            context.SaveChanges();
-        }
-
         public IList<Customer> GetAll() {
             using var context = new AppDbContext();
             return (IList<Customer>)context.Customers;
@@ -36,9 +27,9 @@ namespace Session_16.Orm.Repositories {
         public Customer? GetById(Guid id) {
             using var context = new AppDbContext();
             return context.Customers.Where(customer => customer.CustomerID == id)
-                .Include(customer => customer.Transaction)
-                .SingleOrDefault();
+                .Include(customer => customer.Transaction).SingleOrDefault();
         }
+
 
         public void Update(Guid id, Customer entity) {
             using var context = new AppDbContext();
@@ -51,5 +42,16 @@ namespace Session_16.Orm.Repositories {
             //dbCustomer.TIN = entity.TIN; // TIN should not be able to change
             context.SaveChanges();
         }
+
+        public void Delete(Guid id) {
+            using var context = new AppDbContext();
+            var dbCustomer = context.Customers.Where(customer => customer.CustomerID == id).SingleOrDefault();
+            if (dbCustomer is null)
+                return;
+            context.Remove(dbCustomer);
+            context.SaveChanges();
+        }
+
+
     }
 }
