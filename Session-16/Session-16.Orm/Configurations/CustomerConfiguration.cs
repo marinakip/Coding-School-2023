@@ -15,8 +15,8 @@ namespace Session_16.Orm.Configurations {
             builder.Property(customer => customer.CustomerID).ValueGeneratedOnAdd();    
             builder.Property(customer => customer.Name).HasMaxLength(50).IsRequired(true); 
             builder.Property(customer => customer.Surname).HasMaxLength(50).IsRequired(true);
-            builder.Property(customer => customer.Phone).HasMaxLength(14).IsRequired(true);
-            builder.Property(customer => customer.TIN).HasMaxLength(9); 
+            builder.Property(customer => customer.Phone).HasMaxLength(40).IsRequired(true);
+            builder.Property(customer => customer.TIN).HasMaxLength(20); 
             
         }
     }

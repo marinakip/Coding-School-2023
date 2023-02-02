@@ -18,7 +18,7 @@ namespace Session_16.Orm.Configurations
             builder.Property(employee => employee.EmployeeID).ValueGeneratedOnAdd();
             builder.Property(employee => employee.Name).HasMaxLength(50).IsRequired(true);
             builder.Property(employee => employee.Surname).HasMaxLength(50).IsRequired(true);
-            builder.Property(employee => employee.TypeEmployee).HasMaxLength(14).IsRequired(true);
+            builder.Property(employee => employee.TypeEmployee).HasMaxLength(20).IsRequired(true);
             //builder.Property(employee => employee.TypeEmployee)
             //    .HasConversion(v => v.ToString(), v => (EmployeeType)Enum.Parse(typeof(EmployeeType), v))
             //    .HasMaxLength(14)

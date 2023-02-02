@@ -18,8 +18,8 @@ namespace Session_16.Orm.Configurations {
             builder.Property(petFood => petFood.PetFoodCost);
 
             builder.HasOne(petFood => petFood.Transaction)
-              .WithMany(transaction => transaction.PetFoods)
-              .HasForeignKey(transaction => transaction.TransactionID);
+              .WithMany(transaction => transaction.TransactionLines)
+              .HasForeignKey(transaction => transaction.TransactionLineID);
         }
     }
 }

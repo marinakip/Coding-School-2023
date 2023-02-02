@@ -15,9 +15,9 @@ namespace Session_16.Orm.Configurations {
             builder.Property(monthlyLedger => monthlyLedger.MonthlyLedgerID).ValueGeneratedOnAdd();            
             builder.Property(monthlyLedger => monthlyLedger.Year).IsRequired(true);
             builder.Property(monthlyLedger => monthlyLedger.Month).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Income).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Expenses).IsRequired(true);
-            builder.Property(monthlyLedger => monthlyLedger.Total);
+            builder.Property(monthlyLedger => monthlyLedger.Income).HasPrecision(12,2).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Expenses).HasPrecision(12,2).IsRequired(true);
+            builder.Property(monthlyLedger => monthlyLedger.Total).HasPrecision(12,2);
         }
     }
 }
