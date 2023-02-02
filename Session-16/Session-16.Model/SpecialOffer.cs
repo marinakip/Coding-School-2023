@@ -12,6 +12,8 @@ namespace Session_16.Model {
         public Guid PetFoodID { get; set; }
         public double PetFoodPrice { get; set; }  // Maybe not needed
         public PetFood? PetFood { get; set; }
+        public Guid TransactionLineID { get; set; }
+        public TransactionLine TransactionLine { get; set; }    
         #endregion Relations
         public SpecialOffer(Guid petFoodID) {
             SpecialOfferID = Guid.NewGuid();
