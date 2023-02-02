@@ -16,7 +16,7 @@ namespace Session_16.Orm.Configurations {
             builder.Property(petReport => petReport.Year).HasMaxLength(10).IsRequired(true);
             builder.Property(petReport => petReport.Month).HasMaxLength(10).IsRequired(true);
             builder.Property(petReport => petReport.TypeAnimal).HasMaxLength(10).IsRequired(true);
-            builder.Property(petReport => petReport.TotalSold);
+            builder.Property(petReport => petReport.TotalSold).HasPrecision(10,2);
         }
     }
 }

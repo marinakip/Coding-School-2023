@@ -14,12 +14,9 @@ namespace Session_16.Orm.Configurations {
             builder.HasKey(petFood => petFood.PetFoodID);
             builder.Property(petFood => petFood.PetFoodID).ValueGeneratedOnAdd();
             builder.Property(petFood => petFood.AnimalType).HasMaxLength(15).IsRequired(true);
-            builder.Property(petFood => petFood.PetFoodPrice);
-            builder.Property(petFood => petFood.PetFoodCost);
-
-            builder.HasOne(petFood => petFood.Transaction)
-              .WithMany(transaction => transaction.TransactionLines)
-              .HasForeignKey(transaction => transaction.TransactionLineID);
+            builder.Property(petFood => petFood.PetFoodPrice).HasPrecision(10,2);
+            builder.Property(petFood => petFood.PetFoodCost).HasPrecision(10,2);
+       
         }
     }
 }

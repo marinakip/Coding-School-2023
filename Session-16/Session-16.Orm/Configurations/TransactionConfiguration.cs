@@ -15,9 +15,8 @@ namespace Session_16.Orm.Configurations {
             builder.Property(transaction => transaction.TransactionID).ValueGeneratedOnAdd();
             builder.Property(transaction => transaction.TransactionDate).IsRequired(true);
             builder.Property(transaction => transaction.CustomerID).HasMaxLength(50);
-            builder.Property(transaction => transaction.EmployeeID).HasMaxLength(50);
-            
-            builder.Property(transaction => transaction.TotalPrice);
+            builder.Property(transaction => transaction.EmployeeID).HasMaxLength(50);            
+            builder.Property(transaction => transaction.TotalPrice).HasPrecision(10, 2);
 
             builder.HasOne(transaction => transaction.Customer)
                 .WithOne(customer => customer.Transaction)
