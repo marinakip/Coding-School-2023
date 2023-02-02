@@ -10,7 +10,7 @@ namespace Session_16.Model {
 
         #region Relations
         public Guid PetFoodID { get; set; }
-        public PetFood PetFood { get; set; }
+        public PetFood? PetFood { get; set; }
         #endregion Relations
         public SpecialOffer(Guid petFoodID) {
             SpecialOfferID = Guid.NewGuid();

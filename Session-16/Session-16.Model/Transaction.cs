@@ -15,10 +15,10 @@ namespace Session_16.Model {
         public Guid TransactionID { get; set; }
 
         [Required]
-        public DateTime TransactionDate { get; set; }
-        public double PetPrice { get; set; }
-        public double PetFoodQty { get; set; }
-        public double PetFoodPrice { get; set; }
+        public List<TransactionLine> TransactionLines { get; set; } 
+
+        [Required]
+        public DateTime TransactionDate { get; set; }       
         public double TotalPrice { get; set; }
         #endregion Properties
 
@@ -28,22 +28,18 @@ namespace Session_16.Model {
         
         public Guid EmployeeID { get; set; }
         public Employee Employee { get; set; } = null!;
+
         
-        public Guid PetID { get; set; }
-        public Pet Pet { get; set; } = null!;
-        
-        public Guid PetFoodID { get; set; }
-        public List<PetFood> PetFoods { get; set; } = null!;
 
         #endregion Relations
 
-        public Transaction(Guid customerID, Guid employeeID, Guid petID, Guid petFoodID) {
+        public Transaction(Guid customerID, Guid employeeID) {
             TransactionID = Guid.NewGuid();
             TransactionDate = DateTime.Now;
             CustomerID = customerID;
             EmployeeID = employeeID;
-            PetID = petID;
-            PetFoodID = petFoodID;
+            TransactionLines = new List<TransactionLine>(); 
+           
         }    
     }
 }
