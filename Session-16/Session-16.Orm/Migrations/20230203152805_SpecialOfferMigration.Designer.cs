@@ -12,8 +12,8 @@ using Session_16.Orm.Context;
 namespace Session16.Orm.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230203005211_TransactionLineConfigAndSpecialOfferConfig")]
-    partial class TransactionLineConfigAndSpecialOfferConfig
+    [Migration("20230203152805_SpecialOfferMigration")]
+    partial class SpecialOfferMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -201,16 +201,7 @@ namespace Session16.Orm.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("PetFoodID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<double>("PetFoodPrice")
-                        .HasColumnType("float");
-
                     b.HasKey("SpecialOfferID");
-
-                    b.HasIndex("PetFoodID")
-                        .IsUnique();
 
                     b.ToTable("SpecialOffer", (string)null);
                 });
@@ -296,17 +287,6 @@ namespace Session16.Orm.Migrations
                     b.ToTable("TransactionLine");
                 });
 
-            modelBuilder.Entity("Session_16.Model.SpecialOffer", b =>
-                {
-                    b.HasOne("Session_16.Model.PetFood", "PetFood")
-                        .WithOne("SpecialOffer")
-                        .HasForeignKey("Session_16.Model.SpecialOffer", "PetFoodID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("PetFood");
-                });
-
             modelBuilder.Entity("Session_16.Model.Transaction", b =>
                 {
                     b.HasOne("Session_16.Model.Customer", "Customer")
@@ -381,9 +361,6 @@ namespace Session16.Orm.Migrations
 
             modelBuilder.Entity("Session_16.Model.PetFood", b =>
                 {
-                    b.Navigation("SpecialOffer")
-                        .IsRequired();
-
                     b.Navigation("TransactionLine")
                         .IsRequired();
                 });

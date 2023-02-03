@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Session16.Orm.Migrations
 {
     /// <inheritdoc />
-    public partial class TransactionLineConfigAndSpecialOfferConfig : Migration
+    public partial class SpecialOfferMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -155,19 +155,11 @@ namespace Session16.Orm.Migrations
                 name: "SpecialOffer",
                 columns: table => new
                 {
-                    SpecialOfferID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PetFoodID = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    PetFoodPrice = table.Column<double>(type: "float", nullable: false)
+                    SpecialOfferID = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_SpecialOffer", x => x.SpecialOfferID);
-                    table.ForeignKey(
-                        name: "FK_SpecialOffer_PetFood_PetFoodID",
-                        column: x => x.PetFoodID,
-                        principalTable: "PetFood",
-                        principalColumn: "PetFoodID",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -213,12 +205,6 @@ namespace Session16.Orm.Migrations
                         principalColumn: "TransactionID",
                         onDelete: ReferentialAction.Cascade);
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_SpecialOffer_PetFoodID",
-                table: "SpecialOffer",
-                column: "PetFoodID",
-                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_TransactionLine_PetFoodID",

@@ -8,17 +8,11 @@ namespace Session_16.Model {
     public class SpecialOffer {
         public Guid SpecialOfferID { get; set; }
 
-        #region Relations
-        public Guid PetFoodID { get; set; }
-        public double PetFoodPrice { get; set; }  // Maybe not needed
-        public PetFood? PetFood { get; set; }
-        public Guid TransactionLineID { get; set; }
+        #region Relations        
         public TransactionLine TransactionLine { get; set; }    
         #endregion Relations
-        public SpecialOffer(Guid petFoodID) {
-            SpecialOfferID = Guid.NewGuid();
-            PetFoodID = petFoodID;
-            PetFoodPrice = 0.0; // Maybe not needed
+        public SpecialOffer() {
+            SpecialOfferID = Guid.NewGuid();            
         }   
     }
 }
