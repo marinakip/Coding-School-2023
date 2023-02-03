@@ -23,6 +23,7 @@ namespace Session_16.Model {
         #region Relations
         //public Guid TransactionLineID { get; set; } 
         public TransactionLine TransactionLine { get; set; } = null!;
+        public SpecialOffer SpecialOffer { get; set; } = null!;
         #endregion Relations
 
         public PetFood(AnimalType animalType) {

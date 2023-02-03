@@ -13,6 +13,7 @@ namespace Session_16.Orm.Context
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<MonthlyLedger> MonthlyLedgers { get; set; } 
         public DbSet<PetReport> PetReports { get; set; }
+        public DbSet<SpecialOffer> SpecialOffers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());
@@ -22,6 +23,7 @@ namespace Session_16.Orm.Context
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new MonthlyLedgerConfiguration());
             modelBuilder.ApplyConfiguration(new PetReportConfiguration());
+            modelBuilder.ApplyConfiguration(new SpecialOfferConfiguration());
             base.OnModelCreating(modelBuilder); 
         }
 

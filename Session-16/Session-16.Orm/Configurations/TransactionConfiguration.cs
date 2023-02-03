@@ -19,12 +19,12 @@ namespace Session_16.Orm.Configurations {
             builder.Property(transaction => transaction.TotalPrice).HasPrecision(10, 2);
 
             builder.HasOne(transaction => transaction.Customer)
-                .WithOne(customer => customer.Transaction)
-                .HasForeignKey<Transaction>(transaction => transaction.CustomerID);
+                   .WithOne(customer => customer.Transaction)
+                   .HasForeignKey<Transaction>(transaction => transaction.CustomerID);
 
             builder.HasOne(transaction => transaction.Employee)
-                .WithOne(employee => employee.Transaction)
-                .HasForeignKey<Transaction>(transaction => transaction.EmployeeID);
+                   .WithOne(employee => employee.Transaction)
+                   .HasForeignKey<Transaction>(transaction => transaction.EmployeeID);
 
            
 

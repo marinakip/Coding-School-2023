@@ -18,6 +18,10 @@ namespace Session_16.Orm.Configurations {
             builder.Property(transactionLine => transactionLine.PetFoodPrice).HasPrecision(10,2);
             builder.Property(transactionLine => transactionLine.PetPrice).HasPrecision(10, 2).IsRequired(true);
             builder.Property(transactionLine => transactionLine.LineTotal).HasPrecision(10, 2);
+            builder.Property(transactionLine => transactionLine.TransactionID);
+            builder.Property(transactionLine => transactionLine.PetFoodID);
+            builder.Property(transactionLine => transactionLine.PetID);
+            builder.Property(transactionLine => transactionLine.SpecialOfferID);
 
             builder.HasOne(transactionLine => transactionLine.Transaction)
                    .WithMany(transaction => transaction.TransactionLines)
