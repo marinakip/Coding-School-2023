@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Session_16.Orm.Context;
 
@@ -11,9 +12,11 @@ using Session_16.Orm.Context;
 namespace Session16.Orm.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230203005211_TransactionLineConfigAndSpecialOfferConfig")]
+    partial class TransactionLineConfigAndSpecialOfferConfig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -209,7 +212,7 @@ namespace Session16.Orm.Migrations
                     b.HasIndex("PetFoodID")
                         .IsUnique();
 
-                    b.ToTable("SpecialOffer");
+                    b.ToTable("SpecialOffer", (string)null);
                 });
 
             modelBuilder.Entity("Session_16.Model.Transaction", b =>

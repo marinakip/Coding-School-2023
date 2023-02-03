@@ -13,8 +13,9 @@ namespace Session_16.Orm.Configurations {
             builder.ToTable("SpecialOffer");
             builder.HasKey(specialOffer => specialOffer.SpecialOfferID);
             builder.Property(specialOffer => specialOffer.SpecialOfferID).ValueGeneratedOnAdd();
-            builder.Property(transactionLine => transactionLine.PetFoodID);
-            builder.Property(transactionLine => transactionLine.PetFoodPrice); //maybe not needed
+            builder.Property(specialOffer => specialOffer.PetFoodID);
+            builder.Property(specialOffer => specialOffer.TransactionLineID);
+            builder.Property(specialOffer => specialOffer.PetFoodPrice); //maybe not needed
 
             builder.HasOne(transaction => transaction.PetFood)
                    .WithOne(petFood => petFood.SpecialOffer)
