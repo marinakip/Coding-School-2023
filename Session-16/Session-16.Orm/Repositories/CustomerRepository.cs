@@ -39,7 +39,7 @@ namespace Session_16.Orm.Repositories {
             dbCustomer.Name = entity.Name;
             dbCustomer.Surname = entity.Surname;
             dbCustomer.Phone = entity.Phone;
-            dbCustomer.TIN = entity.TIN;
+            dbCustomer.TIN = entity.TIN; //maybe it should not change since it is unique, it can be used for id too as alternate key
             context.SaveChanges();
         }
 
