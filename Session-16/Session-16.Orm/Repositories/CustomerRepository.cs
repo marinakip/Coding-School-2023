@@ -39,7 +39,7 @@ namespace Session_16.Orm.Repositories {
             dbCustomer.Name = entity.Name;
             dbCustomer.Surname = entity.Surname;
             dbCustomer.Phone = entity.Phone;
-            //dbCustomer.TIN = entity.TIN; // TIN should not be able to change
+            dbCustomer.TIN = entity.TIN;
             context.SaveChanges();
         }
 
