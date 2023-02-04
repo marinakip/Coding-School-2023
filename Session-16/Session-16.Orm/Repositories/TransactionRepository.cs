@@ -22,8 +22,7 @@ namespace Session_16.Orm.Repositories {
 
         public Transaction? GetById(Guid id) {
             using var context = new AppDbContext();
-            return context.Transactions.Where(transaction => transaction.TransactionID == id).SingleOrDefault();
-                
+            return context.Transactions.Where(transaction => transaction.TransactionID == id).SingleOrDefault();                
         }
 
         public void Update(Guid id, Transaction entity) {
