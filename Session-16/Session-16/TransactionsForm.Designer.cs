@@ -1,5 +1,5 @@
 ﻿namespace Session_16 {
-    partial class EmployeesForm {
+    partial class TransactionsForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -23,7 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EmployeesForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TransactionsForm));
             this.btnOk = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -31,7 +31,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbEmployees = new System.Windows.Forms.Label();
+            this.lbOrders = new System.Windows.Forms.Label();
             this.logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -47,7 +47,7 @@
             this.btnOk.Location = new System.Drawing.Point(1173, 604);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(80, 26);
-            this.btnOk.TabIndex = 29;
+            this.btnOk.TabIndex = 38;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -61,7 +61,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(19, 569);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(80, 26);
-            this.btnUpdate.TabIndex = 28;
+            this.btnUpdate.TabIndex = 37;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = false;
             // 
@@ -74,7 +74,7 @@
             this.btnDelete.Location = new System.Drawing.Point(123, 569);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(80, 26);
-            this.btnDelete.TabIndex = 27;
+            this.btnDelete.TabIndex = 36;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = false;
             // 
@@ -87,7 +87,7 @@
             this.btnAdd.Location = new System.Drawing.Point(815, 569);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(80, 26);
-            this.btnAdd.TabIndex = 26;
+            this.btnAdd.TabIndex = 35;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = false;
             // 
@@ -100,7 +100,7 @@
             this.btnCancel.Location = new System.Drawing.Point(1087, 604);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 26);
-            this.btnCancel.TabIndex = 25;
+            this.btnCancel.TabIndex = 34;
             this.btnCancel.Text = "CANCEL";
             this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -112,7 +112,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
             this.dataGridView1.Size = new System.Drawing.Size(876, 497);
-            this.dataGridView1.TabIndex = 24;
+            this.dataGridView1.TabIndex = 33;
             // 
             // pictureBox1
             // 
@@ -120,19 +120,19 @@
             this.pictureBox1.Location = new System.Drawing.Point(19, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(53, 48);
-            this.pictureBox1.TabIndex = 23;
+            this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
-            // lbEmployees
+            // lbOrders
             // 
-            this.lbEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbEmployees.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbEmployees.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbEmployees.Location = new System.Drawing.Point(91, 23);
-            this.lbEmployees.Name = "lbEmployees";
-            this.lbEmployees.Size = new System.Drawing.Size(100, 23);
-            this.lbEmployees.TabIndex = 22;
-            this.lbEmployees.Text = "Employees";
+            this.lbOrders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbOrders.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbOrders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbOrders.Location = new System.Drawing.Point(91, 23);
+            this.lbOrders.Name = "lbOrders";
+            this.lbOrders.Size = new System.Drawing.Size(100, 23);
+            this.lbOrders.TabIndex = 31;
+            this.lbOrders.Text = "Orders";
             // 
             // logo
             // 
@@ -143,10 +143,10 @@
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(334, 124);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logo.TabIndex = 21;
+            this.logo.TabIndex = 30;
             this.logo.TabStop = false;
             // 
-            // EmployeesForm
+            // TransactionsForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -159,12 +159,12 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.lbEmployees);
+            this.Controls.Add(this.lbOrders);
             this.Controls.Add(this.logo);
             this.MaximizeBox = false;
-            this.Name = "EmployeesForm";
+            this.Name = "TransactionsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Fur Ever Friends Pet Shop - Employees";
+            this.Text = "Fur Ever Friends Pet Shop - Orders";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
@@ -181,7 +181,7 @@
         private Button btnCancel;
         private DataGridView dataGridView1;
         private PictureBox pictureBox1;
-        private Label lbEmployees;
+        private Label lbOrders;
         private PictureBox logo;
     }
 }

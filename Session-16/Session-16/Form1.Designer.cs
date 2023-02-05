@@ -117,6 +117,7 @@
             this.btnOrders.Size = new System.Drawing.Size(91, 79);
             this.btnOrders.TabIndex = 5;
             this.btnOrders.UseVisualStyleBackColor = true;
+            this.btnOrders.Click += new System.EventHandler(this.btnOrders_Click);
             // 
             // lbStoreManagement
             // 
