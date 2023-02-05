@@ -11,12 +11,17 @@ namespace Session_16 {
         }
 
         private void btnTestDatabase_Click(object sender, EventArgs e) {
-            //SqlConnection  connection = new SqlConnection();
-            //connection.ConnectionString = "data source=MARINA-KIPOUROU; initial catalog=AdventureWorks2019; integrated security=SSPI; TrustServerCertificate=True;"; 
-            //connection.Open();
+            SqlConnection connection = new SqlConnection();
+            connection.ConnectionString = "data source=MARINA-KIPOUROU; initial catalog=PetShopDb; integrated security=SSPI; TrustServerCertificate=True;";
+            try {
+                connection.Open();
+                MessageBox.Show("Connected Successfully to PetShop Database");
+            } catch (Exception) {
+                throw new Exception("Error connecting to PetShop Database");
+            }
 
             //DataSet ds = new DataSet(); 
-            
+
 
             //string selectQuery = Resource1.CustomerQuery;
             //SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection);
@@ -26,8 +31,8 @@ namespace Session_16 {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
-            _customerRepository = new CustomerRepository();
-            RefreshCustomers();
+            //_customerRepository = new CustomerRepository();
+            //RefreshCustomers();
         }
 
         private void RefreshCustomers() {

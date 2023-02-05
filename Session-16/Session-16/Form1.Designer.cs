@@ -28,11 +28,11 @@
             // 
             // btnTestDatabase
             // 
-            this.btnTestDatabase.Location = new System.Drawing.Point(220, 63);
+            this.btnTestDatabase.Location = new System.Drawing.Point(627, 12);
             this.btnTestDatabase.Name = "btnTestDatabase";
-            this.btnTestDatabase.Size = new System.Drawing.Size(118, 23);
+            this.btnTestDatabase.Size = new System.Drawing.Size(161, 23);
             this.btnTestDatabase.TabIndex = 0;
-            this.btnTestDatabase.Text = "Test Database";
+            this.btnTestDatabase.Text = "Test Database Connection";
             this.btnTestDatabase.UseVisualStyleBackColor = true;
             this.btnTestDatabase.Click += new System.EventHandler(this.btnTestDatabase_Click);
             // 
