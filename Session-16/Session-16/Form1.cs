@@ -4,6 +4,7 @@ using Session_16.Helpers;
 using Session_16.Orm.Repositories;
 
 namespace Session_16 {
+    //NOTE: Couldn't manage to open again DevExpress Toolbox, Visual Studio was constantly crashing when tried to repair toolbox, so basic WinForms were used
     public partial class Form1 : Form {
         
         //private CustomerRepository _customerRepository;
