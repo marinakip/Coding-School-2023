@@ -74,6 +74,7 @@
             this.btnStoreManagement.Size = new System.Drawing.Size(91, 79);
             this.btnStoreManagement.TabIndex = 2;
             this.btnStoreManagement.UseVisualStyleBackColor = true;
+            this.btnStoreManagement.Click += new System.EventHandler(this.btnStoreManagement_Click);
             // 
             // btnEmployees
             // 

@@ -55,5 +55,11 @@ namespace Session_16 {
             TransactionsForm transactions = new TransactionsForm();
             transactions.ShowDialog();  
         }
+
+        private void btnStoreManagement_Click(object sender, EventArgs e) {
+            StoreManagementForm storeManagement = new StoreManagementForm();
+            storeManagement.ShowDialog();   
+            
+        }
     }
 }
