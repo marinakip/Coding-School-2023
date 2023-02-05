@@ -1,5 +1,6 @@
 ﻿namespace Session_16.Storage {
-    public class Class1 {
-
+    public interface IStorage {
+        public void Load();
+        public void Save();
     }
 }
