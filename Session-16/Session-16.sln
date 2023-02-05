@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session-16.Model", "Session
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session-16.Orm", "Session-16.Orm\Session-16.Orm.csproj", "{38E40E5A-D7A8-461F-A049-8FF0E83C1417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Session-16.Business", "Session-16.Business\Session-16.Business.csproj", "{6D4584D8-B6B8-456C-80CB-025D9FA7325D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session-16.Business", "Session-16.Business\Session-16.Business.csproj", "{6D4584D8-B6B8-456C-80CB-025D9FA7325D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Session-16.Storage", "Session-16.Storage\Session-16.Storage.csproj", "{36B4C119-D728-40A5-B3F6-36D06DB83A92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Session-16.Storage", "Session-16.Storage\Session-16.Storage.csproj", "{36B4C119-D728-40A5-B3F6-36D06DB83A92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Session-16.Helpers", "Session-16.Helpers\Session-16.Helpers.csproj", "{97CEB7CF-65A2-4FFC-9CE7-2595443DFFA9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{36B4C119-D728-40A5-B3F6-36D06DB83A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36B4C119-D728-40A5-B3F6-36D06DB83A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36B4C119-D728-40A5-B3F6-36D06DB83A92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97CEB7CF-65A2-4FFC-9CE7-2595443DFFA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97CEB7CF-65A2-4FFC-9CE7-2595443DFFA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97CEB7CF-65A2-4FFC-9CE7-2595443DFFA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97CEB7CF-65A2-4FFC-9CE7-2595443DFFA9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
