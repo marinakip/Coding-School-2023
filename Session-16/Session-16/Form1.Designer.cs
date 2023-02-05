@@ -88,6 +88,7 @@
             this.btnEmployees.Size = new System.Drawing.Size(91, 79);
             this.btnEmployees.TabIndex = 3;
             this.btnEmployees.UseVisualStyleBackColor = true;
+            this.btnEmployees.Click += new System.EventHandler(this.btnEmployees_Click);
             // 
             // btnCustomers
             // 

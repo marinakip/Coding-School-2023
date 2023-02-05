@@ -45,5 +45,10 @@ namespace Session_16 {
             customers.ShowDialog();
 
         }
+
+        private void btnEmployees_Click(object sender, EventArgs e) {
+            EmployeesForm employees = new EmployeesForm();
+            employees.ShowDialog(); 
+        }
     }
 }
