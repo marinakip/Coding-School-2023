@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Session_16.Storage {
-    public class PetShopStorage : IStorage<PetShop> {
+    public class PetShopFileStorage : IFileStorage<PetShop> {
         public PetShop Load() {
             Serializer serializer = new Serializer();
             PetShop petShop = serializer.DeserializeFromFile<PetShop>("PetShop.json");
