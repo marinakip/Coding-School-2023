@@ -14,7 +14,7 @@ namespace Session_16 {
         }
 
         private void btnTestDatabase_Click(object sender, EventArgs e) {
-            DatabaseConnection databaseConnection = new DatabaseConnection();
+            IHelper databaseConnection = new DatabaseConnection();
             try {
                 databaseConnection.TestDatabaseConnection();
               MessageBox.Show("Connected Successfully to PetShop Database");

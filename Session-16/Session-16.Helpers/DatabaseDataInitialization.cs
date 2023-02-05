@@ -9,8 +9,13 @@ using System.Threading.Tasks;
 // Tables that are not identical types with AdventureWorks (Pets, PetFoods, etc) are going to be manually populated.
 
 namespace Session_16.Helpers {
-    public class DatabaseDataInitialization {
+    public class DatabaseDataInitialization : IHelper {
+        public DatabaseDataInitialization() { }     
+       
+        public virtual void TestDatabaseConnection() { }
+
         //TODO: Implementation
+        public void InitializeDatabase() { }    
 
     }
 }
