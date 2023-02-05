@@ -21,5 +21,17 @@ namespace Session_16 {
         private void btnCancel_Click(object sender, EventArgs e) {
             this.Close();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e) {
+            MessageBox.Show("UNAUTHORIZED: Only Store Management has access to this action");
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e) {
+            MessageBox.Show("UNAUTHORIZED: Only Store Management has access to this action");
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e) {
+            MessageBox.Show("UNAUTHORIZED: Only Store Management has access to this action");
+        }
     }
 }
