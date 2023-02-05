@@ -101,6 +101,7 @@
             this.btnCustomers.Size = new System.Drawing.Size(91, 79);
             this.btnCustomers.TabIndex = 4;
             this.btnCustomers.UseVisualStyleBackColor = true;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
             // btnOrders
             // 

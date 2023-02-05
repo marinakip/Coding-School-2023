@@ -4,7 +4,8 @@ using Session_16.Orm.Repositories;
 
 namespace Session_16 {
     public partial class Form1 : Form {
-        private CustomerRepository _customerRepository;
+        
+        //private CustomerRepository _customerRepository;
 
         public Form1() {
             InitializeComponent();
@@ -37,6 +38,12 @@ namespace Session_16 {
 
         private void RefreshCustomers() {
             throw new NotImplementedException();
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e) {
+            CustomersForm customers = new CustomersForm();
+            customers.ShowDialog();
+
         }
     }
 }

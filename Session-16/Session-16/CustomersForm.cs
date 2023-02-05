@@ -14,6 +14,12 @@ namespace Session_16 {
             InitializeComponent();
         }
 
-        
+        private void btnOk_Click(object sender, EventArgs e) {
+            this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e) {
+            this.Close();
+        }
     }
 }
