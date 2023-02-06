@@ -4,7 +4,9 @@ using Session_16.Helpers;
 using Session_16.Orm.Repositories;
 
 namespace Session_16 {
-    //NOTE: Couldn't manage to open again DevExpress Toolbox, Visual Studio was constantly crashing when tried to repair toolbox, so basic WinForms were used
+    //NOTE 1: Couldn't manage to open again DevExpress Toolbox, Visual Studio was constantly crashing when tried to repair toolbox, so basic WinForms were used
+    //NOTE 2: I want to use repositories' methods from library Session-16.Business and not use each repository instantiation and population straight in forms, like our example.
+    //        Forms should contain only relevant methods concerning the form, not repositories, that's why i tried to create a library handling repositories.
     public partial class Form1 : Form {       
        
         public Form1() {

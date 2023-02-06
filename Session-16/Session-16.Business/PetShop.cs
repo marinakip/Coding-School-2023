@@ -29,21 +29,21 @@ namespace Session_16.Business {
         //TODO: PETSHOP METHODS
 
         #region PetShop Methods
-        public void AddToRepository() {
+        public void AddToRepository<T>(Object obj) {
             throw new NotImplementedException();
         }
 
-        public void CreateRepositoryObject() {
+        public T CreateRepositoryObject<T>() {
             throw new NotImplementedException();
         }
 
-        public void DeleteFromRepository() {
+        public void DeleteFromRepository<T>() {
             throw new NotImplementedException();
         }
         
         public void LoadRepositories() { }
 
-        public void UpdateRepository() {
+        public void UpdateRepository<T>(Object obj) {
             throw new NotImplementedException();
         }
         #endregion PetShop Methods

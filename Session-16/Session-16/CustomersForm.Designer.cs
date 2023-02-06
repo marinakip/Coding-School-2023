@@ -27,7 +27,7 @@
             this.logo = new System.Windows.Forms.PictureBox();
             this.lbCustomers = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grvCustomers = new System.Windows.Forms.DataGridView();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
@@ -35,7 +35,7 @@
             this.btnOk = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // logo
@@ -70,14 +70,12 @@
             this.pictureBox1.TabIndex = 11;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView1
+            // grvCustomers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 66);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(876, 497);
-            this.dataGridView1.TabIndex = 14;
+            this.grvCustomers.Location = new System.Drawing.Point(26, 66);
+            this.grvCustomers.Name = "grvCustomers";
+            this.grvCustomers.Size = new System.Drawing.Size(876, 497);
+            this.grvCustomers.TabIndex = 21;
             // 
             // btnCancel
             // 
@@ -105,6 +103,7 @@
             this.btnAdd.TabIndex = 17;
             this.btnAdd.Text = "ADD";
             this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -157,7 +156,7 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grvCustomers);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbCustomers);
             this.Controls.Add(this.logo);
@@ -165,9 +164,10 @@
             this.Name = "CustomersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fur Ever Friends Pet Shop - Customers";
+            this.Load += new System.EventHandler(this.CustomersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvCustomers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,7 +177,7 @@
         private PictureBox logo;
         private Label lbCustomers;
         private PictureBox pictureBox1;
-        private DataGridView dataGridView1;
+        private DataGridView grvCustomers;
         private Button btnCancel;
         private Button btnAdd;
         private Button btnDelete;
