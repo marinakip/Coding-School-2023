@@ -49,9 +49,20 @@ header {
 }
 
 h1 {
-    border: 3px solid rgb(214, 60, 13);
+    border: 3px solid rgb(243, 172, 8);
     color: #414141;
     font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
+}
+
+.article {
+    display: flex;
+    color: #414141;
+    font-size: 0.8rem;
+}
+
+.article-img {
+    border: 3px solid rgb(243, 172, 8);
+    transform: scale(0.45, 0.4);
 }
