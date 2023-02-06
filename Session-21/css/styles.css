@@ -1,6 +1,40 @@
+* {
+    border: 1px solid red;
+}
+
 header {
-    background-color: aqua;
-    border: 5px solid red;
+    background-color: #DDE0E3;
+    border: 5px solid rgb(30, 0, 255);
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    background-color: #DDE0E3;
+    border: 3px solid rgb(4, 146, 58);
     justify-content: flex-start;
+}
+
+.nav {
+    display: flex;
+    background-color: #DDE0E3;
+    border: 3px solid rgb(214, 211, 13);
+    color: rgb(4, 146, 58);
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+.nav li a {
+    display: flex;
+    border: 3px solid rgb(240, 65, 220);
+    align-items: center;
+    font: #33ffcc;
+    justify-items: flex-start;
+    padding-right: 1rem;
+
+
 }
