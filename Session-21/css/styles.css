@@ -21,20 +21,25 @@ header {
     display: flex;
     background-color: #DDE0E3;
     border: 3px solid rgb(214, 211, 13);
-    color: rgb(4, 146, 58);
+    /* color: rgb(4, 146, 58); */
     justify-content: space-around;
     align-items: center;
 
 
 }
 
+.nav li {
+    color: #DDE0E3;
+}
+
 .nav li a {
     display: flex;
     border: 3px solid rgb(240, 65, 220);
     align-items: center;
-    font: #33ffcc;
     justify-items: flex-start;
     padding-right: 1rem;
+    color: #00cc99;
+    text-decoration: none;
 
 
 }
