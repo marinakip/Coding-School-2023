@@ -5,10 +5,8 @@ using Session_16.Orm.Repositories;
 
 namespace Session_16 {
     //NOTE: Couldn't manage to open again DevExpress Toolbox, Visual Studio was constantly crashing when tried to repair toolbox, so basic WinForms were used
-    public partial class Form1 : Form {
-        
-        //private CustomerRepository _customerRepository;
-
+    public partial class Form1 : Form {       
+       
         public Form1() {
             InitializeComponent();
         }
@@ -20,25 +18,11 @@ namespace Session_16 {
               MessageBox.Show("Connected Successfully to PetShop Database");
             } catch (Exception) {
                 throw new Exception("Error connecting to PetShop Database");
-    }
-
-    //DataSet ds = new DataSet(); 
-
-
-    //string selectQuery = Resource1.CustomerQuery;
-    //SqlDataAdapter adapter = new SqlDataAdapter(selectQuery, connection);
-
-    //adapter.Fill(ds);
-    //ds.WriteXml("marina.xml");
-}
-
-        private void Form1_Load(object sender, EventArgs e) {
-            //_customerRepository = new CustomerRepository();
-            //RefreshCustomers();
+            }           
         }
 
-        private void RefreshCustomers() {
-            throw new NotImplementedException();
+        private void Form1_Load(object sender, EventArgs e) {
+            // Repositories are going to be loaded seperately in their own form
         }
 
         private void btnCustomers_Click(object sender, EventArgs e) {
