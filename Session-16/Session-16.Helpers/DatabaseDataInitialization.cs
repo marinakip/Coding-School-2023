@@ -8,6 +8,17 @@ using System.Threading.Tasks;
 // the perfect opportunity to try to populate some tables of PetShopDb with AdventureWorks2019 data, since they are quite similar.
 // Tables that are not identical types with AdventureWorks (Pets, PetFoods, etc) are going to be manually populated.
 
+//TODO Step 1: Find all similar columns in tables between the two databases
+
+//TODO: Step 2: Create resource files with the sql queries (multiple resource files)
+// Queries will be:  INSERT INTO [PetShopDb].[Table] 
+//                      [Column1], [Column2], [Column3], .... 
+//                   SELECT TOP (5) 
+//                      [Column1], [Column2], [Column3], .... 
+//                   FROM [AdventureWorks2019].[Table]
+//TODO: Step 3: Manually populate columns that we haven't find something similar
+
+
 namespace Session_16.Helpers {
     public class DatabaseDataInitialization : IHelper {
         public DatabaseDataInitialization() { }     
