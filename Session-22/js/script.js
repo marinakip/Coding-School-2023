@@ -38,13 +38,16 @@ function multiplyInputs() {
 
 
 function multiply(a, b) {
-    // We are going to add a check that these values are numbers, since JS is weakly typed
-    if (typeof a == 'number' && typeof b == 'number') {
-        console.log("is here");
+    // console.log(`First Number is type: ${typeof firstNumber}, Second Number is type: ${typeof secondNumber}`);
+    // At the beginning they are undefined so we are going to convert them to number
+    firstNumber = Number(a);
+    secondNumber = Number(b);
+
+    // We are going to add a check that both these values are numbers, since JS is weakly typed
+    if ((typeof firstNumber === "number") && (typeof secondNumber === "number")) {
+        // console.log("Both values are numbers proceed multiplication");
         return a * b;
     } else {
-        console.error("Invalid operation");
-        // return " Invalid Operation";
-
+        return NaN;
     }
 }
