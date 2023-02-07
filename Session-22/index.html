@@ -9,7 +9,7 @@
     <meta name="description" content="Exercises about JavaScript">
     <meta name="author" content="Marina Kipourou">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel='stylesheet' href='' />
+    <link rel='stylesheet' href='css/style.css' />
 </head>
 
 <body>
@@ -17,7 +17,7 @@
     <br>
     <div class="Exercise-One">
         <h2>Exercise 1: Reverse String</h2>
-        <div class="container">
+        <div class="container-first-exercise">
             <div class="input-reverse">
                 Text to be reversed:
                 <span id="label-input"></span>
@@ -33,7 +33,7 @@
     </div>
     <div class="Exercise-Two">
         <h2>Exercise 2: Palindrome Check</h2>
-        <div class="container">
+        <div class="container-second-exercise">
             <div class="input-reverse">
                 Enter text to check if it is palindrome:
                 <span id="label-input"></span>
@@ -47,10 +47,87 @@
             </div>
         </div>
     </div>
+    <div class="Exercise-Three">
+        <h2>Exercise 3: Customer Details</h2>
+        <h3>Customer Detail Form</h3>
+        <div class="container-customer-form">
+            <div class="input-name">
+                Name:
+                <span id="label-name"></span>
+                <input type="text" id="input-name" value="">
+            </div>
+            <div class="input-surname">
+                Surname:
+                <span id="label-surname"></span>
+                <input type="text" id="input-surname" value="">
+            </div>
+            <div class="input-age">
+                Age:
+                <span id="label-age"></span>
+                <input type="text" id="input-age" value="">
+            </div>
+            <div class="input-gender">
+                Gender:
+                <span id="label-gender"></span>
+                <input type="text" id="input-gender" value="">
+            </div>
+            <div class="submit-button">
+                <button type="button" onclick="submitDetails()">Submit</button>
+            </div>
+            <h3>Customers</h3>
+            <div class="container-table-customers">
+                <table id="table-customers">
+                    <tr>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                    </tr>
+                    <!-- for test -->
+                    <tr>
+                        <td>test</td>
+                        <td>test</td>
+                        <td>test</td>
+                        <td>test</td>
+                    </tr>
+                    <!-- --- -->
+                </table>
+            </div>
+            <h3>Customer Details</h3>
+            <div class="container-customer-details">
+                <div class="input-name">
+                    Name:
+                    <span id="label-name"></span>
+                    <input type="text" id="input-name" value="">
+                </div>
+                <div class="input-surname">
+                    Surname:
+                    <span id="label-surname"></span>
+                    <input type="text" id="input-surname" value="">
+                </div>
+                <div class="input-age">
+                    Age:
+                    <span id="label-age"></span>
+                    <input type="text" id="input-age" value="">
+                </div>
+                <div class="input-gender">
+                    Gender:
+                    <span id="label-gender"></span>
+                    <input type="text" id="input-gender" value="">
+                </div>
+
+                <!-- <div class="output-reverse">
+                Result:
+                <span id="label-output"></span>
+                <input type="text" id="output-palindrome">
+            </div> -->
+            </div>
+        </div>
 
 
 
-    <script src="js/script.js" defer></script>
+
+        <script src="js/script.js" defer></script>
 </body>
 
 </html>
