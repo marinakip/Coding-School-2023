@@ -24,3 +24,27 @@ function checkPalindrome() {
         document.getElementById("output-palindrome").value = "It is not palindrome"
     }
 }
+
+/* Exercise 3: Customer Details */
+/* TODO: TO BE COMPLETED */
+
+/* Exercise 4: Multiplication */
+function multiplyInputs() {
+    let a = document.getElementById("input-first").value;
+    let b = document.getElementById("input-second").value;
+    document.getElementById("output-multiply").value = multiply(a, b);
+
+}
+
+
+function multiply(a, b) {
+    // We are going to add a check that these values are numbers, since JS is weakly typed
+    if (typeof a == 'number' && typeof b == 'number') {
+        console.log("is here");
+        return a * b;
+    } else {
+        console.error("Invalid operation");
+        // return " Invalid Operation";
+
+    }
+}
