@@ -1,6 +1,7 @@
 * {
+    /* bordered color used as a helper */
     border: 1px solid red;
-    /* used as a helper */
+
 }
 
 body {
@@ -9,8 +10,8 @@ body {
 
 header {
     background-color: #DDE0E3;
+    /* border color used as a helper */
     border: 5px solid rgb(30, 0, 255);
-    /* used as a helper */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -21,16 +22,16 @@ header {
 .logo {
     display: flex;
     background-color: #DDE0E3;
-    border: 3px solid rgb(4, 146, 58);
     /* used as a helper */
+    border: 3px solid rgb(4, 146, 58);
     justify-content: flex-start;
 }
 
 .nav {
     display: flex;
     background-color: #DDE0E3;
-    border: 3px solid rgb(214, 211, 13);
     /* used as a helper */
+    border: 3px solid rgb(214, 211, 13);
     /* color: rgb(4, 146, 58); */
     justify-content: space-around;
     align-items: center;
@@ -45,8 +46,8 @@ header {
 
 .nav li a {
     display: flex;
-    border: 3px solid rgb(240, 65, 220);
     /* used as a helper */
+    border: 3px solid rgb(240, 65, 220);
     align-items: center;
     justify-items: flex-start;
     padding-right: 1rem;
