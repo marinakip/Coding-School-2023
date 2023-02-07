@@ -1,5 +1,6 @@
 * {
     border: 1px solid red;
+    /* used as a helper */
 }
 
 body {
@@ -9,6 +10,7 @@ body {
 header {
     background-color: #DDE0E3;
     border: 5px solid rgb(30, 0, 255);
+    /* used as a helper */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -20,6 +22,7 @@ header {
     display: flex;
     background-color: #DDE0E3;
     border: 3px solid rgb(4, 146, 58);
+    /* used as a helper */
     justify-content: flex-start;
 }
 
@@ -27,6 +30,7 @@ header {
     display: flex;
     background-color: #DDE0E3;
     border: 3px solid rgb(214, 211, 13);
+    /* used as a helper */
     /* color: rgb(4, 146, 58); */
     justify-content: space-around;
     align-items: center;
@@ -42,6 +46,7 @@ header {
 .nav li a {
     display: flex;
     border: 3px solid rgb(240, 65, 220);
+    /* used as a helper */
     align-items: center;
     justify-items: flex-start;
     padding-right: 1rem;
@@ -51,6 +56,7 @@ header {
 
 h1 {
     border: 3px solid rgb(243, 172, 8);
+    /* used as a helper */
     color: #414141;
     font-size: 1.1rem;
     font-weight: bold;
@@ -67,6 +73,7 @@ h1 {
 .article-img {
     display: flex;
     border: 3px solid rgb(243, 8, 153);
+    /* used as a helper */
     transform: scale(0.5, 0.35);
     float: left;
     /* margin-top: -15%; */
@@ -86,3 +93,22 @@ h1 {
 ol li {
     list-style-type: none;
 }
+
+.side-links li {
+    display: flex;
+    align-content: space-between;
+}
+
+.side-links li a {
+    display: flex;
+    align-items: center;
+    border-color: blue;
+    /* used as a helper */
+    padding-right: 1rem;
+    color: #00cc99;
+    text-decoration: none;
+    border-top-color: #DDE0E3;
+
+}
+
+/* To Be Continued.. */
