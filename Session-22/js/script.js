@@ -1,5 +1,5 @@
 
-/* Help Functions */
+/* Help Function for Exercise 1 and 2 */
 function reverse(input) {
     let splittedInput = input.split("");
     let reversedArray = splittedInput.reverse();
@@ -76,3 +76,4 @@ function incrementLastCharacter(stringToIncrement) {
 function lastCharacterIsNaN(character) {
     return isNaN(character);
 }
+
