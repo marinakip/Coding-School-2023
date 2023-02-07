@@ -36,7 +36,6 @@ function multiplyInputs() {
 
 }
 
-
 function multiply(a, b) {
     // console.log(`First Number is type: ${typeof firstNumber}, Second Number is type: ${typeof secondNumber}`);
     // At the beginning they are undefined so we are going to convert them to number
@@ -50,4 +49,30 @@ function multiply(a, b) {
     } else {
         return NaN;
     }
+}
+
+/* Exercise 5: Last Character Incrementation */
+function incrementString() {
+    let stringToIncrement = document.getElementById("input-increment").value;
+    let incremantedString = incrementLastCharacter(stringToIncrement);
+    document.getElementById("output-increment").value = incremantedString;
+}
+
+
+function incrementLastCharacter(stringToIncrement) {
+    let lastCharacter = stringToIncrement.substr(-1);
+    lastCharacter = Number(lastCharacter);
+    if (lastCharacterIsNaN(lastCharacter)) {
+        let newString = `${stringToIncrement}1`
+        return newString;
+    } else {
+        let newLastCharacter = lastCharacter + 1;
+        let stringWithoutLastCharacter = stringToIncrement.substring(0, stringToIncrement.length - 1);
+        let concatanatedString = `${stringWithoutLastCharacter}${newLastCharacter}`
+        return concatanatedString;
+    }
+}
+
+function lastCharacterIsNaN(character) {
+    return isNaN(character);
 }
