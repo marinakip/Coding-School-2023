@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace PetShop.EF.Repositories {
     public class PetFoodRepository : IEntityRepository<PetFood> {
-        //TODO: Implement PetFood repository
+       
         public void Add(PetFood entity) {
             using var context = new PetShopDbContext();
             context.Add(entity);
