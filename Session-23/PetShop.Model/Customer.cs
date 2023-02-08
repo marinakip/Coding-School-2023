@@ -1,7 +1,6 @@
 ﻿namespace PetShop.Model
 {
-    public class Customer
-    {
+    public class Customer : EntityBase {
         public Customer(string name, string surname, int phone, string tin)
         {
             Name = name;

@@ -2,8 +2,7 @@
 
 namespace PetShop.Model
 {
-    public class Employee
-    {
+    public class Employee : EntityBase { 
         public Employee(string name, string surname, EmployeeType employeeType, int salaryPerMonth)
         {
             Name = name;

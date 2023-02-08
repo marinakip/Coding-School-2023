@@ -2,8 +2,7 @@
 
 namespace PetShop.Model
 {
-    public class PetFood
-    {
+    public class PetFood : EntityBase {
         public PetFood(AnimalType animalType, decimal price, decimal cost)
         {
             AnimalType = animalType;

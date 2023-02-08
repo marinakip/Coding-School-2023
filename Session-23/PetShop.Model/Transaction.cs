@@ -1,7 +1,6 @@
 ﻿namespace PetShop.Model
 {
-    public class Transaction
-    {
+    public class Transaction : EntityBase {
         public Transaction(decimal petPrice, int petFoodQty, decimal petFoodPrice, decimal totalPrice)
         {
             Date = DateTime.Now;
