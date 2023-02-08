@@ -26,6 +26,50 @@ function checkPalindrome() {
 }
 
 /* Exercise 3: Customer Details */
+
+// let submitButton = document.getElementById("submit-button");
+// submitButton.addEventListener('click', submitDetails());
+
+function submitDetails() {
+    let name = document.getElementById("input-name");
+    let surname = document.getElementById("input-surname");
+    let age = document.getElementById("input-age");
+    let gender = getGender();
+
+    testOutput(name, surname, age, gender);
+}
+
+function getGender() {
+    var selection = document.querySelector('input[name="radio"]:checked').value;
+    return selection;
+}
+
+function testOutput(name, surname, age, gender) {
+    document.getElementById("output-name").value = name;
+    document.getElementById("output-surname").value = surname;
+    document.getElementById("output-age").value = age;
+    setGender(gender);
+}
+
+function setGender(gender) {
+    switch (gender) {
+        case "Male":
+            document.getElementById("radio-gender-male-output").checked = true;
+            break;
+        case "Female":
+            document.getElementById("radio-gender-female-output").checked = true;
+            break;
+        case "Other":
+            document.getElementById("radio-gender-other-output").checked = true;
+            break;
+        default:
+            console.error("Invalid selection");
+    }
+}
+
+
+
+
 /* TODO: TO BE COMPLETED */
 
 /* Exercise 4: Multiplication */

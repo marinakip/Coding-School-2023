@@ -48,31 +48,33 @@
     <div class="Exercise-Three">
         <h2>Exercise 3: Customer Details</h2>
         <h3>Customer Detail Form</h3>
-        <div class="container-customer-details">
-            <div class="input-name">
-                <label for="input-name">Name:</label>
-                <input type="text" id="input-name" value="">
+        <form name="form">
+            <div class="container-customer-details">
+                <div class="input-name">
+                    <label for="input-name">Name:</label>
+                    <input type="text" id="input-name" value="">
+                </div>
+                <div class="input-surname">
+                    <label for="input-surname">Surname:</label>
+                    <input type="text" id="input-surname" value="">
+                </div>
+                <div class="input-age">
+                    <label for="input-age">Age:</label>
+                    <input type="number" id="input-age" value="">
+                </div>
+                <div class="input-gender">
+                    <label id="input-gender">Gender:</label>
+                    <input type="radio" id="radio-gender-male" name="radio" value="Male">
+                    <label for="radio-gender-male">Male</label>
+                    <input type="radio" id="radio-gender-female" name="radio" value="Female">
+                    <label for="radio-gender-female">Female</label>
+                    <input type="radio" id="radio-gender-other" name="radio" value="Other">
+                    <label for="radio-gender-other">Other</label>
+                </div>
             </div>
-            <div class="input-surname">
-                <label for="input-surname">Surname:</label>
-                <input type="text" id="input-surname" value="">
-            </div>
-            <div class="input-age">
-                <label for="input-age">Age:</label>
-                <input type="number" id="input-age" value="">
-            </div>
-            <div class="input-gender">
-                <label id="input-gender">Gender:</label>
-                <input type="radio" id="radio-gender-male" value="Male">
-                <label for="radio-gender-male">Male</label>
-                <input type="radio" id="radio-gender-female" value="Female">
-                <label for="radio-gender-female">Female</label>
-                <input type="radio" id="radio-gender-other" value="Other">
-                <label for="radio-gender-other">Other</label>
-            </div>
-        </div>
+        </form>
         <div class="submit-button">
-            <button type="button" onclick="submitDetails()">Submit</button>
+            <button type="submit" id="submit-button" onclick="submitDetails()">Submit</button>
         </div>
 
         <h3>Customers</h3>
@@ -98,26 +100,25 @@
     <div class="container-customer-details">
         <div class="input-name">
             <label for="input-name">Name:</label>
-            <input type="text" id="input-name" value="">
+            <input type="text" id="output-name" value="" disabled>
         </div>
         <div class="input-surname">
             <label for="input-surname">Surname:</label>
-            <input type="text" id="input-surname" value="">
+            <input type="text" id="output-surname" value="" disabled>
         </div>
         <div class="input-age">
             <label for="input-age">Age:</label>
-            <input type="number" id="input-age" value="">
+            <input type="number" id="output-age" value="" disabled>
         </div>
         <div class="input-gender">
             <label id="input-gender">Gender:</label>
-            <input type="radio" id="radio-gender-male" value="Male">
+            <input type="radio" id="radio-gender-male-output" value="Male" disabled>
             <label for="radio-gender-male">Male</label>
-            <input type="radio" id="radio-gender-female" value="Female">
+            <input type="radio" id="radio-gender-female-output" value="Female" disabled>
             <label for="radio-gender-female">Female</label>
-            <input type="radio" id="radio-gender-other" value="Other">
+            <input type="radio" id="radio-gender-other-output" value="Other" disabled>
             <label for="radio-gender-other">Other</label>
         </div>
-    </div>
     </div>
 
     <div class="Exercise-Four">
