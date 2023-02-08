@@ -1,4 +1,6 @@
-﻿using PetShop.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using PetShop.EF.Context;
+using PetShop.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,23 +11,40 @@ namespace PetShop.EF.Repositories {
     public class PetFoodRepository : IEntityRepository<PetFood> {
         //TODO: Implement PetFood repository
         public void Add(PetFood entity) {
-            throw new NotImplementedException();
+            using var context = new PetShopDbContext();
+            context.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(int id) {
-            throw new NotImplementedException();
+            using var context = new PetShopDbContext();
+            var dbPetFood = context.PetFoods.Where(petFood => petFood.Id == id).SingleOrDefault();
+            if (dbPetFood is null)
+                return;
+            context.Remove(dbPetFood);
+            context.SaveChanges();
         }
 
         public IList<PetFood> GetAll() {
-            throw new NotImplementedException();
+            using var context = new PetShopDbContext();
+            return context.PetFoods.Include(petFood => petFood.Transactions).ToList();
         }
 
         public PetFood? GetById(int id) {
-            throw new NotImplementedException();
+            using var context = new PetShopDbContext();
+            return context.PetFoods.Where(petFood => petFood.Id == id)
+                .Include(petFood => petFood.Transactions).SingleOrDefault();
         }
 
         public void Update(int id, PetFood entity) {
-            throw new NotImplementedException();
+            using var context = new PetShopDbContext();
+            var dbPetFood = context.PetFoods.Where(petFood => petFood.Id == id).SingleOrDefault();
+            if (dbPetFood is null)
+                return;
+            dbPetFood.AnimalType = entity.AnimalType;
+            dbPetFood.Price = entity.Price;
+            dbPetFood.Cost = entity.Cost;
+            context.SaveChanges();
         }
     }
 }
