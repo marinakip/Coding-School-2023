@@ -11,7 +11,8 @@ namespace PetShop.Web.Mvc.Controllers {
         }
 
         public IActionResult Index() {
-            return View();
+            var greeting = "Welcome to Fur Ever Friends Pet Shop";
+            return View(model: greeting);
         }
 
         public IActionResult Privacy() {
