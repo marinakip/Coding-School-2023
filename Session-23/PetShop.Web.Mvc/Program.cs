@@ -1,7 +1,15 @@
+using PetShop.EF.Repositories;
+using PetShop.Model;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IEntityRepository<Customer>, CustomerRepository>();
+builder.Services.AddScoped<IEntityRepository<Employee>, EmployeeRepository>();
+builder.Services.AddScoped<IEntityRepository<Pet>, PetRepository>();
+builder.Services.AddScoped<IEntityRepository<PetFood>, PetFoodRepository>();
+builder.Services.AddScoped<IEntityRepository<Transaction>, TransactionRepository>();
 
 var app = builder.Build();
 
