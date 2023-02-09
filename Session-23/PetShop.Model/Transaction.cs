@@ -10,7 +10,6 @@
             TotalPrice = totalPrice;
         }
 
-        public int Id { get; set; }
         public DateTime Date { get; set; }
         public decimal PetPrice { get; set; }
         public int PetFoodQty { get; set; }

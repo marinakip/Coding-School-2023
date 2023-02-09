@@ -14,7 +14,6 @@ namespace PetShop.Model
             Transactions = new List<Transaction>();
         }
 
-        public int Id { get; set; }
         public string Breed { get; set; }
         public AnimalType AnimalType { get; set; }
         public PetStatus PetStatus { get; set; }
