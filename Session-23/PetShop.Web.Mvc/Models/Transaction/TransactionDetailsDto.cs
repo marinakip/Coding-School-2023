@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace PetShop.Web.Mvc.Models.Transaction {
-    public class TransactionCreateDto {
+    public class TransactionDetailsDto {
+        public int Id { get; set; }
         public DateTime Date { get; set; }
 
         [Display(Name = "Pet Price")]
@@ -26,15 +27,15 @@ namespace PetShop.Web.Mvc.Models.Transaction {
         public decimal TotalPrice { get; set; }
 
         public int CustomerId { get; set; }
-        public Model.Customer Customer { get; set; } = null!;       
+        public Model.Customer Customer { get; set; } = null!;
 
         public int EmployeeId { get; set; }
-        public Model.Employee Employee { get; set; } = null!;        
+        public Model.Employee Employee { get; set; } = null!;
 
         public int PetId { get; set; }
-        public Model.Pet Pet { get; set; } = null!;        
+        public Model.Pet Pet { get; set; } = null!;
 
         public int PetFoodId { get; set; }
-        public Model.PetFood PetFood { get; set; } = null!;        
+        public Model.PetFood PetFood { get; set; } = null!;
     }
 }
