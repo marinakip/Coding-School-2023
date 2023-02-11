@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PetShop.EF.Repositories;
 using PetShop.Model;
+using PetShop.Web.Mvc.Models.Customer;
 
 namespace PetShop.Web.Mvc.Controllers {
     public class CustomersController : Controller {
@@ -13,13 +14,32 @@ namespace PetShop.Web.Mvc.Controllers {
 
         // GET: CustomersController
         public ActionResult Index() {
-            var customers = _customerRepository.GetAll();   
+            var customers = _customerRepository.GetAll().ToList();   
             return View(model: customers);
         }
 
         // GET: CustomersController/Details/5
         public ActionResult Details(int id) {
-            return View();
+
+            if (id == null) {
+                return NotFound();
+            }
+
+            var customer = _customerRepository.GetById(id);
+            if (customer == null) {
+                return NotFound();
+            }
+
+            var viewCustomer = new CustomerDetailsDto {
+                Id = customer.Id,
+                Name = customer.Name,
+                Surname = customer.Surname,
+                Phone = customer.Phone,
+                Tin = customer.Tin,
+                Transactions = customer.Transactions.ToList()
+            };
+            return View(model: viewCustomer);
+           
         }
 
         // GET: CustomersController/Create
@@ -30,12 +50,14 @@ namespace PetShop.Web.Mvc.Controllers {
         // POST: CustomersController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection) {
-            try {
-                return RedirectToAction(nameof(Index));
-            } catch {
+        public ActionResult Create(CustomerCreateDto customer) {
+            if (!ModelState.IsValid) {
                 return View();
             }
+
+            var dbCustomer = new Customer(customer.Name, customer.Surname, customer.Phone, customer.Tin);            
+            _customerRepository.Add(dbCustomer);
+            return RedirectToAction("Index");
         }
 
         // GET: CustomersController/Edit/5
