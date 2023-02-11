@@ -3,7 +3,8 @@ using PetShop.Model.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace PetShop.Web.Mvc.Models.PetFood {
-    public class PetFoodCreateDto {
+    public class PetFoodEditDto {
+        public int Id { get; set; }
 
         [Display(Name = "Animal Type")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Animal type is required")]

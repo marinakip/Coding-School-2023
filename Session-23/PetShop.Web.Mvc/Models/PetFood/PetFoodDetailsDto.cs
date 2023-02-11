@@ -3,7 +3,8 @@ using PetShop.Model.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace PetShop.Web.Mvc.Models.PetFood {
-    public class PetFoodCreateDto {
+    public class PetFoodDetailsDto {
+        public int Id { get; set; }
 
         [Display(Name = "Animal Type")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Animal type is required")]
@@ -16,5 +17,7 @@ namespace PetShop.Web.Mvc.Models.PetFood {
         [Precision(4, 2)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Cost is required")]
         public decimal Cost { get; set; }
+
+        public List<Model.Transaction> Transactions { get; set; } = new List<Model.Transaction>();
     }
 }
