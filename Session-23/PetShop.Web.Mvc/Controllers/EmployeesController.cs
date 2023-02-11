@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using PetShop.EF.Repositories;
 using PetShop.Model;
+using PetShop.Web.Mvc.Models.Customer;
+using PetShop.Web.Mvc.Models.Employee;
 
 namespace PetShop.Web.Mvc.Controllers {
     public class EmployeesController : Controller {
@@ -29,9 +31,15 @@ namespace PetShop.Web.Mvc.Controllers {
         // POST: EmployeesController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection) {
+        public ActionResult Create(EmployeeCreateDto employee) {
             try {
-                return RedirectToAction(nameof(Index));
+                if (!ModelState.IsValid) {
+                    return View();
+                }
+
+                var dbEmployee = new Employee(employee.Name, employee.Surname, employee.EmployeeType, employee.SalaryPerMonth);
+                _employeeRepository.Add(dbEmployee);
+                return RedirectToAction("Index");
             } catch {
                 return View();
             }
