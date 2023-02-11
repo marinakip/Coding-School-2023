@@ -3,7 +3,8 @@ using PetShop.Model.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace PetShop.Web.Mvc.Models.Pet {
-    public class PetCreateDto {
+    public class PetEditDto {
+        public int Id { get; set; }
 
         [MaxLength(50, ErrorMessage = "You have exceeded the limit of 50 characters")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Breed is required")]

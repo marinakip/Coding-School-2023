@@ -3,7 +3,8 @@ using PetShop.Model.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace PetShop.Web.Mvc.Models.Pet {
-    public class PetCreateDto {
+    public class PetDetailsDto {
+        public int Id { get; set; }
 
         [MaxLength(50, ErrorMessage = "You have exceeded the limit of 50 characters")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Breed is required")]
@@ -24,5 +25,7 @@ namespace PetShop.Web.Mvc.Models.Pet {
         [Precision(4, 2)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Cost is required")]
         public decimal Cost { get; set; }
+
+        public List<Model.Transaction> Transactions { get; set; } = new List<Model.Transaction>();
     }
 }
