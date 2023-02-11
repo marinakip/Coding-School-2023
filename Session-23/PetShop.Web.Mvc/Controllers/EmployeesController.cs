@@ -64,18 +64,41 @@ namespace PetShop.Web.Mvc.Controllers {
 
         // GET: EmployeesController/Edit/5
         public ActionResult Edit(int id) {
-            return View();
+            var dbEmployee = _employeeRepository.GetById(id);
+            if (dbEmployee == null) {
+                return NotFound();
+            }
+
+            var viewEmployee = new EmployeeEditDto {
+                Id = dbEmployee.Id,
+                Name = dbEmployee.Name,
+                Surname = dbEmployee.Surname,
+                EmployeeType = dbEmployee.EmployeeType,
+                SalaryPerMonth = dbEmployee.SalaryPerMonth,
+            };
+            return View(model: viewEmployee);
         }
 
         // POST: EmployeesController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection) {
-            try {
-                return RedirectToAction(nameof(Index));
-            } catch {
+        public ActionResult Edit(int id, EmployeeEditDto employee) {
+            if (!ModelState.IsValid) {
                 return View();
             }
+
+            var dbEmployee = _employeeRepository.GetById(id);
+            if (dbEmployee == null) {
+                return NotFound();
+            }
+
+            dbEmployee.Name = employee.Name;
+            dbEmployee.Surname = employee.Surname;
+            dbEmployee.EmployeeType = employee.EmployeeType;
+            dbEmployee.SalaryPerMonth = employee.SalaryPerMonth;
+
+            _employeeRepository.Update(id, dbEmployee);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: EmployeesController/Delete/5
