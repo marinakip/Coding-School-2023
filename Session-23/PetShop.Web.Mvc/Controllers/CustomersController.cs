@@ -101,7 +101,18 @@ namespace PetShop.Web.Mvc.Controllers {
 
         // GET: CustomersController/Delete/5
         public ActionResult Delete(int id) {
-            return View();
+            var dbCustomer = _customerRepository.GetById(id);
+            if (dbCustomer == null) { 
+                return NotFound();
+            }
+            var viewCustomer = new CustomerDeleteDto {
+                Id = dbCustomer.Id,
+                Name = dbCustomer.Name,
+                Surname = dbCustomer.Surname,
+                Phone = dbCustomer.Phone,
+                Tin = dbCustomer.Tin
+            };
+            return View(model: viewCustomer);
         }
 
         // POST: CustomersController/Delete/5
@@ -109,9 +120,10 @@ namespace PetShop.Web.Mvc.Controllers {
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection) {
             try {
+                _customerRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             } catch {
-                return View();
+                throw new Exception("Error during delete operation");
             }
         }
     }
