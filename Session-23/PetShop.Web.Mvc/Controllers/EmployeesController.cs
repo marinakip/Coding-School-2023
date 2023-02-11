@@ -20,7 +20,24 @@ namespace PetShop.Web.Mvc.Controllers {
 
         // GET: EmployeesController/Details/5
         public ActionResult Details(int id) {
-            return View();
+            if (id == null) {
+                return NotFound();
+            }
+
+            var employee = _employeeRepository.GetById(id);
+            if (employee == null) {
+                return NotFound();
+            }
+
+            var viewEmployee = new EmployeeDetailsDto {
+                Id = employee.Id,
+                Name = employee.Name,
+                Surname = employee.Surname,
+                EmployeeType = employee.EmployeeType,   
+                SalaryPerMonth= employee.SalaryPerMonth,    
+                Transactions = employee.Transactions.ToList()
+            };
+            return View(model: viewEmployee);
         }
 
         // GET: EmployeesController/Create
