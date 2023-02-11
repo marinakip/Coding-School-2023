@@ -12,6 +12,8 @@ namespace PetShop.EF.Repositories {
         
         public void Add(Employee entity) {
             using var context = new PetShopDbContext();
+            if (entity.Id != 0)
+                throw new ArgumentException("Given entity should not have Id set", nameof(entity));
             context.Add(entity);
             context.SaveChanges();
         }
@@ -20,7 +22,7 @@ namespace PetShop.EF.Repositories {
             using var context = new PetShopDbContext();
             var dbEmployee = context.Employees.Where(employee => employee.Id == id).SingleOrDefault();
             if (dbEmployee is null)
-                return;
+                throw new KeyNotFoundException($"Given id '{id}' was not found in database");
             context.Remove(dbEmployee);
             context.SaveChanges();
         }
@@ -40,11 +42,12 @@ namespace PetShop.EF.Repositories {
             using var context = new PetShopDbContext();
             var dbEmployee = context.Employees.Where(employee => employee.Id == id).SingleOrDefault();
             if (dbEmployee is null)
-                return;
+                throw new KeyNotFoundException($"Given id '{id}' was not found in database");
             dbEmployee.Name = entity.Name;
             dbEmployee.Surname = entity.Surname;   
             dbEmployee.EmployeeType = entity.EmployeeType;  
-            dbEmployee.SalaryPerMonth = entity.SalaryPerMonth;  
+            dbEmployee.SalaryPerMonth = entity.SalaryPerMonth;
+            context.SaveChanges();
         }
     }
 }
