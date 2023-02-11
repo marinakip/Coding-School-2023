@@ -1,7 +1,7 @@
 ﻿namespace PetShop.Model
 {
     public class Customer : EntityBase {
-        public Customer(string name, string surname, int phone, string tin)
+        public Customer(string name, string surname, string phone, string tin)
         {
             Name = name;
             Surname = surname;
@@ -13,7 +13,7 @@
 
         public string Name { get; set; }
         public string Surname { get; set; }
-        public int Phone { get; set; }
+        public string Phone { get; set; }
         public string Tin { get; set; }
 
         // Relations
