@@ -17,6 +17,7 @@ namespace PetShop.Web.Mvc.Models.Pet {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Pet status is required")]
         public PetStatus PetStatus { get; set; }
 
+
         [RegularExpression("^\\d\\d,\\d\\d$", ErrorMessage ="Price should be in the format 12,34 and should not exceed 99,99")]
         [Precision(4, 2)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Price is required")]
