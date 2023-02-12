@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace PetShop.Web.Mvc.Models.Transaction {
@@ -27,15 +28,19 @@ namespace PetShop.Web.Mvc.Models.Transaction {
         public decimal TotalPrice { get; set; }
 
         public int CustomerId { get; set; }
-        public Model.Customer Customer { get; set; } = null!;
+        //public Model.Customer Customer { get; set; } = null!;
+        public List<SelectListItem> Customers { get; } = new List<SelectListItem>();
 
         public int EmployeeId { get; set; }
-        public Model.Employee Employee { get; set; } = null!;
+        //public Model.Employee Employee { get; set; } = null!;
+        public List<SelectListItem> Employees { get; } = new List<SelectListItem>();
 
         public int PetId { get; set; }
-        public Model.Pet Pet { get; set; } = null!;
+        //public Model.Pet Pet { get; set; } = null!;
+        public List<SelectListItem> Pets { get; } = new List<SelectListItem>();
 
         public int PetFoodId { get; set; }
-        public Model.PetFood PetFood { get; set; } = null!;
+        //public Model.PetFood PetFood { get; set; } = null!;
+        public List<SelectListItem> PetFoods { get; } = new List<SelectListItem>();
     }
 }

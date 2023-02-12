@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PetShop.EF.Repositories;
 using PetShop.Model;
+using PetShop.Web.Mvc.Models.Transaction;
 
 namespace PetShop.Web.Mvc.Controllers {
     public class TransactionsController : Controller {
@@ -39,15 +40,48 @@ namespace PetShop.Web.Mvc.Controllers {
 
         // GET: TransactionsController/Create
         public ActionResult Create() {
-            return View();
+            var newTransaction = new TransactionCreateDto();
+            var customers = _customerRepository.GetAll();
+            var employees = _employeeRepository.GetAll();
+            var pets = _petRepository.GetAll();
+            var petFoods = _petFoodRepository.GetAll();
+
+            foreach (var customer in customers) {
+                newTransaction.Customers.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(customer.Surname, customer.Id.ToString()));
+            }
+
+            foreach (var employee in employees) {
+                newTransaction.Employees.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(employee.Surname, employee.Id.ToString()));
+            }
+            foreach (var pet in pets) {
+                newTransaction.Pets.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(pet.Breed, pet.Id.ToString()));
+            }
+            foreach (var petFood in petFoods) {
+                newTransaction.PetFoods.Add(new Microsoft.AspNetCore.Mvc.Rendering.SelectListItem(petFood.AnimalType.ToString(), petFood.Id.ToString()));
+            }
+            
+
+            return View(model: newTransaction);
         }
 
         // POST: TransactionsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection) {
+        public ActionResult Create(TransactionCreateDto transaction) {
             try {
-                return RedirectToAction(nameof(Index));
+                if (!ModelState.IsValid) {
+                    return View();
+                }
+
+                var dbTransaction = new Transaction(transaction.PetPrice, transaction.PetFoodQty, transaction.PetFoodPrice, transaction.TotalPrice) {
+                    CustomerId = transaction.CustomerId,
+                    EmployeeId = transaction.EmployeeId,
+                    PetId = transaction.PetId,  
+                    PetFoodId= transaction.PetFoodId   
+                };
+
+                _transactionRepository.Add(dbTransaction);
+                return RedirectToAction("Index");
             } catch {
                 return View();
             }
