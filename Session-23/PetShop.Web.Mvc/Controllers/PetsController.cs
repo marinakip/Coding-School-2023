@@ -1,7 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using PetShop.EF.Repositories;
 using PetShop.Model;
+using PetShop.Model.Enums;
+using PetShop.Web.Mvc.Models.Pet;
+using PetShop.Web.Mvc.Models.PetFood;
+using System.Drawing;
 
 namespace PetShop.Web.Mvc.Controllers {
     public class PetsController : Controller {
@@ -19,7 +24,25 @@ namespace PetShop.Web.Mvc.Controllers {
 
         // GET: PetsController/Details/5
         public ActionResult Details(int id) {
-            return View();
+            if (id == null) {
+                return NotFound();
+            }
+
+            var pet = _petRepository.GetById(id);
+            if (pet == null) {
+                return NotFound();
+            }
+
+            var viewPet = new PetDetailsDto {
+                Id = pet.Id,
+                Breed = pet.Breed,
+                AnimalType = pet.AnimalType,
+                PetStatus = pet.PetStatus,
+                Price = pet.Price,
+                Cost = pet.Cost,
+                Transactions = pet.Transactions.ToList()
+            };
+            return View(model: viewPet);
         }
 
         // GET: PetsController/Create
@@ -30,9 +53,15 @@ namespace PetShop.Web.Mvc.Controllers {
         // POST: PetsController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection) {
+        public ActionResult Create(PetCreateDto pet) {
             try {
-                return RedirectToAction(nameof(Index));
+                if (!ModelState.IsValid) {
+                    return View();
+                }
+
+                var dbPet = new Pet(pet.Breed, pet.AnimalType, pet.PetStatus, pet.Price, pet.Cost);
+                _petRepository.Add(dbPet);
+                return RedirectToAction("Index");
             } catch {
                 return View();
             }
@@ -40,14 +69,43 @@ namespace PetShop.Web.Mvc.Controllers {
 
         // GET: PetsController/Edit/5
         public ActionResult Edit(int id) {
-            return View();
+            var dbPet = _petRepository.GetById(id);
+            if (dbPet == null) {
+                return NotFound();
+            }
+
+            var viewPet = new PetEditDto {
+                Id = dbPet.Id,
+                Breed = dbPet.Breed,
+                AnimalType = dbPet.AnimalType,
+                PetStatus = dbPet.PetStatus,
+                Price = dbPet.Price,
+                Cost = dbPet.Cost,
+            };
+            return View(model: viewPet);
         }
 
         // POST: PetsController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection) {
+        public ActionResult Edit(int id, PetEditDto pet) {
             try {
+                if (!ModelState.IsValid) {
+                    return View();
+                }
+
+                var dbPet = _petRepository.GetById(id);
+                if (dbPet == null) {
+                    return NotFound();
+                }
+
+                dbPet.Breed = pet.Breed;
+                dbPet.AnimalType = pet.AnimalType;
+                dbPet.PetStatus = pet.PetStatus;
+                dbPet.Price = pet.Price;
+                dbPet.Cost = pet.Cost;
+
+                _petRepository.Update(id, dbPet);
                 return RedirectToAction(nameof(Index));
             } catch {
                 return View();
@@ -56,7 +114,19 @@ namespace PetShop.Web.Mvc.Controllers {
 
         // GET: PetsController/Delete/5
         public ActionResult Delete(int id) {
-            return View();
+            var dbPet = _petRepository.GetById(id);
+            if (dbPet == null) {
+                return NotFound();
+            }
+            var viewPet = new PetDeleteDto {
+                Id = dbPet.Id,
+                Breed = dbPet.Breed,
+                AnimalType = dbPet.AnimalType,
+                PetStatus = dbPet.PetStatus,
+                Price = dbPet.Price,
+                Cost = dbPet.Cost,
+            };
+            return View(model: viewPet);
         }
 
         // POST: PetsController/Delete/5
@@ -64,6 +134,7 @@ namespace PetShop.Web.Mvc.Controllers {
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection) {
             try {
+                _petRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             } catch {
                 return View();
