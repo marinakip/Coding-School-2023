@@ -5,7 +5,6 @@ using PetShop.EF.Repositories;
 using PetShop.Model;
 using PetShop.Model.Enums;
 using PetShop.Web.Mvc.Models.Pet;
-using PetShop.Web.Mvc.Models.PetFood;
 using System.Drawing;
 
 namespace PetShop.Web.Mvc.Controllers {

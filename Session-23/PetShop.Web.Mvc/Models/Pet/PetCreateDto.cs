@@ -17,6 +17,7 @@ namespace PetShop.Web.Mvc.Models.Pet {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Pet status is required")]
         public PetStatus PetStatus { get; set; }
 
+        
         [Precision(4, 2)]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Price is required")]
         public decimal Price { get; set; }
