@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 namespace PetShop.Web.Mvc.Models.Transaction {
     public class TransactionEditDto {
         public int Id { get; set; }
-        public DateTime Date { get; set; }
+        //public DateTime Date { get; set; }  // It is instansiated in the  Transaction constructor
 
         [Display(Name = "Pet Price")]
         [Precision(4, 2)]
