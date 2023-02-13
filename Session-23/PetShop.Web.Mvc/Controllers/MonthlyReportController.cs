@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using PetShop.EF.Repositories;
 using PetShop.Model;
+using PetShop.Web.Mvc.Models.MonthlyLedger;
 
 namespace PetShop.Web.Mvc.Controllers {
     public class MonthlyReportController : Controller {
@@ -17,6 +18,7 @@ namespace PetShop.Web.Mvc.Controllers {
             //decimal expenses = CalculateMonthlyExpenses();
             //decimal income = CalculateMonthlyIncome();
             //decimal profit = expenses - income;
+            
             decimal  test = -99999999.999999m;
             //return View(model: profit);
             return View(model: test);
@@ -44,58 +46,5 @@ namespace PetShop.Web.Mvc.Controllers {
             throw new NotImplementedException();
         }
 
-
-        // GET: MonthlyReport/Details/5
-        public ActionResult Details(int id) {
-            return View();
-        }
-
-        // GET: MonthlyReport/Create
-        public ActionResult Create() {
-            return View();
-        }
-
-        // POST: MonthlyReport/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection) {
-            try {
-                return RedirectToAction(nameof(Index));
-            } catch {
-                return View();
-            }
-        }
-
-        // GET: MonthlyReport/Edit/5
-        public ActionResult Edit(int id) {
-            return View();
-        }
-
-        // POST: MonthlyReport/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection) {
-            try {
-                return RedirectToAction(nameof(Index));
-            } catch {
-                return View();
-            }
-        }
-
-        // GET: MonthlyReport/Delete/5
-        public ActionResult Delete(int id) {
-            return View();
-        }
-
-        // POST: MonthlyReport/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection) {
-            try {
-                return RedirectToAction(nameof(Index));
-            } catch {
-                return View();
-            }
-        }
     }
 }
