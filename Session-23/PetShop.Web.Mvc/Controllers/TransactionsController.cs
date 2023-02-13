@@ -36,7 +36,34 @@ namespace PetShop.Web.Mvc.Controllers {
 
         // GET: TransactionsController/Details/5
         public ActionResult Details(int id) {
-            return View();
+
+            if (id == null) {
+                return NotFound();
+            }
+
+            var dbTransaction = _transactionRepository.GetById(id);
+            if (dbTransaction == null) {
+                return NotFound();
+            }
+
+            var viewTransaction = new TransactionDetailsDto {
+                Date = dbTransaction.Date,
+                PetPrice = dbTransaction.PetPrice,
+                PetFoodQty = dbTransaction.PetFoodQty,
+                PetFoodPrice = dbTransaction.PetFoodPrice,
+                TotalPrice = dbTransaction.TotalPrice,
+                CustomerId= dbTransaction.CustomerId,
+                Customer = dbTransaction.Customer,
+                EmployeeId= dbTransaction.EmployeeId,   
+                Employee = dbTransaction.Employee,
+                PetId= dbTransaction.PetId,  
+                Pet = dbTransaction.Pet,                
+                PetFoodId= dbTransaction.PetFoodId, 
+                PetFood = dbTransaction.PetFood           
+                
+            };
+
+            return View(model: viewTransaction);
         }
 
         // GET: TransactionsController/Create
