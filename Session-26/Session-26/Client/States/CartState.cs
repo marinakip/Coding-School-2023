@@ -8,6 +8,7 @@ namespace Session_26.Client.States
 //This cart service will hold the information about the product which is selected by the user.
 //This is also known as storing the website's state. the website's state is stored in the memory.
     public class CartState {
+
         private readonly HttpClient _httpClient;
         public List<Product> SelectedItems { get; set; } = new();
 

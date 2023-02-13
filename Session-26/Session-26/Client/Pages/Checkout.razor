@@ -1,0 +1,25 @@
+﻿@*@using Session_26.Client.States
+@using Session_26.Client.Shared
+@using Session_26.Shared
+*@
+
+@*Enabling the end user to navigate to the component*@
+@page "/checkout"
+
+
+@*Injecting the cart service*@
+@inject CartState CartState
+
+
+
+<h3>Checkout</h3>
+
+<span>You have @CartState.SelectedItems.Count item(s) in your cart.</span>
+
+@foreach (var selectedItem in CartState.SelectedItems) {
+    <ProductDisplay Product="selectedItem" />
+}
+in
+@code {
+
+}
