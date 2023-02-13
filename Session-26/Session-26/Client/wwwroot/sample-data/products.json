@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Blazor Server Fundamentals",
+        "description": "A beginner's book of Blazor Server website development",
+        "price": 15
+    },
+    {
+        "id": 2,
+        "name": "Blazor WebAssembly Fundamentals",
+        "description": "A beginner's book of Blazor WebAssembly website development",
+        "price": 17
+    },
+    {
+        "id": 3,
+        "name": "Blazor Server Advanced",
+        "description": "A good book of Blazor Server website development",
+        "price": 21
+    },
+    {
+        "id": 4,
+        "name": "Blazor WebAssembly Advanced",
+        "description": "A good book of Blazor WebAssembly website development",
+        "price": 20
+    }
+]

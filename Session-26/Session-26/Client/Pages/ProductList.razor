@@ -1,0 +1,24 @@
+﻿@*Enabling the end user to navigate to the component*@
+@page "/product-list"  
+
+@*Injecting the HttpClient to fetch the product list*@
+@inject HttpClient Http  
+
+@*The UI of the product list page*@
+
+<h3>ProductList</h3>
+
+@foreach (var product in Products) {
+    <ProductDisplay Product = "product" />
+}
+
+@code {
+    //Declaring the product list and fetch the data.
+
+    public List<Product> Products { get; set; } = new();
+
+    protected override async Task OnInitializedAsync() {
+        Products = await Http.GetFromJsonAsync<List<Product>>
+                   ("sample-data/products.json") ?? new();
+    }
+}
