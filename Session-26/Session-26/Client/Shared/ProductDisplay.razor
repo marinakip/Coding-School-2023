@@ -1,4 +1,5 @@
-﻿
+﻿@*Injecting the cart service*@
+@inject CartState CartState
 
 <h3>ProductDisplay</h3>
 <div class="card w-25">
@@ -9,9 +10,19 @@
     </div>
 </div>
 
+if(DisplayBuyButton){
+    <button class="btn btn-primary" type="button" 
+            @onclick="_ => CartState.AddProductToCartAsync(Product.Id)">Buy</button>
+}
+
+
 @code {
     [EditorRequired] //will enforce whenever this component is used, the component user must provide the Product parameter data.
     [Parameter]  // parameter (input data) to the component
     public Product Product { get; set; } = new();
+
+
+    [Parameter] // parameter (input data) to the component
+    public bool DisplayBuyButton { get; set; } = false;
 
 }

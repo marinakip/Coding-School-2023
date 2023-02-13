@@ -4,18 +4,22 @@
 @*Injecting the HttpClient to fetch the product list*@
 @inject HttpClient Http  
 
+
 @*The UI of the product list page*@
 
 <h3>ProductList</h3>
 
 @foreach (var product in Products) {
-    <ProductDisplay Product = "product" />
+    <ProductDisplay Product="product" DisplayBuyButton="true" />
 }
 
+
 @code {
+
     //Declaring the product list and fetch the data.
 
     public List<Product> Products { get; set; } = new();
+
 
     protected override async Task OnInitializedAsync() {
         Products = await Http.GetFromJsonAsync<List<Product>>
