@@ -40,7 +40,7 @@ namespace PetShop.EF.Repositories {
                 .Include(transaction => transaction.Customer)
                 .Include(transaction => transaction.Employee)
                 .Include(transaction => transaction.Pet)
-                .Include(transaction => transaction.PetFood);                
+                .Include(transaction => transaction.PetFood).SingleOrDefault();
         }
 
         public void Update(int id, Transaction entity) {

@@ -122,12 +122,20 @@ namespace PetShop.Web.Mvc.Controllers {
                 return NotFound();
             }
 
-            var newTransaction = new TransactionEditDto {                
-                Id = dbTransaction.Id,
-                //Date = dbTransaction.Date,
-                PetPrice= dbTransaction.PetPrice,   
+            var newTransaction = new TransactionEditDto {
+                Date = dbTransaction.Date,
+                PetPrice = dbTransaction.PetPrice,
                 PetFoodQty = dbTransaction.PetFoodQty,
-                PetFoodPrice = dbTransaction.PetFoodPrice
+                PetFoodPrice = dbTransaction.PetFoodPrice,
+                TotalPrice = dbTransaction.TotalPrice,
+                CustomerId = dbTransaction.CustomerId,
+                Customer = dbTransaction.Customer,
+                EmployeeId = dbTransaction.EmployeeId,
+                Employee = dbTransaction.Employee,
+                PetId = dbTransaction.PetId,
+                Pet = dbTransaction.Pet,
+                PetFoodId = dbTransaction.PetFoodId,
+                PetFood = dbTransaction.PetFood
             };
 
             var customers = _customerRepository.GetAll();
@@ -172,9 +180,13 @@ namespace PetShop.Web.Mvc.Controllers {
                 dbTransaction.PetFoodPrice = transaction.PetFoodPrice;
                 
                 dbTransaction.CustomerId = transaction.CustomerId;
+                dbTransaction.Customer = transaction.Customer;
                 dbTransaction.EmployeeId = transaction.EmployeeId;
+                dbTransaction.Employee = transaction.Employee;
                 dbTransaction.PetId = transaction.PetId;
+                dbTransaction.Pet = transaction.Pet;
                 dbTransaction.PetFoodId = transaction.PetFoodId;
+                dbTransaction.PetFood = transaction.PetFood;
 
                 _transactionRepository.Update(id, dbTransaction);
                 return RedirectToAction(nameof(Index));
