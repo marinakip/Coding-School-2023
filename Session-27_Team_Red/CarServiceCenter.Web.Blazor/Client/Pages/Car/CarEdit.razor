@@ -1,0 +1,91 @@
+﻿@page "/carlist/edit/{Id:int?}"
+
+@using CarServiceCenter.Web.Blazor.Shared.Car;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<PageTitle>Cars Edit</PageTitle>
+
+<h3 class="display-3">Cars</h3>
+<h4>Create/Edit</h4>
+
+<style>
+    body {
+        background-color: #FAF8F1
+    }
+     h3{
+        font-weight: bold;
+    }
+</style>
+
+@if(Car == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+     @if(errorMessage != null)
+    {
+        <p class="text-danger">@errorMessage</p>
+    }
+
+     <EditForm Model="Car" OnValidSubmit="OnSave">
+    <DataAnnotationsValidator />
+    <div class="row">
+        <div class="col-md-6">
+            <lable class="form-label">Brand</lable>
+            <input class="form-control" @bind="@Car.Brand"/>
+        </div>
+        <div class="col-md-6">
+            <label class="col-form-label">Model</label>
+            <input class="form-control" @bind="@Car.Model"/>
+        </div>
+        <div class="col-md-6">
+            <label class="col-form-label">Car Registration Number</label>
+            <InputText class="form-control" @bind-Value="@Car.CarRegistrationNumber" />
+        </div>
+    </div>
+   
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-success" @onclick="OnSave">Save</button>
+            <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+        </div>
+    </div>
+    </EditForm> 
+}
+@code
+{
+    [Parameter] public int? Id { get; set; }
+    CarEditDto Car { get; set; }
+    string errorMessage = null;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(Id == null)
+        {
+            Car = new();
+        }
+        else
+        {
+            Car = await httpClient.GetFromJsonAsync<CarEditDto>($"car/{Id}");
+        }
+    }
+    private void OnCancel()
+    {
+        navigationManager.NavigateTo("carlist");
+    }
+    private async Task OnSave()
+    {
+        HttpResponseMessage? response = null;
+        if(Id == null){
+            response = await httpClient.PostAsJsonAsync("car", Car);
+        } else {
+            response = await httpClient.PutAsJsonAsync("car", Car);
+        }        
+        response.EnsureSuccessStatusCode();
+        //TODO: ERROR MESSAGE
+        navigationManager.NavigateTo("carlist");
+        
+    }
+}

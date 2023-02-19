@@ -1,0 +1,222 @@
+﻿@page "/transactionlist/edit/{Id:int?}"
+
+@using CarServiceCenter.Web.Blazor.Shared.Car;
+@using CarServiceCenter.Web.Blazor.Shared.Customer;
+@using CarServiceCenter.Web.Blazor.Shared.ServiceTask;
+@using CarServiceCenter.Web.Blazor.Shared.Transaction
+@using CarServiceCenter.Web.Blazor.Shared;
+@using CarServiceCenter.Web.Blazor.Shared.TransactionLine;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<PageTitle>Transactions Edit</PageTitle>
+
+<h3 class="display-3">Transactions</h3>
+<h4>Create/Edit</h4>
+
+<style>
+    body {
+        background-color: #FAF8F1
+    }
+     h3{
+        font-weight: bold;
+    }
+</style>
+
+@if (Transaction == null) {
+
+    <p>Loading ...</p>
+
+} else {
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Date</label>
+            <input class="form-control" @bind="@Transaction.Date" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Total Price</label>
+            <input class="form-control" @bind="@Transaction.TotalPrice" readonly/>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Select Manager</label>
+            <select class="form-control" @bind="Transaction.ManagerId">
+
+                @foreach (var item in Transaction.Managers) {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Select Customer</label>
+            <select class="form-control" @bind="Transaction.CustomerId">
+
+                @foreach (var item in Transaction.Customers) {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Select Car</label>
+            <select class="form-control" @bind="Transaction.CarId">
+
+                @foreach (var item in Transaction.Cars) {
+                    <option value="@item.Id">@item.Brand</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <h3>Transaction Lines</h3>
+    <br>
+
+    <div class="row">
+        <button class="btn btn-success col-md-1" @onclick="AddLine">Add Line</button>
+    </div>
+    <div id="transactionLinesContainer">
+        @foreach (var transactionLine in Transaction.TransactionLines) {
+            <div class="row mb-3">
+                <div class="col-md-2">
+                    <label class="form-label">Service Task</label>
+                    <select class="form-control" @bind="@transactionLine.ServiceTaskId">
+                        @foreach (var task in ServiceTasks) {
+                            <option value="@task.Id">@task.Code - @task.Description</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Assigned Engineer</label>
+                    <select class="form-control" @bind="@transactionLine.EngineerId">
+                        @foreach (var engineer in Engineers) {
+                            <option value="@engineer.Id">@engineer.Name - @engineer.Surname</option>
+                        }
+                    </select>
+                </div>
+                <div class="col-md-1">
+                    <label class="form-label">Price</label>                   
+                    <input class="form-control" @bind="@transactionLine.Price" />  
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">Actions</label>
+                    <div class="row">
+                        <div class="col">
+                           
+                            <button class="btn btn-primary" @onclick="() => SaveTrasLine(transactionLine)">Save Line</button>  
+                            <button class="btn btn-danger" @onclick="() => DeleteTrasLine(transactionLine)">Delete</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1">
+                    <input class="form-control" @bind="@transactionLine.TransactionId" hidden />
+                </div>
+            </div>
+        }
+
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-success" @onclick="OnSave">Save</button>                
+                <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+@code {
+    [Parameter] public int? Id { get; set; }
+    TransactionEditDto Transaction { get; set; }
+    TransactionLineEditDto TrasLine { get; set; }
+    public List<CarListDto> Cars;
+    public List<ManagerListDto> Managers;
+    public List<CustomerListDto> Customers;
+    public List<ServiceTaskListDto> ServiceTasks;
+    public List<EngineerListDto> Engineers;
+
+
+    protected override async Task OnInitializedAsync() {
+        if (Id == null) {
+            Transaction = new();
+            Transaction.Managers = await httpClient.GetFromJsonAsync<List<ManagerListDto>>("manager");
+            Transaction.Customers = await httpClient.GetFromJsonAsync<List<CustomerListDto>>("customer");
+            Transaction.Cars = await httpClient.GetFromJsonAsync<List<CarListDto>>("car");
+            ServiceTasks = await httpClient.GetFromJsonAsync<List<ServiceTaskListDto>>("servicetask");
+            Engineers = await httpClient.GetFromJsonAsync<List<EngineerListDto>>("engineer");
+        } else {
+            Transaction = await httpClient.GetFromJsonAsync<TransactionEditDto>($"transaction/{Id}");
+            Transaction.Managers = await httpClient.GetFromJsonAsync<List<ManagerListDto>>("manager");
+            Transaction.Customers = await httpClient.GetFromJsonAsync<List<CustomerListDto>>("customer");
+            Transaction.Cars = await httpClient.GetFromJsonAsync<List<CarListDto>>("car");
+            ServiceTasks = await httpClient.GetFromJsonAsync<List<ServiceTaskListDto>>("servicetask");
+            Engineers = await httpClient.GetFromJsonAsync<List<EngineerListDto>>("engineer");
+        }
+    }
+
+    private void OnCancel() {
+        navigationManager.NavigateTo("transactionlist");
+    }
+
+
+    private async Task OnSave() {
+        HttpResponseMessage? response = null;
+        if (Id == null) {
+            response = await httpClient.PostAsJsonAsync("transaction", Transaction);
+
+        } else {
+            response = await httpClient.PutAsJsonAsync("transaction", Transaction);
+
+        }
+
+        response.EnsureSuccessStatusCode();
+        navigationManager.NavigateTo("transactionlist");
+    }
+
+
+
+    private void AddLine() {
+
+        Transaction.TransactionLines.Add(new Blazor.Shared.TransactionLine.TransactionLineListDto());
+
+    }
+
+    private void DeleteTrasLine(TransactionLineListDto trasLine) {
+        Transaction.TransactionLines.Remove(trasLine);
+
+
+    }
+    private async Task SaveTrasLine(TransactionLineListDto trasLine) {
+        // await SaveLine();     //It gives error 400 TODO: FIX 
+    }
+
+    private async Task SaveLine() {
+        HttpResponseMessage? response = null;
+        if (Id == null) {
+            try {
+                response = await httpClient.PostAsJsonAsync("transactionline", TrasLine); 
+                response.EnsureSuccessStatusCode();
+            } catch {
+                throw new Exception("Couldn't save line");
+            } finally {               
+                navigationManager.NavigateTo("transactionlist");
+            }
+           
+        } else {
+            try {
+                response = await httpClient.PostAsJsonAsync("transactionline", TrasLine);
+                response.EnsureSuccessStatusCode();                
+            } catch {
+                throw new Exception("Couldn't save line");
+            } finally {                
+                navigationManager.NavigateTo("transactionlist");
+            }
+
+        }
+
+        
+    }
+
+}
