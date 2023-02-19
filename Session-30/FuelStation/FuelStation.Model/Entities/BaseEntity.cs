@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 namespace FuelStation.Model.Entities {
     /// <summary>
     /// It is the class that all entities in Fuel Station inherit from.
-    /// It implements IEntityBase interface.
+    /// It implements IBaseEntity interface.
     /// </summary>
-    public class BaseEntity : IEntityBase {
+    public class BaseEntity : IBaseEntity {
 
         #region Properties  
         /// <summary>
