@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStation.Web.Blazor.Server", "FuelStation.Web.Blazor\Server\FuelStation.Web.Blazor.Server.csproj", "{4D2D5C82-88D6-4EDC-A43F-C9A5CF65D2F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStation.Web.Blazor.Client", "FuelStation.Web.Blazor\Client\FuelStation.Web.Blazor.Client.csproj", "{FA32F36C-D5EC-4390-A37F-2C4BA6B2C18A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStation.Web.Blazor.Shared", "FuelStation.Web.Blazor\Shared\FuelStation.Web.Blazor.Shared.csproj", "{E9EB1096-97A1-4241-B013-CC423B5C80E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStation.Model", "FuelStation.Model\FuelStation.Model.csproj", "{F8E8C035-000F-4FDC-A6E2-661D831823B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStation.EntityFramework", "FuelStation.EntityFramework\FuelStation.EntityFramework.csproj", "{84BB56EE-E5B6-48E1-AA19-870BC575F3C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuelStation.Winforms", "FuelStation.Winforms\FuelStation.Winforms.csproj", "{1954BC44-6CFA-4773-9A86-346DF6C1158F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D2D5C82-88D6-4EDC-A43F-C9A5CF65D2F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D2D5C82-88D6-4EDC-A43F-C9A5CF65D2F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D2D5C82-88D6-4EDC-A43F-C9A5CF65D2F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D2D5C82-88D6-4EDC-A43F-C9A5CF65D2F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA32F36C-D5EC-4390-A37F-2C4BA6B2C18A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA32F36C-D5EC-4390-A37F-2C4BA6B2C18A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA32F36C-D5EC-4390-A37F-2C4BA6B2C18A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA32F36C-D5EC-4390-A37F-2C4BA6B2C18A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9EB1096-97A1-4241-B013-CC423B5C80E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9EB1096-97A1-4241-B013-CC423B5C80E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9EB1096-97A1-4241-B013-CC423B5C80E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9EB1096-97A1-4241-B013-CC423B5C80E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8E8C035-000F-4FDC-A6E2-661D831823B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8E8C035-000F-4FDC-A6E2-661D831823B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8E8C035-000F-4FDC-A6E2-661D831823B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8E8C035-000F-4FDC-A6E2-661D831823B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84BB56EE-E5B6-48E1-AA19-870BC575F3C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84BB56EE-E5B6-48E1-AA19-870BC575F3C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84BB56EE-E5B6-48E1-AA19-870BC575F3C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84BB56EE-E5B6-48E1-AA19-870BC575F3C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1954BC44-6CFA-4773-9A86-346DF6C1158F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1954BC44-6CFA-4773-9A86-346DF6C1158F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1954BC44-6CFA-4773-9A86-346DF6C1158F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1954BC44-6CFA-4773-9A86-346DF6C1158F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FFCDDE8-D9A1-4887-8660-2275A86CB15D}
+	EndGlobalSection
+EndGlobal
