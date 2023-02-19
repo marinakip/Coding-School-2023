@@ -19,12 +19,11 @@ namespace FuelStation.Model.Entities {
         #region Constructor
         /// <summary>
         /// It creates a new instance of the Customer in our Fuel Station
-        /// </summary>
-        /// <param name="id">The global unique identifier of the Customer. It is inherited from the class <c>Person.</c> </param>
+        /// </summary>       
         /// <param name="name">The first name of the Customer. It is inherited from the class <c>Person.</c></param>
         /// <param name="surname">The last name of the Customer. It is inherited from the class <c>Person.</c></param>
         /// <param name="cardNumber">The loyalty card number of the Customer. It is inherited from the class <c>Person.</c> </param>
-        public Customer(Guid id, string name, string surname, string cardNumber) : base(id, name, surname) {
+        public Customer(string name, string surname, string cardNumber) : base(name, surname) {
             CardNumber = cardNumber;    
         }
         #endregion Constructor

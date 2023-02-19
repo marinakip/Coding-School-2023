@@ -38,15 +38,14 @@ namespace FuelStation.Model.Entities {
         /// <summary>
         /// It creates a new instance of the Employee in our Fuel Station.
         /// </summary>
-        /// <param name="id">The global unique identifier of the Employee. It is inherited from the class <c>Person.</c> </param>
         /// <param name="name">The first name of the Employee. It is inherited from the class <c>Person.</c> </param>
         /// <param name="surname">The last name of the Employee. It is inherited from the class <c>Person.</c></param>
         /// <param name="hireDateStart">The date that the employee has started working </param>
         /// <param name="hireDateEnd">The date that the employee has stopped working </param>
         /// <param name="sallaryPerMonth">Employee's monthly sallary</param>
         /// <param name="employeeType">Employee's job type.</param>
-        public Employee(Guid id, string name, string surname, DateTime hireDateStart, 
-            DateTime hireDateEnd, decimal sallaryPerMonth, EmployeeType employeeType)  : base(id, name, surname){
+        public Employee(string name, string surname, DateTime hireDateStart, 
+            DateTime hireDateEnd, decimal sallaryPerMonth, EmployeeType employeeType)  : base(name, surname){
 
             HireDateStart = hireDateStart;
             HireDateEnd = hireDateEnd;
