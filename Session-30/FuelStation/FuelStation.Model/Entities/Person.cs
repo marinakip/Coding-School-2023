@@ -27,11 +27,10 @@ namespace FuelStation.Model.Entities {
         #region Constructor
         /// <summary>
         /// It initializes a new instance of the Person class
-        /// </summary>
-        /// <param name="id">The global unique identifier of the Person</param>
+        /// </summary>      
         /// <param name="name">The first name of the Person</param>
         /// <param name="surname">The last name of the Person</param>
-        public Person(Guid id, string name, string surname) : base() {
+        public Person(string name, string surname) : base() {
             Name = name;
             Surname = surname;
         }
