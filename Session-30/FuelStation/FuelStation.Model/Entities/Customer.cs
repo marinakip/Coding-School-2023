@@ -24,7 +24,9 @@ namespace FuelStation.Model.Entities {
         /// <param name="surname">The last name of the Customer. It is inherited from the class <c>Person.</c></param>
         /// <param name="cardNumber">The loyalty card number of the Customer. It is inherited from the class <c>Person.</c> </param>
         public Customer(string name, string surname, string cardNumber) : base(name, surname) {
-            CardNumber = cardNumber;    
+            CardNumber = cardNumber;
+            Transactions = new List<Transaction>();
+
         }
         #endregion Constructor
 
@@ -34,7 +36,7 @@ namespace FuelStation.Model.Entities {
         /// <summary>
         /// The list of transactions assosiated with this customer.
         /// </summary>
-        public List<Transaction> transactions = new List<Transaction>();
+        public List<Transaction> Transactions { get; set; }
         #endregion Relations
     }
 }

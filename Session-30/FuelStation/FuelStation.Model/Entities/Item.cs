@@ -57,6 +57,7 @@ namespace FuelStation.Model.Entities {
             ItemType = itemType;
             Price = price;
             Cost = cost;
+            TransactionLines = new List<TransactionLine>();
 
         }
         #endregion Constructor
@@ -67,7 +68,6 @@ namespace FuelStation.Model.Entities {
         /// <summary>
         /// The list of transactions assosiated with this employee.
         /// </summary>
-        public List<TransactionLine> transactionLines = new List<TransactionLine>();
-        #endregion Relations
+        public List<TransactionLine> TransactionLines { get; set; }
     }
 }

@@ -50,7 +50,8 @@ namespace FuelStation.Model.Entities {
             HireDateStart = hireDateStart;
             HireDateEnd = hireDateEnd;
             SallaryPerMonth = sallaryPerMonth;
-            EmployeeType = employeeType; 
+            EmployeeType = employeeType;
+            Transactions = new List<Transaction>();
         }
         #endregion Constructor
 
@@ -60,7 +61,7 @@ namespace FuelStation.Model.Entities {
         /// <summary>
         /// The list of transactions assosiated with this employee.
         /// </summary>
-        public List<Transaction> transactions = new List<Transaction>();
+        public List<Transaction> Transactions { get; set; }
         #endregion Relations
 
     }
