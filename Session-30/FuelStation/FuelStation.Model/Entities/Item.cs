@@ -69,5 +69,6 @@ namespace FuelStation.Model.Entities {
         /// The list of transactions assosiated with this employee.
         /// </summary>
         public List<TransactionLine> TransactionLines { get; set; }
+        #endregion Relations
     }
 }
