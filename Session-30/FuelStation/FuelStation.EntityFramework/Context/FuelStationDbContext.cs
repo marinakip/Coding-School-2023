@@ -19,7 +19,7 @@ namespace FuelStation.EntityFramework.Context {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());            
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
             modelBuilder.ApplyConfiguration(new ItemConfiguration());             //TODO: Uncomment them when done with configs
-            //modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             //modelBuilder.ApplyConfiguration(new TransactionLineConfiguration());
             base.OnModelCreating(modelBuilder);
         }
