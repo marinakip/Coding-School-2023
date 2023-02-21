@@ -23,10 +23,21 @@ namespace FuelStation.Model.Entities {
         /// <param name="name">The first name of the Customer. It is inherited from the class <c>Person.</c></param>
         /// <param name="surname">The last name of the Customer. It is inherited from the class <c>Person.</c></param>
         /// <param name="cardNumber">The loyalty card number of the Customer. It is inherited from the class <c>Person.</c> </param>
-        public Customer(string name, string surname, string cardNumber) : base(name, surname) {
-            CardNumber = cardNumber;
+        public Customer(string name, string surname) : base(name, surname) {
+            CardNumber = GenerateCardNumber();
             Transactions = new List<Transaction>();
 
+        }
+
+        /// <summary>
+        /// Generates Customer's loyalty card number 
+        /// </summary>
+        /// <returns>string</returns>
+        private string? GenerateCardNumber() {
+            Random random = new Random();
+            long randomInt = random.NextInt64(1000000000000000, 9999999999999999);
+            string cardNumber = $"A{randomInt}";   
+            return cardNumber;  
         }
         #endregion Constructor
 
