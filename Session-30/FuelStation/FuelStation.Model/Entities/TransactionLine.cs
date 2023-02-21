@@ -65,8 +65,8 @@ namespace FuelStation.Model.Entities {
         #endregion Constructor
 
         #region Relations
-        // One to one relation with Transaction
-        // One to One relation with Item
+        // One Transaction with Many TransactionLines
+        // One Item with Many TransactionLines
         public Transaction Transaction { get; set; } = null!;
         public Item Item  {get; set; } = null!;  
 

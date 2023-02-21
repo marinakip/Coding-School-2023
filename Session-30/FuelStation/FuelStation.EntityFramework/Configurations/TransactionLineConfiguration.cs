@@ -25,13 +25,13 @@ namespace FuelStation.EntityFramework.Configurations {
             // and it has thousands of gallons capacity, so in this case the net value is going to be big 
 
             builder.Property(transactionLine => transactionLine.DiscountPercent).HasPrecision(5,4).IsRequired();  //e.g 22,22% will be 0,2222
-            builder.Property(transactionLine => transactionLine.DiscountValue).HasPrecision(9,3).IsRequired();  
+            builder.Property(transactionLine => transactionLine.DiscountValue).HasPrecision(9,3).IsRequired();     //TODO: Check again precision
             builder.Property(transactionLine => transactionLine.TotalValue).HasPrecision(9,3).IsRequired();  
            
             // Relations
             
             builder.HasOne(t => t.Transaction)
-                .WithMany(t => t.TransactionLines)              //TODO: Check again relations and precision
+                .WithMany(t => t.TransactionLines)             
                 .HasForeignKey(t => t.TransactionId)
                 .OnDelete(DeleteBehavior.Restrict);
 
