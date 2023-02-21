@@ -18,9 +18,9 @@ namespace FuelStation.EntityFramework.Context {
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
             modelBuilder.ApplyConfiguration(new CustomerConfiguration());            
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
-            modelBuilder.ApplyConfiguration(new ItemConfiguration());             //TODO: Uncomment them when done with configs
+            modelBuilder.ApplyConfiguration(new ItemConfiguration());            
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
-            //modelBuilder.ApplyConfiguration(new TransactionLineConfiguration());
+            modelBuilder.ApplyConfiguration(new TransactionLineConfiguration());
             base.OnModelCreating(modelBuilder);
         }
 
