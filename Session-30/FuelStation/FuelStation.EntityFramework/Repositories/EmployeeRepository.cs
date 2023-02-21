@@ -1,5 +1,6 @@
 ﻿using FuelStation.EntityFramework.Context;
 using FuelStation.Model.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,10 @@ namespace FuelStation.EntityFramework.Repositories {
 
         public void Delete(Guid id) {
             using var context = new FuelStationDbContext();
-            var dbEmployee = context.Employees.SingleOrDefault(Employee => Employee.Id == id);
+            var dbEmployee = context.Employees
+                .Where(Employee => Employee.Id == id)
+                .Include(Employee => Employee.Transactions)
+                .SingleOrDefault();
             if (dbEmployee is null) {
                 throw new KeyNotFoundException($"Given id '{id}' was not found in database");
             }
@@ -29,17 +33,23 @@ namespace FuelStation.EntityFramework.Repositories {
 
         public IList<Employee> GetAll() {
             using var context = new FuelStationDbContext();
-            return context.Employees.ToList();
+            return context.Employees.Include(Employee => Employee.Transactions).ToList();
         }
 
         public Employee? GetById(Guid id) {
             using var context = new FuelStationDbContext();
-            return context.Employees.SingleOrDefault(Employee => Employee.Id == id);
+            return context.Employees
+                .Where(Employee => Employee.Id == id)
+                .Include(Employee => Employee.Transactions)
+                .SingleOrDefault();
         }
 
         public void Update(Guid id, Employee entity) {
             using var context = new FuelStationDbContext();
-            var dbEmployee = context.Employees.SingleOrDefault(Employee => Employee.Id == id);
+            var dbEmployee = context.Employees
+                .Where(Employee => Employee.Id == id)
+                .Include(Employee => Employee.Transactions)
+                .SingleOrDefault();
             if (dbEmployee is null) {
                 throw new KeyNotFoundException($"Given id '{id}' was not found in database");
             }
