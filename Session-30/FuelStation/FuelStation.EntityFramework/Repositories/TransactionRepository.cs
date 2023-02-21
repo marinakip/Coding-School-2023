@@ -22,8 +22,8 @@ namespace FuelStation.EntityFramework.Repositories {
             using var context = new FuelStationDbContext();
             var dbTransaction = context.Transactions
                .Where(transaction => transaction.Id == id)
-               .Include(transaction => transaction.Customer)     //TODO: Change in all repos parameters to lowercase
-               .Include(transaction => transaction.Employee)     //TODO: Check again all repos
+               .Include(transaction => transaction.Customer)     
+               .Include(transaction => transaction.Employee)     
                .Include(transaction => transaction.TransactionLines)
                .SingleOrDefault();
             if (dbTransaction is null) {
@@ -62,7 +62,7 @@ namespace FuelStation.EntityFramework.Repositories {
             if (dbTransaction is null) {
                 throw new KeyNotFoundException($"Given id '{id}' was not found in database");
             }
-            dbTransaction.Date = entity.Date;
+            dbTransaction.Date = entity.Date;  //TODO: Check again if i should put this here since it is auto generated
             dbTransaction.PaymentMethod = entity.PaymentMethod;
             dbTransaction.TotalValue = entity.TotalValue;
             dbTransaction.CustomerId = entity.CustomerId;
