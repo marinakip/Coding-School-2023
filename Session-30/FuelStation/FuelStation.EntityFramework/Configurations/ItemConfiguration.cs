@@ -18,17 +18,15 @@ namespace FuelStation.EntityFramework.Configurations {
             builder.Property(item => item.Id).ValueGeneratedOnAdd();
 
             // Properties
-            builder.HasIndex(item => item.Code).IsUnique();
+            builder.HasIndex(item => item.Code).IsUnique();                                      
+            builder.Property(item => item.Code).IsFixedLength().HasMaxLength(13).IsRequired(); //TODO: Check again code length 
             builder.Property(item => item.Description).HasMaxLength(200).IsRequired();
             builder.Property(item => item.ItemType).IsRequired();
-            builder.Property(item => item.Price).HasPrecision(9, 3).IsRequired(); // Fuel has precision of 3 decimal places
-            builder.Property(item => item.Cost).HasPrecision(9, 3).IsRequired();  // so, maybe change precision based on item type in the DTO
-                                                                                  // The number it can hold in price and cost is big, because
-                                                                                  // for example a gasoline truck may load fuel and it has thousands of gallons capacity,
-            // Relations                                                          // so in this case the price is going to be big, //TODO: maybe cost should have small precision
-                                                                                  // TODO: maybe i need this thought on transaction line, come back to check this later
+            builder.Property(item => item.Price).HasPrecision(6, 3).IsRequired(); // Fuel has precision of 3 decimal places, e.g 1 lt of petrol has 1.895 euros,
+                                                                                  // so made it big enough in case (of a bad outcome) that it goes up to 999,999  
+            builder.Property(item => item.Cost).HasPrecision(6, 3).IsRequired();  // so, maybe change precision based on item type using annotations in the DTO
 
-
+            // Relations
         }
     }
 }
