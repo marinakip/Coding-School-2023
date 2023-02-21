@@ -21,8 +21,8 @@ namespace FuelStation.EntityFramework.Repositories {
         public void Delete(Guid id) {
             using var context = new FuelStationDbContext();
             var dbEmployee = context.Employees
-                .Where(Employee => Employee.Id == id)
-                .Include(Employee => Employee.Transactions)
+                .Where(employee => employee.Id == id)
+                .Include(employee => employee.Transactions)
                 .SingleOrDefault();
             if (dbEmployee is null) {
                 throw new KeyNotFoundException($"Given id '{id}' was not found in database");
@@ -33,22 +33,22 @@ namespace FuelStation.EntityFramework.Repositories {
 
         public IList<Employee> GetAll() {
             using var context = new FuelStationDbContext();
-            return context.Employees.Include(Employee => Employee.Transactions).ToList();
+            return context.Employees.Include(employee => employee.Transactions).ToList();
         }
 
         public Employee? GetById(Guid id) {
             using var context = new FuelStationDbContext();
             return context.Employees
-                .Where(Employee => Employee.Id == id)
-                .Include(Employee => Employee.Transactions)
+                .Where(employee => employee.Id == id)
+                .Include(employee => employee.Transactions)
                 .SingleOrDefault();
         }
 
         public void Update(Guid id, Employee entity) {
             using var context = new FuelStationDbContext();
             var dbEmployee = context.Employees
-                .Where(Employee => Employee.Id == id)
-                .Include(Employee => Employee.Transactions)
+                .Where(employee => employee.Id == id)
+                .Include(employee => employee.Transactions)
                 .SingleOrDefault();
             if (dbEmployee is null) {
                 throw new KeyNotFoundException($"Given id '{id}' was not found in database");

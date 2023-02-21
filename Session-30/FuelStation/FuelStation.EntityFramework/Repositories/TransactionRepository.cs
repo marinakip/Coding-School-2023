@@ -21,10 +21,10 @@ namespace FuelStation.EntityFramework.Repositories {
         public void Delete(Guid id) {
             using var context = new FuelStationDbContext();
             var dbTransaction = context.Transactions
-               .Where(Transaction => Transaction.Id == id)
-               .Include(Transaction => Transaction.Customer)     //TODO: Change in all repos parameters to lowercase
-               .Include(Transaction => Transaction.Employee)     //TODO: Check again all repos
-               .Include(Transaction => Transaction.TransactionLines)
+               .Where(transaction => transaction.Id == id)
+               .Include(transaction => transaction.Customer)     //TODO: Change in all repos parameters to lowercase
+               .Include(transaction => transaction.Employee)     //TODO: Check again all repos
+               .Include(transaction => transaction.TransactionLines)
                .SingleOrDefault();
             if (dbTransaction is null) {
                 throw new KeyNotFoundException($"Given id '{id}' was not found in database");
@@ -36,28 +36,28 @@ namespace FuelStation.EntityFramework.Repositories {
         public IList<Transaction> GetAll() {
             using var context = new FuelStationDbContext();
             return context.Transactions
-               .Include(Transaction => Transaction.Customer)
-               .Include(Transaction => Transaction.Employee)
-               .Include(Transaction => Transaction.TransactionLines).ToList();
+               .Include(transaction => transaction.Customer)
+               .Include(transaction => transaction.Employee)
+               .Include(transaction => transaction.TransactionLines).ToList();
         }
 
         public Transaction? GetById(Guid id) {
             using var context = new FuelStationDbContext();
            return context.Transactions
-               .Where(Transaction => Transaction.Id == id)
-               .Include(Transaction => Transaction.Customer)
-               .Include(Transaction => Transaction.Employee)
-               .Include(Transaction => Transaction.TransactionLines)
+               .Where(transaction => transaction.Id == id)
+               .Include(transaction => transaction.Customer)
+               .Include(transaction => transaction.Employee)
+               .Include(transaction => transaction.TransactionLines)
                .SingleOrDefault();
         }
 
         public void Update(Guid id, Transaction entity) {
             using var context = new FuelStationDbContext();
             var dbTransaction = context.Transactions
-               .Where(Transaction => Transaction.Id == id)
-               .Include(Transaction => Transaction.Customer)
-               .Include(Transaction => Transaction.Employee)
-               .Include(Transaction => Transaction.TransactionLines)
+               .Where(transaction => transaction.Id == id)
+               .Include(transaction => transaction.Customer)
+               .Include(transaction => transaction.Employee)
+               .Include(transaction => transaction.TransactionLines)
                .SingleOrDefault();
             if (dbTransaction is null) {
                 throw new KeyNotFoundException($"Given id '{id}' was not found in database");

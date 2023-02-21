@@ -21,8 +21,8 @@ namespace FuelStation.EntityFramework.Repositories {
         public void Delete(Guid id) {
             using var context = new FuelStationDbContext();
             var dbItem = context.Items
-                .Where(Item => Item.Id == id)
-                .Include(Item => Item.TransactionLines)
+                .Where(item => item.Id == id)
+                .Include(item => item.TransactionLines)
                 .SingleOrDefault();
             if (dbItem is null) {
                 throw new KeyNotFoundException($"Given id '{id}' was not found in database");
@@ -33,22 +33,22 @@ namespace FuelStation.EntityFramework.Repositories {
 
         public IList<Item> GetAll() {
             using var context = new FuelStationDbContext();
-            return context.Items.Include(Item => Item.TransactionLines).ToList();
+            return context.Items.Include(item => item.TransactionLines).ToList();
         }
 
         public Item? GetById(Guid id) {
             using var context = new FuelStationDbContext();
             return context.Items
-                .Where(Item => Item.Id == id)
-                .Include(Item => Item.TransactionLines)
+                .Where(item => item.Id == id)
+                .Include(item => item.TransactionLines)
                 .SingleOrDefault();
         }
 
         public void Update(Guid id, Item entity) {
             using var context = new FuelStationDbContext();
             var dbItem = context.Items
-                .Where(Item => Item.Id == id)
-                .Include(Item => Item.TransactionLines)
+                .Where(item => item.Id == id)
+                .Include(item => item.TransactionLines)
                 .SingleOrDefault();
             if (dbItem is null) {
                 throw new KeyNotFoundException($"Given id '{id}' was not found in database");
