@@ -47,9 +47,9 @@ namespace FuelStation.Model.Entities {
         #endregion Constructor
 
         #region Relations
-        // One to One relation for Employee
-        // One to One relation for Customer
-        // One to Many relation for TransactionLines
+        // One Employee has Many Transactions
+        // One Customer has Many Transactions
+        // One Transaction with Many TransactionLines
         public Employee Employee { get; set; } = null!;
         public Customer Customer { get; set; } = null!;
         public List<TransactionLine> TransactionLines { get; set; }

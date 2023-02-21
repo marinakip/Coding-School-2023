@@ -25,7 +25,7 @@ namespace FuelStation.EntityFramework.Configurations {
             // Relations
            
             builder.HasOne(t => t.Employee)
-                .WithMany(t => t.Transactions)              //TODO: Check again relations
+                .WithMany(t => t.Transactions)        
                 .HasForeignKey(t => t.EmployeeId)
                 .OnDelete(DeleteBehavior.Restrict);
 
