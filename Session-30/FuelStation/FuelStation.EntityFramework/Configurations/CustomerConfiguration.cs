@@ -20,6 +20,7 @@ namespace FuelStation.EntityFramework.Configurations {
             // Properties
             builder.Property(customer => customer.Name).HasMaxLength(50).IsRequired();
             builder.Property(customer => customer.Surname).HasMaxLength(100).IsRequired();
+            builder.Property(customer => customer.CardNumber).IsFixedLength().HasMaxLength(18).IsRequired();  //TODO: Check again card length
             builder.HasIndex(customer => customer.CardNumber).IsUnique();
 
             // Relations
