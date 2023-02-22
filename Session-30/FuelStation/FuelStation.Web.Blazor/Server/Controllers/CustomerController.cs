@@ -1,10 +1,11 @@
 ﻿using FuelStation.EntityFramework.Repositories;
 using FuelStation.Model.Entities;
 using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Metrics;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace FuelStation.Web.Blazor.Server.Controllers {
     [Route("[controller]")]
@@ -31,7 +32,7 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
 
         // GET <CustomerController>/450F87A0-9FC8-4C0E-BA65-B45EEFEB9B12        
         [HttpGet("{id}")]
-        public async Task<CustomerEditDto> Get(Guid id) {
+        public async Task<CustomerEditDto> GetById(Guid id) {
             var result = _customerRepository.GetById(id);
             return new CustomerEditDto {
                 Id = id,
@@ -43,7 +44,7 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
 
         // POST <CustomerController>
         [HttpPost]
-        public async Task Post(CustomerEditDto customer) {
+        public async Task Post(CustomerEditDto customer) {            
             var newCustomer = new Customer(customer.Name, customer.Surname);
             _customerRepository.Add(newCustomer);
         }
