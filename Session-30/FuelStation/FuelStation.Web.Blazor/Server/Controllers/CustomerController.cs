@@ -44,8 +44,9 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
 
         // POST <CustomerController>
         [HttpPost]
-        public async Task Post(CustomerEditDto customer) {            
-            var newCustomer = new Customer(customer.Name, customer.Surname);
+       // public async Task Post(CustomerEditDto customer) {            
+        public async Task Post(CustomerCreateDto customer) {            
+            var newCustomer = new Customer(customer.Name, customer.Surname);           
             _customerRepository.Add(newCustomer);
         }
 

@@ -11,9 +11,9 @@ namespace FuelStation.EntityFramework.Repositories {
     public class CustomerRepository : IEntityRepository<Customer> {
         public void Add(Customer entity) {
             using var context = new FuelStationDbContext();
-            if (entity.Id != Guid.Empty || entity.Id != null) {
-                throw new ArgumentException("Given entity should not have Id set", nameof(entity));
-            }
+            //if (entity.Id != Guid.Empty || entity.Id != null) {
+            //    throw new ArgumentException("Given entity should not have Id set", nameof(entity));
+            //}
             context.Customers.Add(entity);
             context.SaveChanges();
         }
