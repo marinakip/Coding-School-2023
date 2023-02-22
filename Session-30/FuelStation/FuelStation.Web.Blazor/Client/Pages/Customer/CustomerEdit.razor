@@ -19,7 +19,7 @@
     }
 </style>
 
-@if (customer == null) {
+@if (Customer == null) {
     <p>Loading ...</p>
 
 } else {
@@ -27,11 +27,11 @@
     <div class="row">
         <div class="col-md-6">
             <label class="form-label">Name</label>
-            <input class="form-control" @bind="@customer.Name" />
+            <input class="form-control" @bind="@Customer.Name" />
         </div>
         <div class="col-md-6">
             <label class="form-label">Surname</label>
-            <input class="form-control" @bind="@customer.Surname" />
+            <input class="form-control" @bind="@Customer.Surname" />
         </div>
         @*<div class="col-md-6">
             <label class="form-label">Card Number</label>
@@ -52,14 +52,14 @@
 @code {
     [Parameter] public Guid? Id { get; set; }
     // [Parameter] public int? Id { get; set; }
-    CustomerEditDto? customer { get; set; }
+    CustomerEditDto? Customer { get; set; }
 
     protected override async Task OnInitializedAsync() {
         //if (Id == null) {
         if (Id == Guid.Empty || Id == null) {
-            customer = new();
+            Customer = new();
         } else {
-            customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
+            Customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
         }
     }
 
@@ -73,13 +73,13 @@
         if (Id == Guid.Empty || Id == null) {
             try {
                
-                response = await httpClient.PostAsJsonAsync("customer", customer);
+                response = await httpClient.PostAsJsonAsync("customer", Customer);
             } catch {
                 throw new Exception("Error in customer");
             }
 
         } else {
-            response = await httpClient.PutAsJsonAsync("customer", customer);
+            response = await httpClient.PutAsJsonAsync("customer", Customer);
         }
 
         response.EnsureSuccessStatusCode();
