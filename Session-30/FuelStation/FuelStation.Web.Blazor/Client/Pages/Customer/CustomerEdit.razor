@@ -1,0 +1,90 @@
+﻿@page "/customers/edit/{Id:guid?}"
+
+@using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<PageTitle>Customers Edit</PageTitle>
+
+<h3 class="display-3">Customers</h3>
+<h4>Create/Edit</h4>
+
+<style>
+    body {
+        background-color: #FAF8F1
+    }
+
+    h3 {
+        font-weight: bold;
+    }
+</style>
+
+@if (customer == null) {
+    <p>Loading ...</p>
+
+} else {
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Name</label>
+            <input class="form-control" @bind="@customer.Name" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Surname</label>
+            <input class="form-control" @bind="@customer.Surname" />
+        </div>
+        @*<div class="col-md-6">
+            <label class="form-label">Card Number</label>
+            <input class="form-control" @bind="@customer.CardNumber" disabled/>
+        </div>*@
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-success" @onclick="OnSave">Save</button>
+            <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+        </div>
+
+    </div>
+
+}
+
+@code {
+    [Parameter] public Guid? Id { get; set; }
+    // [Parameter] public int? Id { get; set; }
+    CustomerEditDto? customer { get; set; }
+
+    protected override async Task OnInitializedAsync() {
+        //if (Id == null) {
+        if (Id == Guid.Empty || Id == null) {
+            customer = new();
+        } else {
+            customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
+        }
+    }
+
+    private void OnCancel() {
+        //navigationManager.NavigateTo("customerlist");
+        navigationManager.NavigateTo("customers");
+    }
+
+    private async Task OnSave() {
+        HttpResponseMessage? response = null;
+        if (Id == Guid.Empty || Id == null) {
+            try {
+               
+                response = await httpClient.PostAsJsonAsync("customer", customer);
+            } catch {
+                throw new Exception("Error in customer");
+            }
+
+        } else {
+            response = await httpClient.PutAsJsonAsync("customer", customer);
+        }
+
+        response.EnsureSuccessStatusCode();
+       // navigationManager.NavigateTo("customerlist");
+        navigationManager.NavigateTo("customers");
+    }
+
+}
