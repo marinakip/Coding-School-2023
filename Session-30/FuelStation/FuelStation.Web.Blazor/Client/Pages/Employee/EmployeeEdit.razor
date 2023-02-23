@@ -85,7 +85,7 @@
     private async Task OnSave() {
         HttpResponseMessage? response = null;
         try {
-            response = await httpClient.PutAsJsonAsync("employee", Employee);
+            response = await httpClient.PutAsJsonAsync("employee", Employee);    //TODO: FIX PUT FOR EMPLOYEE
         } catch {
 
             throw new Exception("Error in put employee");
