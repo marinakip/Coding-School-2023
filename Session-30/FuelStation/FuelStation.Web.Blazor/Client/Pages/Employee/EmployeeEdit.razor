@@ -1,0 +1,91 @@
+﻿@page "/employeess/edit/{Id:guid?}"
+
+@using FuelStation.Model.Enumerations;
+@using FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<PageTitle>Employees Edit</PageTitle>
+
+<h3 class="display-3">Employees</h3>
+<h4>Create/Edit</h4>
+
+<style>
+    body {
+        background-color: #FAF8F1
+    }
+
+    h3 {
+        font-weight: bold;
+    }
+</style>
+
+@if (Employee == null) {
+    <p>Loading ...</p>
+
+} else {
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" @bind="@Employee.Name" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Surname</label>
+            <input type="text" class="form-control" @bind="@Employee.Surname" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Hire Date Start</label>
+            <input type="datetime" class="form-control" @bind="@Employee.HireDateStart" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Hire Date End</label>
+            <input type="datetime" class="form-control" @bind="@Employee.HireDateEnd" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Sallary Per Month</label>
+            <input type="number" class="form-control" @bind="@Employee.SallaryPerMonth" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Employee Type</label>
+            <select class="form-control" @bind="@Employee.EmployeeType">
+                @foreach (var type in Enum.GetValues<EmployeeType>()) {
+                    <option value="@type">@type</option>
+                }
+            </select>
+        </div>
+
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-success" @onclick="OnSave">Save</button>
+            <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+        </div>
+
+    </div>
+
+
+}
+
+@code {
+    [Parameter] public Guid? Id { get; set; }
+    EmployeeEditDto? Employee { get; set; }
+
+
+    protected override async Task OnInitializedAsync() {
+        Employee = await httpClient.GetFromJsonAsync<EmployeeEditDto>($"employee/{Id}");
+    }
+
+    private void OnCancel() {
+        navigationManager.NavigateTo("employees");
+    }
+
+    private async Task OnSave() {
+        HttpResponseMessage? response = null;
+        response = await httpClient.PutAsJsonAsync("employee", Employee);
+        response.EnsureSuccessStatusCode();
+        navigationManager.NavigateTo("employees");
+    }
+
+}
