@@ -1,4 +1,4 @@
-﻿@page "/employeess/edit/{Id:guid?}"
+﻿@page "/employees/edit/{Id:guid?}"
 
 @using FuelStation.Model.Enumerations;
 @using FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects;
@@ -35,12 +35,14 @@
             <input type="text" class="form-control" @bind="@Employee.Surname" />
         </div>
         <div class="col-md-6">
-            <label class="form-label">Hire Date Start</label>
-            <input type="datetime" class="form-control" @bind="@Employee.HireDateStart" />
+            <label for="hireDateStart" class="form-label">Hire Date Start</label>
+            <InputDate id="hireDateStart" @bind-Value="@Employee.HireDateStart" />
+           @* <input type="datetime" class="form-control" @bind="@Employee.HireDateStart" />*@
         </div>
         <div class="col-md-6">
-            <label class="form-label">Hire Date End</label>
-            <input type="datetime" class="form-control" @bind="@Employee.HireDateEnd" />
+            <label for="hireDateEnd" class="form-label">Hire Date End</label>
+            <InputDate id="hireDateEnd" @bind-Value="@Employee.HireDateEnd" />
+            @*<input type="datetime" class="form-control" @bind="@Employee.HireDateEnd" />*@
         </div>
         <div class="col-md-6">
             <label class="form-label">Sallary Per Month</label>
@@ -71,7 +73,7 @@
 @code {
     [Parameter] public Guid? Id { get; set; }
     EmployeeEditDto? Employee { get; set; }
-
+    //private DateTime selectedDate = DateTime.Now;
 
     protected override async Task OnInitializedAsync() {
         Employee = await httpClient.GetFromJsonAsync<EmployeeEditDto>($"employee/{Id}");

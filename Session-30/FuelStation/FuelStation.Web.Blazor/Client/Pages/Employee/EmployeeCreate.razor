@@ -22,19 +22,21 @@
             <input type ="text" class="form-control" @bind="@Employee.Surname" />
         </div>
         <div class="col-md-6">
-            <label class="form-label">Hire Date Start</label>
-            <input type ="datetime" class="form-control" @bind="@Employee.HireDateStart" />
+            <label for="hireDateStart" class="form-label">Hire Date Start</label>
+            <InputDate id="hireDateStart" @bind-Value="@Employee.HireDateStart" />
+           @* <input type="datetime" class="form-control" @bind="@Employee.HireDateStart" />*@
         </div>
         <div class="col-md-6">
-            <label class="form-label">Hire Date End</label>
-            <input type="datetime" class="form-control" @bind="@Employee.HireDateEnd" />
+            <label for="hireDateEnd" class="form-label">Hire Date End</label>
+            <InputDate id="hireDateEnd" @bind-Value="@Employee.HireDateEnd" />
+            @*<input type="datetime" class="form-control" @bind="@Employee.HireDateEnd" />*@
         </div>
         <div class="col-md-6">
             <label class="form-label">Sallary Per Month</label>
             <input type="number" class="form-control" @bind="@Employee.SallaryPerMonth" />
         </div>
         <div class="col-md-6">
-            <label class="form-label">Employee Type</label>
+            <label class="form-label">Select Employee Type</label>
             <select class="form-control" @bind="@Employee.EmployeeType">
                 @foreach (var type in Enum.GetValues<EmployeeType>()) {
                     <option value="@type">@type</option>
