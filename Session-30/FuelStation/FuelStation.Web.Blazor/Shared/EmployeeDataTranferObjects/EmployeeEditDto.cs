@@ -28,7 +28,7 @@ namespace FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects {
 
         [Display(Name = "Sallary Per Month")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Sallary Per Month is required")]
-        [RegularExpression(@"^\d{0,5}(\.\d{1,2})?$", ErrorMessage = "Please enter a number for Sallary Per Month with up to 2 decimal places and up to 7 total digits.")]
+       // [RegularExpression(@"^\d{0,5}(\.\d{1,2})?$", ErrorMessage = "Please enter a number for Sallary Per Month with up to 2 decimal places and up to 7 total digits.")]
         public decimal SallaryPerMonth { get; set; }
 
         [Display(Name = "Employee Type")]
