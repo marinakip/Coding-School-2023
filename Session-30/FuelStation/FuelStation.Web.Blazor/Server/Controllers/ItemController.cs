@@ -1,6 +1,5 @@
 ﻿using FuelStation.EntityFramework.Repositories;
 using FuelStation.Model.Entities;
-using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
 using FuelStation.Web.Blazor.Shared.ItemDataTransferObjects;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +17,7 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
             _itemRepository = itemRepository;
         }
 
-        // GET: <ItemsController>
+        // GET: <ItemController>
         [HttpGet]
         public async Task<IEnumerable<ItemListDto>> Get() {
             var result = _itemRepository.GetAll();
@@ -32,7 +31,7 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
             });
         }
 
-        // GET <ItemsController>/450F87A0-9FC8-4C0E-BA65-B45EEFEB9B12
+        // GET <ItemController>/450F87A0-9FC8-4C0E-BA65-B45EEFEB9B12
         [HttpGet("{id}")]
         public async Task<ItemEditDto> GetById(Guid id) {
             var result = _itemRepository.GetById(id);
@@ -46,14 +45,14 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
             };
         }
 
-        // POST <ItemsController>
+        // POST <ItemController>
         [HttpPost]
         public async Task Post(ItemCreateDto item) {
             var newItem = new Item(item.Description, item.ItemType, item.Price, item.Cost);
             _itemRepository.Add(newItem);
         }
 
-        // PUT <ItemsController>/450F87A0-9FC8-4C0E-BA65-B45EEFEB9B12
+        // PUT <ItemController>/450F87A0-9FC8-4C0E-BA65-B45EEFEB9B12
         //TODO: Maybe needs id?
         [HttpPut]
         public async Task Put(ItemEditDto item) {
@@ -66,7 +65,7 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
             _itemRepository.Update(item.Id, itemToUpdate);
         }
 
-        // DELETE <ItemsController>/5
+        // DELETE <ItemController>/5
         [HttpDelete("{id}")]
         public void Delete(Guid id) {
             _itemRepository.Delete(id);
