@@ -73,7 +73,6 @@
 @code {
     [Parameter] public Guid? Id { get; set; }
     EmployeeEditDto? Employee { get; set; }
-    //private DateTime selectedDate = DateTime.Now;
 
     protected override async Task OnInitializedAsync() {
         Employee = await httpClient.GetFromJsonAsync<EmployeeEditDto>($"employee/{Id}");
@@ -85,7 +84,13 @@
 
     private async Task OnSave() {
         HttpResponseMessage? response = null;
-        response = await httpClient.PutAsJsonAsync("employee", Employee);
+        try {
+            response = await httpClient.PutAsJsonAsync("employee", Employee);
+        } catch {
+
+            throw new Exception("Error in put employee");
+        }
+        
         response.EnsureSuccessStatusCode();
         navigationManager.NavigateTo("employees");
     }

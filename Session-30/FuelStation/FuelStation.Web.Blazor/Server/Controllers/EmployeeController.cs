@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Metrics;
 using Microsoft.AspNetCore.Http;
-using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
-using FuelStation.Web.Blazor.Client.Pages.Customer;
+using FuelStation.Web.Blazor.Client.Pages.Employee;
 
 namespace FuelStation.Web.Blazor.Server.Controllers {
     [Route("[controller]")]
