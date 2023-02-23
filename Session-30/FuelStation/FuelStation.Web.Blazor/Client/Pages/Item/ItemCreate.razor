@@ -1,0 +1,75 @@
+﻿@page "/items/create"
+
+@using FuelStation.Model.Enumerations;
+@using FuelStation.Web.Blazor.Shared.ItemDataTransferObjects;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<h3>Item Create</h3>
+
+@if (Item == null) {
+    <p>Loading ...</p>
+
+} else {
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Description</label>
+            <input type ="text" class="form-control" @bind="@Item.Description" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Select Item Type</label>
+            <select class="form-control" @bind="@Item.ItemType">
+                @foreach (var type in Enum.GetValues<ItemType>()) {
+                    <option value="@type">@type</option>
+                }
+            </select>            
+        </div> 
+        <div class="col-md-6">
+            <label class="form-label">Price</label>
+            <input type="number" class="form-control" @bind="@Item.Price" />
+        </div> 
+        <div class="col-md-6">
+            <label class="form-label">Cost</label>
+            <input type =" number" class="form-control" @bind="@Item.Cost" />
+        </div>
+
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-success" @onclick="OnSave">Save</button>
+            <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+        </div>
+
+    </div>
+
+}
+
+@code {
+    [Parameter] public Guid? Id { get; set; }
+    ItemCreateDto? Item { get; set; }
+
+    protected override async Task OnInitializedAsync() {
+
+        Item = new();
+
+    }
+
+    private void OnCancel() {
+        navigationManager.NavigateTo("items");
+    }
+
+    private async Task OnSave() {
+        HttpResponseMessage? response = null;
+
+        try {
+            response = await httpClient.PostAsJsonAsync("item", Item);
+        } catch {
+            throw new Exception("Error in item creation");
+        }
+        response.EnsureSuccessStatusCode();
+        navigationManager.NavigateTo("items");
+    }
+}
+
