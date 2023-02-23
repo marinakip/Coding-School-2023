@@ -10,11 +10,11 @@ using System.Diagnostics.Metrics;
 namespace FuelStation.Web.Blazor.Server.Controllers {
     [Route("[controller]")]
     [ApiController]
-    public class ItemsController : ControllerBase {
+    public class ItemController : ControllerBase {
 
         private readonly IEntityRepository<Item> _itemRepository;
 
-        public ItemsController(IEntityRepository<Item> itemRepository) {
+        public ItemController(IEntityRepository<Item> itemRepository) {
             _itemRepository = itemRepository;
         }
 
