@@ -19,8 +19,8 @@
     }
 </style>
 
-@*@if (Customer == null) {*@
-@if (CustomerCreate == null) {
+@if (Customer == null) {
+
     <p>Loading ...</p>
 
 } else {
@@ -34,10 +34,10 @@
             <label class="form-label">Surname</label>
             <input class="form-control" @bind="@Customer.Surname" />
         </div>
-        @*<div class="col-md-6">
+        <div class="col-md-6">
             <label class="form-label">Card Number</label>
-            <input class="form-control" @bind="@customer.CardNumber" disabled/>
-        </div>*@
+            <input class="form-control" @bind="@Customer.CardNumber" disabled/>
+        </div>
     </div>
 
     <div class="row mt-2">
@@ -52,42 +52,21 @@
 
 @code {
     [Parameter] public Guid? Id { get; set; }
-    // [Parameter] public int? Id { get; set; }
     CustomerEditDto? Customer { get; set; }
-    CustomerCreateDto? CustomerCreate { get; set; }
+   
 
-    protected override async Task OnInitializedAsync() {
-        //if (Id == null) {
-        if (Id == Guid.Empty || Id == null) {
-            //Customer = new();
-            CustomerCreate = new();
-        } else {
-            Customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
-        }
+    protected override async Task OnInitializedAsync() {       
+        Customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");       
     }
 
-    private void OnCancel() {
-        //navigationManager.NavigateTo("customerlist");
+    private void OnCancel() {       
         navigationManager.NavigateTo("customers");
     }
 
     private async Task OnSave() {
         HttpResponseMessage? response = null;
-        if (Id == Guid.Empty || Id == null) {
-            try {
-               
-                //response = await httpClient.PostAsJsonAsync("customer", Customer);
-                response = await httpClient.PostAsJsonAsync("customer", Customer);
-            } catch {
-                throw new Exception("Error in customer");
-            }
-
-        } else {
-            response = await httpClient.PutAsJsonAsync("customer", Customer);
-        }
-
-        response.EnsureSuccessStatusCode();
-       // navigationManager.NavigateTo("customerlist");
+        response = await httpClient.PutAsJsonAsync("customer", Customer);
+        response.EnsureSuccessStatusCode();       
         navigationManager.NavigateTo("customers");
     }
 
