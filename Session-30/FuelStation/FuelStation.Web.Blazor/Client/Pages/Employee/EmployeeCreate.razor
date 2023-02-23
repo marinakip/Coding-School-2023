@@ -1,0 +1,81 @@
+﻿@page "/employees/create"
+
+@using FuelStation.Model.Enumerations;
+@using FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects;
+@inject HttpClient httpClient
+@inject NavigationManager navigationManager
+
+<h3>Employee Create</h3>
+
+@if (Employee == null) {
+    <p>Loading ...</p>
+
+} else {
+
+    <div class="row">
+        <div class="col-md-6">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" @bind="@Employee.Name" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Surname</label>
+            <input type ="text" class="form-control" @bind="@Employee.Surname" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Hire Date Start</label>
+            <input type ="datetime" class="form-control" @bind="@Employee.HireDateStart" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Hire Date End</label>
+            <input type="datetime" class="form-control" @bind="@Employee.HireDateEnd" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Sallary Per Month</label>
+            <input type="number" class="form-control" @bind="@Employee.SallaryPerMonth" />
+        </div>
+        <div class="col-md-6">
+            <label class="form-label">Employee Type</label>
+            <select class="form-control" @bind="@Employee.EmployeeType">
+                @foreach (var type in Enum.GetValues<EmployeeType>()) {
+                    <option value="@type">@type</option>
+                }
+            </select>            
+        </div>
+
+    </div>
+
+    <div class="row mt-2">
+        <div class="col">
+            <button class="btn btn-success" @onclick="OnSave">Save</button>
+            <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+        </div>
+
+    </div>
+
+}
+
+@code {
+    [Parameter] public Guid? Id { get; set; }
+    EmployeeCreateDto? Employee { get; set; }
+
+    protected override async Task OnInitializedAsync() {
+        Employee = new();
+    }
+
+    private void OnCancel() {
+        navigationManager.NavigateTo("employees");
+    }
+
+    private async Task OnSave() {
+        HttpResponseMessage? response = null;
+
+        try {
+            response = await httpClient.PostAsJsonAsync("employee", Employee);
+        } catch {
+            throw new Exception("Error in employee");
+        }
+        response.EnsureSuccessStatusCode();
+        navigationManager.NavigateTo("employees");
+    }
+
+}
