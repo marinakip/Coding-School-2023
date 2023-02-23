@@ -17,4 +17,8 @@
     <ProjectReference Include="..\Shared\FuelStation.Web.Blazor.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\Item\" />
+  </ItemGroup>
+
 </Project>
