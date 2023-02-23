@@ -37,6 +37,7 @@
                 <th>Hire Date Start</th>
                 <th>Hire Date End</th>
                 <th>Sallary Per Month</th>
+                <th>Employee Type</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -48,6 +49,7 @@
                     <td>@employee.HireDateStart</td>
                     <td>@employee.HireDateEnd</td>
                     <td>@employee.SallaryPerMonth</td>
+                    <td>@employee.EmployeeType</td>
                     <td>
                         <button class="btn btn-primary" @onclick="()=> EditItem(employee)">Edit</button>
                         <button class="btn btn-danger" @onclick="()=> DeleteItem(employee)">Delete</button>
