@@ -7,7 +7,7 @@
 <PageTitle>Customers</PageTitle>
 <h3 class="display-3">Customers</h3>
 
-@*<style>
+<style>
     body {
         background-color: #FAF8F1
     }
@@ -20,7 +20,7 @@
     h3 {
         border-bottom: double;
     }
-</style>*@
+</style>
 
 @if (isLoading) {
     <div class="spinner-border text-success" role="status">
@@ -72,8 +72,6 @@
     }
 
     private void CreateItem() {
-       // navigationManager.NavigateTo("customerlist/edit");
-        //navigationManager.NavigateTo("customers/edit");
         navigationManager.NavigateTo("customers/create");
     }
 
