@@ -23,7 +23,7 @@ namespace FuelStation.Model.Entities {
         /// Initializes a new instance of the BaseEntity class
         /// </summary>
         public BaseEntity() {
-            Id = Guid.NewGuid();
+          // Id = Guid.NewGuid();    // After consideration, Id will be initialized after addition to the database, not here 
         }
         #endregion Constructor
     }

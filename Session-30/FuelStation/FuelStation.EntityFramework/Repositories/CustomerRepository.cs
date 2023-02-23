@@ -12,8 +12,13 @@ namespace FuelStation.EntityFramework.Repositories {
         public void Add(Customer entity) {
             using var context = new FuelStationDbContext();
             //if (entity.Id != Guid.Empty || entity.Id != null) {
-            //    throw new ArgumentException("Given entity should not have Id set", nameof(entity));
-            //}
+            if (entity.Id != default(Guid)) {
+                throw new ArgumentException("Given entity should not have Id set", nameof(entity));
+            }
+            // Not sure if Id is safe to be initialized in the constructor or after Add to the database
+            // since if someone creates a customer with default guid, a generated card number and a name and surname it will be added.
+            // Maybe a more secure way it would be to create a list of predefined guids and card numbers and get them from there, to
+            // create a new customer.
             context.Customers.Add(entity);
             context.SaveChanges();
         }
