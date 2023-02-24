@@ -27,7 +27,7 @@ namespace FuelStation.Web.Blazor.Shared.TransactionDataTranferObjects {
 
         [Display(Name = "Customer Id")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Customer Id is required")]
-        public int CustomerId { get; set; }
+        public Guid CustomerId { get; set; }
 
         [Display(Name = "Customer Name")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Csutomer Name is required")]
@@ -40,7 +40,7 @@ namespace FuelStation.Web.Blazor.Shared.TransactionDataTranferObjects {
 
         [Display(Name = "Employee Id")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Employee Id is required")]
-        public int EmployeeId { get; set; }
+        public Guid EmployeeId { get; set; }
 
         [Display(Name = "Employee Name")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Employee Name is required")]
