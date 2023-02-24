@@ -1,6 +1,9 @@
 ﻿using FuelStation.EntityFramework.Repositories;
 using FuelStation.Model.Entities;
+using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
+using FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects;
 using FuelStation.Web.Blazor.Shared.TransactionDataTranferObjects;
+using FuelStation.Web.Blazor.Shared.TransactionLineDataTransferObjects;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -33,6 +36,7 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
                 Id = transaction.Id,
                 Date = transaction.Date,
                 TotalValue = transaction.TotalValue,
+                PaymentMethod= transaction.PaymentMethod,   
                 CustomerName = transaction.Customer.Name,
                 CustomerSurname = transaction.Customer.Surname,
                 EmployeeName = transaction.Employee.Name,
@@ -42,25 +46,106 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
             });
         }
 
-        // GET <TransactionController>/5
+        // GET <TransactionController>/450F87A0-9FC8-4C0E-BA65-B45EEFEB9B12
         [HttpGet("{id}")]
-        public string Get(int id) {
-            return "value";
+        public TransactionEditDto GetById(Guid id) {
+            var result = _transactionRepository.GetById(id);
+            var customers = _customerRepository.GetAll();
+            var employees = _employeeRepository.GetAll();
+            return new TransactionEditDto {
+                Id = id,
+                Date = result.Date,
+                TotalValue = result.TotalValue,
+                PaymentMethod = result.PaymentMethod,
+                CustomerName = result.Customer.Name,
+                CustomerSurname = result.Customer.Surname,
+                EmployeeName = result.Employee.Name,
+                EmployeeSurname = result.Employee.Surname,
+                CustomerId = result.CustomerId,
+                EmployeeId = result.EmployeeId,
+
+                Customers = customers.Select(customer => new CustomerListDto {
+                    Id = customer.Id,
+                    Name = customer.Name,
+                    Surname = customer.Surname,
+                    CardNumber = customer.CardNumber
+                }).ToList(),
+
+                Employees = employees.Select(employee => new EmployeeListDto {
+                    Id = employee.Id,
+                    Name = employee.Name,
+                    Surname = employee.Surname,
+                    EmployeeType = employee.EmployeeType,
+                    HireDateStart = employee.HireDateStart,
+                    HireDateEnd = employee.HireDateEnd,
+                    SallaryPerMonth = employee.SallaryPerMonth
+                }).ToList(),
+                
+                TransactionLines = result.TransactionLines.Select(transactionLine => new TransactionLineListDto {
+                    Id = transactionLine.Id,
+                    Quantity = transactionLine.Quantity,
+                    ItemPrice = transactionLine.ItemPrice,
+                    NetValue = transactionLine.NetValue,
+                    DiscountPercent = transactionLine.DiscountPercent,
+                    DiscountValue = transactionLine.DiscountValue,
+                    TotalValue = transactionLine.TotalValue,
+                    TransactionId = transactionLine.TransactionId,
+                    ItemId = transactionLine.ItemId,
+                    ItemCode = transactionLine.Item.Code,
+                    ItemDescription = transactionLine.Item.Description
+                }).ToList()
+
+            };
         }
 
         // POST <TransactionController>
         [HttpPost]
-        public void Post([FromBody] string value) {
+        public async Task Post(TransactionEditDto transaction) {
+            var newTransaction = new Transaction(transaction.EmployeeId, transaction.CustomerId,
+                                 transaction.PaymentMethod, transaction.TotalValue);
+                _transactionRepository.Add(newTransaction);
+
+
+            foreach (var line in transaction.TransactionLines) {
+                var transactionLine = new TransactionLine(newTransaction.Id, line.ItemId, line.Quantity, 
+                                      line.ItemPrice, line.DiscountPercent);                
+
+                _transactionLineRepository.Add(transactionLine);
+            }
         }
 
-        // PUT <TransactionController>/5
+
+        // PUT <TransactionController>/450F87A0-9FC8-4C0E-BA65-B45EEFEB9B12
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value) {
+        public async Task Put(TransactionEditDto transaction) {
+            var itemToUpdate = _transactionRepository.GetById(transaction.Id);
+            itemToUpdate.Date = transaction.Date;
+            itemToUpdate.EmployeeId = transaction.EmployeeId;
+            itemToUpdate.CustomerId = transaction.CustomerId;
+            itemToUpdate.PaymentMethod = transaction.PaymentMethod;
+            itemToUpdate.TotalValue = transaction.TotalValue;
+
+            itemToUpdate.TransactionLines = transaction.TransactionLines
+                .Select(transactionLine => new TransactionLine(transaction.Id, transactionLine.ItemId, transactionLine.Quantity,
+                                      transactionLine.ItemPrice, transactionLine.DiscountPercent)).ToList();
+
+
+
+            foreach (var line in transaction.TransactionLines) {
+                var transactionLine = new TransactionLine(itemToUpdate.Id, line.ItemId, line.Quantity,
+                                      line.ItemPrice, line.DiscountPercent);
+
+                // _transactionLineRepository.Update(transactionLine.Id, transactionLine);
+            }
+
+            _transactionRepository.Update(transaction.Id, itemToUpdate);
         }
 
-        // DELETE <TransactionController>/5
+
+        // DELETE <TransactionController>/450F87A0-9FC8-4C0E-BA65-B45EEFEB9B12
         [HttpDelete("{id}")]
-        public void Delete(int id) {
+        public void Delete(Guid id) {
+            _transactionRepository.Delete(id);
         }
     }
 }
