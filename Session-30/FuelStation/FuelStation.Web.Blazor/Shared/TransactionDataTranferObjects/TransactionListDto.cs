@@ -1,6 +1,7 @@
 ﻿using FuelStation.Model.Enumerations;
 using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
 using FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects;
+using FuelStation.Web.Blazor.Shared.TransactionLineDataTransferObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,6 @@ namespace FuelStation.Web.Blazor.Shared.TransactionDataTranferObjects {
         public string EmployeeSurname { get; set; } = null!;        
         public List<EmployeeListDto> Employees { get; set; } = new();
 
-        public List<TransactionListDto> TransactionLines { get; set; } = new();
+        public List<TransactionLineListDto> TransactionLines { get; set; } = new();
     }
 }
