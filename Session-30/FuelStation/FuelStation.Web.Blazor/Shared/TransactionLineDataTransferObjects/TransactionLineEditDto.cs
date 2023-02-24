@@ -1,14 +1,13 @@
-﻿using FuelStation.Web.Blazor.Shared.ItemDataTransferObjects;
-using FuelStation.Web.Blazor.Shared.TransactionDataTranferObjects;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace FuelStation.Web.Blazor.Shared.TransactionLineDataTransferObjects {
-    public class TransactionLineListDto {
+    public class TransactionLineEditDto {
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Id is required")]
         public Guid Id { get; set; }
@@ -48,7 +47,7 @@ namespace FuelStation.Web.Blazor.Shared.TransactionLineDataTransferObjects {
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Item Code is required")]
         [Display(Name = "Item Code")]
-        public string ItemCode { get; set; }
+        public string ItemCode { get; set; }   
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Item Description is required")]
         [Display(Name = "Item Description")]
