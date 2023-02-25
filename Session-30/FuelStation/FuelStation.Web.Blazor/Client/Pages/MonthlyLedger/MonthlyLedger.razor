@@ -1,6 +1,7 @@
 ﻿@page "/ledger"
 @using FuelStation.Web.Blazor.Shared.MonthlyLedgerDataTransferObject;
 @inject HttpClient httpClient
+@inject NavigationManager navigationManager
 
 <PageTitle>Montlhy Ledger</PageTitle>
 
@@ -56,7 +57,7 @@
         try {
             monthlyLedgerList = await httpClient.GetFromJsonAsync<List<MonthlyLedgerDto>>("monthlyledger");
         } catch (Exception ex) {
-            throw new Exception("Error in Get MonthlyLedger");
+            navigationManager.NavigateTo($"/error/{ex.Message}");
         }
     }
 }
