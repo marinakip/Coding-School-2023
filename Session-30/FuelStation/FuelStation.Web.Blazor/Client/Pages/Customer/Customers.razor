@@ -84,7 +84,7 @@
     }
 
     private async Task DeleteItem(CustomerListDto customer) {
-        var confirm = await jsRuntime.InvokeAsync<bool>("confirm", "Delete Item. Are you sure?");
+        var confirm = await jsRuntime.InvokeAsync<bool>("confirm", $"Delete customer {customer.Name} {customer.Surname}. Are you sure?");
         if (confirm) {
             var response = await httpClient.DeleteAsync($"customer/{customer.Id}");
             try {
