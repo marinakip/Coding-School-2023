@@ -53,7 +53,6 @@
 @code {
     [Parameter] public Guid? Id { get; set; }
     CustomerEditDto? Customer { get; set; }
-   
 
     protected override async Task OnInitializedAsync() {       
         Customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");       
@@ -66,8 +65,11 @@
     private async Task OnSave() {
         HttpResponseMessage? response = null;
         response = await httpClient.PutAsJsonAsync("customer", Customer);
-        response.EnsureSuccessStatusCode();       
-        navigationManager.NavigateTo("customers");
+        try {
+            response.EnsureSuccessStatusCode();
+            navigationManager.NavigateTo("customers");
+        } catch {
+            navigationManager.NavigateTo($"/error/{response.StatusCode}");
+        }
     }
-
 }

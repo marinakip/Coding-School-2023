@@ -35,36 +35,24 @@
 
 @code {
     [Parameter] public Guid? Id { get; set; }
-    // [Parameter] public int? Id { get; set; }
     CustomerCreateDto? Customer { get; set; }
     
     protected override async Task OnInitializedAsync() {
-       
             Customer = new();           
-       
     }
 
     private void OnCancel() {
-        //navigationManager.NavigateTo("customerlist");
         navigationManager.NavigateTo("customers");
     }
 
     private async Task OnSave() {
         HttpResponseMessage? response = null;
-        
-            try {
-
-                //response = await httpClient.PostAsJsonAsync("customer", Customer);
-                response = await httpClient.PostAsJsonAsync("customer", Customer);
-            } catch {
-                throw new Exception("Error in customer");
-            }
-
-        
-
-        response.EnsureSuccessStatusCode();
-        // navigationManager.NavigateTo("customerlist");
-        navigationManager.NavigateTo("customers");
+        response = await httpClient.PostAsJsonAsync("customer", Customer);        
+        try {           
+            response.EnsureSuccessStatusCode();
+            navigationManager.NavigateTo("customers");
+        } catch {
+            navigationManager.NavigateTo($"/error/{response.StatusCode}");
+        } 
     }
-
 }
