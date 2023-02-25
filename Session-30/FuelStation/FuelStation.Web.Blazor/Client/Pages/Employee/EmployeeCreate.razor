@@ -69,15 +69,13 @@
     }
 
     private async Task OnSave() {
-        HttpResponseMessage? response = null;
-
+        HttpResponseMessage? response = null;       
+        response = await httpClient.PostAsJsonAsync("employee", Employee);       
         try {
-            response = await httpClient.PostAsJsonAsync("employee", Employee);
+            response.EnsureSuccessStatusCode();
+            navigationManager.NavigateTo("employees");
         } catch {
-            throw new Exception("Error in employee");
-        }
-        response.EnsureSuccessStatusCode();
-        navigationManager.NavigateTo("employees");
+            navigationManager.NavigateTo($"/error/{response.StatusCode}");
+        }       
     }
-
 }

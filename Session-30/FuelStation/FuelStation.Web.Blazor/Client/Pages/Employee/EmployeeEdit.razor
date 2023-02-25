@@ -36,13 +36,11 @@
         </div>
         <div class="col-md-6">
             <label for="hireDateStart" class="form-label">Hire Date Start</label>
-            <InputDate id="hireDateStart" @bind-Value="@Employee.HireDateStart" />
-           @* <input type="datetime" class="form-control" @bind="@Employee.HireDateStart" />*@
+            <InputDate id="hireDateStart" @bind-Value="@Employee.HireDateStart" />           
         </div>
         <div class="col-md-6">
             <label for="hireDateEnd" class="form-label">Hire Date End</label>
             <InputDate id="hireDateEnd" @bind-Value="@Employee.HireDateEnd" />
-            @*<input type="datetime" class="form-control" @bind="@Employee.HireDateEnd" />*@
         </div>
         <div class="col-md-6">
             <label class="form-label">Sallary Per Month</label>
@@ -75,7 +73,11 @@
     EmployeeEditDto? Employee { get; set; }
 
     protected override async Task OnInitializedAsync() {
-        Employee = await httpClient.GetFromJsonAsync<EmployeeEditDto>($"employee/{Id}");
+        try {
+            Employee = await httpClient.GetFromJsonAsync<EmployeeEditDto>($"employee/{Id}");
+        } catch (Exception ex) {
+            navigationManager.NavigateTo($"/error/{ex.Message}");
+        }        
     }
 
     private void OnCancel() {
@@ -83,16 +85,13 @@
     }
 
     private async Task OnSave() {
-        HttpResponseMessage? response = null;
+        HttpResponseMessage? response = null;        
+        response = await httpClient.PutAsJsonAsync("employee", Employee);  
         try {
-            response = await httpClient.PutAsJsonAsync("employee", Employee);    //TODO: FIX PUT FOR EMPLOYEE
+            response.EnsureSuccessStatusCode();
+            navigationManager.NavigateTo("employees");
         } catch {
-
-            throw new Exception("Error in put employee");
+            navigationManager.NavigateTo($"/error/{response.StatusCode}");
         }
-        
-        response.EnsureSuccessStatusCode();
-        navigationManager.NavigateTo("employees");
     }
-
 }
