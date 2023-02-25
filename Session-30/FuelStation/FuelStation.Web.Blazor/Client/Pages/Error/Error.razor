@@ -1,0 +1,45 @@
+﻿@page "/error/{statusCode}"
+
+<h2 style="color:darkslateblue; justify-content:center">Error @StatusCode</h2>
+    <div style="color: darkblue">   
+        @if (ErrorMessage != null) {
+            @ErrorMessage
+        }
+    </div>
+
+
+
+
+
+@code {
+    [Parameter]
+    public string StatusCode { get; set; }
+
+    private string? ErrorMessage { get; set; }
+
+    protected override void OnInitialized() {
+        switch (StatusCode) {           
+            case "BadRequest":
+                ErrorMessage = "Bad request. Contact administrator or support.";
+                break;
+            case "Unauthorized":
+                ErrorMessage = "Unauthorized. Contact administrator or support.";
+                break;
+            case "Forbidden":
+                ErrorMessage = "Forbidden. Contact administrator or support.";
+                break;
+            case "NotFound":
+                ErrorMessage = "Resource not found. Contact administrator or support.";
+                break;
+            case "MethodNotAllowed":
+                ErrorMessage = "Method Not Allowed. Contact administrator or support.";
+                break;
+            case "InternalServerError":
+                ErrorMessage = "Internal server error. Contact administrator or support.";
+                break;
+            default:
+                ErrorMessage = "An error occurred. Contact administrator or support.";
+                break;
+        }
+    }
+}
