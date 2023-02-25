@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FuelStation.Web.Blazor.Shared.ItemDataTransferObjects;
+using FuelStation.Web.Blazor.Shared.TransactionDataTranferObjects;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -41,6 +43,8 @@ namespace FuelStation.Web.Blazor.Shared.TransactionLineDataTransferObjects {
         [Display(Name = "Transaction Id")]
         public Guid TransactionId { get; set; }
 
+        public List<TransactionListDto> Transactions { get; set; } = new();
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Item Id is required")]
         [Display(Name = "Item Id")]
         public Guid ItemId { get; set; }
@@ -52,6 +56,8 @@ namespace FuelStation.Web.Blazor.Shared.TransactionLineDataTransferObjects {
         [Required(AllowEmptyStrings = false, ErrorMessage = "Item Description is required")]
         [Display(Name = "Item Description")]
         public string ItemDescription { get; set; }
+
+        public List<ItemListDto> Items { get; set; } = new();   
 
         //TODO: Annotations for number validation
     }
