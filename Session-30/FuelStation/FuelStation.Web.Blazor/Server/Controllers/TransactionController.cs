@@ -100,7 +100,7 @@ namespace FuelStation.Web.Blazor.Server.Controllers {
 
         // POST <TransactionController>
         [HttpPost]
-        public async Task Post(TransactionEditDto transaction) {
+        public async Task Post(TransactionCreateDto transaction) {
             var newTransaction = new Transaction(transaction.EmployeeId, transaction.CustomerId,
                                  transaction.PaymentMethod, transaction.TotalValue);
                 _transactionRepository.Add(newTransaction);
