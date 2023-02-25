@@ -24,46 +24,52 @@
     <p>Loading ...</p>
 
 } else {
+    <EditForm Model="Employee" OnValidSubmit="OnSave">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+        <div class="row">
+            <div class="col-md-6">
+                <label class="form-label">Name</label>
+                <InputText class="form-control" @bind-Value="@Employee.Name" />
+                <ValidationMessage For="@(()=>Employee.Name)" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Surname</label>
+                <InputText class="form-control" @bind-Value="@Employee.Surname" />
+                <ValidationMessage For="@(()=>Employee.Surname)" />
+            </div>
+            <div class="col-md-6">
+                <label for="hireDateStart" class="form-label">Choose Hire Date Start</label>
+                <InputDate id="hireDateStart" @bind-Value="@Employee.HireDateStart" />
+                <ValidationMessage For="@(()=>Employee.HireDateStart)" />
+            </div>
+            <div class="col-md-6">
+                <label for="hireDateEnd" class="form-label">Choose Hire Date End</label>
+                <InputDate id="hireDateEnd" @bind-Value="@Employee.HireDateEnd" />
+                <ValidationMessage For="@(()=>Employee.HireDateEnd)" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Sallary Per Month</label>
+                <InputNumber class="form-control" @bind-Value="@Employee.SallaryPerMonth" />
+                <ValidationMessage For="@(()=>Employee.SallaryPerMonth)" />
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Employee Type</label>
+                <select class="form-control" @bind="@Employee.EmployeeType">
+                    @foreach (var type in Enum.GetValues<EmployeeType>()) {
+                        <option value="@type">@type</option>
+                    }
+                </select>
+            </div>
+        </div>
 
-    <div class="row">
-        <div class="col-md-6">
-            <label class="form-label">Name</label>
-            <input type="text" class="form-control" @bind="@Employee.Name" />
+        <div class="row mt-2">
+            <div class="col">
+                <button class="btn btn-success" type="submit">Save</button>
+                <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
+            </div>
         </div>
-        <div class="col-md-6">
-            <label class="form-label">Surname</label>
-            <input type="text" class="form-control" @bind="@Employee.Surname" />
-        </div>
-        <div class="col-md-6">
-            <label for="hireDateStart" class="form-label">Hire Date Start</label>
-            <InputDate id="hireDateStart" @bind-Value="@Employee.HireDateStart" />           
-        </div>
-        <div class="col-md-6">
-            <label for="hireDateEnd" class="form-label">Hire Date End</label>
-            <InputDate id="hireDateEnd" @bind-Value="@Employee.HireDateEnd" />
-        </div>
-        <div class="col-md-6">
-            <label class="form-label">Sallary Per Month</label>
-            <input class="form-control" @bind="@Employee.SallaryPerMonth" />
-        </div>
-        <div class="col-md-6">
-            <label class="form-label">Employee Type</label>
-            <select class="form-control" @bind="@Employee.EmployeeType">
-                @foreach (var type in Enum.GetValues<EmployeeType>()) {
-                    <option value="@type">@type</option>
-                }
-            </select>
-        </div>
-
-    </div>
-
-    <div class="row mt-2">
-        <div class="col">
-            <button class="btn btn-success" @onclick="OnSave">Save</button>
-            <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
-        </div>
-
-    </div>
+    </EditForm>
 
 
 }

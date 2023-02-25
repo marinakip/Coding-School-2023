@@ -23,20 +23,24 @@ namespace FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects {
 
         [Display(Name = "Hire Date Start")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Hire Date Start is required")]
-        public DateTime? HireDateStart { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime? HireDateStart { get; set; } 
 
         [Display(Name = "Hire Date End")]
-        public DateTime? HireDateEnd { get; set; }
+        //[Required(AllowEmptyStrings = false, ErrorMessage = "Hire Date End is required")]
+        [DataType(DataType.Date)]
+        public DateTime HireDateEnd { get; set; }
 
         [Display(Name = "Sallary Per Month")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Sallary Per Month is required")]
-        [RegularExpression(@"^\d{0,5}(\,\d{0,2})?$", ErrorMessage = "Enter a valid Sallary Per Month with up to 5 integer places and up to 2 decimal places. Use , not .")]
+        [RegularExpression(@"^\d{0,5}(\,\d{0,2})?$", ErrorMessage = "Enter a valid Sallary Per Month with up to 5 digits integer place and up to 2 decimal place. Use , not . for decimal")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:0,0.00}")]
         public decimal SallaryPerMonth { get; set; }
 
         [Display(Name = "Employee Type")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Employee Type is required")]
         public EmployeeType EmployeeType { get; set; }
 
-        //TODO: Maybe use the same DTO for list and edit because they are the same
+        //TODO: Need better validations
     }
 }
