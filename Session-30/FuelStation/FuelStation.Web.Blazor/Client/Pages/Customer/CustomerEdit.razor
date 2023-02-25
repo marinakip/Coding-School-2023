@@ -54,8 +54,13 @@
     [Parameter] public Guid? Id { get; set; }
     CustomerEditDto? Customer { get; set; }
 
-    protected override async Task OnInitializedAsync() {       
-        Customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");       
+    protected override async Task OnInitializedAsync() {    
+        try {
+            Customer = await httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
+        } catch (Exception ex) {
+            navigationManager.NavigateTo($"/error/{ex.Message}");
+        }
+
     }
 
     private void OnCancel() {       
