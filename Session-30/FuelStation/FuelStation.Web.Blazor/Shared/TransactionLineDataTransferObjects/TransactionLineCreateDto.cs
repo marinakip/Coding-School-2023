@@ -16,7 +16,11 @@ namespace FuelStation.Web.Blazor.Shared.TransactionLineDataTransferObjects {
 
         [Required(AllowEmptyStrings = false, ErrorMessage = "Discount Percent is required")]
         [Display(Name = "Discount Percent")]
-        public decimal DiscountPercent { get; set; }
+        public decimal DiscountPercent { get; set; } 
+        
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Item Price is required")]
+        [Display(Name = "Item Price")]
+        public decimal ItemPrice { get; set; }
 
         //Relations 
 
