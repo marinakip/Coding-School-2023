@@ -69,8 +69,12 @@
     ItemEditDto? Item { get; set; }
 
 
-    protected override async Task OnInitializedAsync() {
-        Item = await httpClient.GetFromJsonAsync<ItemEditDto>($"item/{Id}");
+    protected override async Task OnInitializedAsync() {        
+        try {
+            Item = await httpClient.GetFromJsonAsync<ItemEditDto>($"item/{Id}");
+        } catch (Exception ex) {
+            navigationManager.NavigateTo($"/error/{ex.Message}");
+        }
     }
 
     private void OnCancel() {
@@ -79,9 +83,12 @@
 
     private async Task OnSave() {
         HttpResponseMessage? response = null;
-        response = await httpClient.PutAsJsonAsync("item", Item);
-        response.EnsureSuccessStatusCode();
-        navigationManager.NavigateTo("items");
+        response = await httpClient.PutAsJsonAsync("item", Item);             
+        try {
+            response.EnsureSuccessStatusCode();
+            navigationManager.NavigateTo("items");
+        } catch {
+            navigationManager.NavigateTo($"/error/{response.StatusCode}");
+        }
     }
-
 }

@@ -72,7 +72,11 @@
     }
 
     private async Task LoadItemsFromServer() {
-        itemList = await httpClient.GetFromJsonAsync<List<ItemListDto>>("item");
+        try {
+           itemList = await httpClient.GetFromJsonAsync<List<ItemListDto>>("item");
+        } catch (Exception ex) {
+           navigationManager.NavigateTo($"/error/{ex.Message}");
+        }        
     }
 
     private void CreateItem() {
@@ -87,8 +91,12 @@
         var confirm = await jsRuntime.InvokeAsync<bool>("confirm", "Delete Item. Are you sure?");
         if (confirm) {
             var response = await httpClient.DeleteAsync($"item/{item.Id}");
-            response.EnsureSuccessStatusCode();
-            await LoadItemsFromServer();
+            try {
+                response.EnsureSuccessStatusCode();
+                await LoadItemsFromServer();
+            } catch {
+                navigationManager.NavigateTo($"/error/{response.StatusCode}");
+            }            
         }
     }
 }

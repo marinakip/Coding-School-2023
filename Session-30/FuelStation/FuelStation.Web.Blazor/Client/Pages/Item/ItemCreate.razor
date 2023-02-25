@@ -61,15 +61,15 @@
     }
 
     private async Task OnSave() {
-        HttpResponseMessage? response = null;
-
+        HttpResponseMessage? response = null;       
+        response = await httpClient.PostAsJsonAsync("item", Item);
         try {
-            response = await httpClient.PostAsJsonAsync("item", Item);
+            response.EnsureSuccessStatusCode();
+            navigationManager.NavigateTo("items");
         } catch {
-            throw new Exception("Error in item creation");
+            navigationManager.NavigateTo($"/error/{response.StatusCode}");
         }
-        response.EnsureSuccessStatusCode();
-        navigationManager.NavigateTo("items");
+        
     }
 }
 
