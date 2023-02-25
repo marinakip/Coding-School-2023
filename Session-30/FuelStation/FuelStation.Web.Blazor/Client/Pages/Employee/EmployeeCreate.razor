@@ -4,6 +4,7 @@
 @using FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects;
 @inject HttpClient httpClient
 @inject NavigationManager navigationManager
+@inject IJSRuntime jsRuntime
 
 <h3>Employee Create</h3>
 
@@ -24,12 +25,10 @@
         <div class="col-md-6">
             <label for="hireDateStart" class="form-label">Hire Date Start</label>
             <InputDate id="hireDateStart" @bind-Value="@Employee.HireDateStart" />
-           @* <input type="datetime" class="form-control" @bind="@Employee.HireDateStart" />*@
         </div>
         <div class="col-md-6">
             <label for="hireDateEnd" class="form-label">Hire Date End</label>
             <InputDate id="hireDateEnd" @bind-Value="@Employee.HireDateEnd" />
-            @*<input type="datetime" class="form-control" @bind="@Employee.HireDateEnd" />*@
         </div>
         <div class="col-md-6">
             <label class="form-label">Sallary Per Month</label>
@@ -43,7 +42,6 @@
                 }
             </select>            
         </div>
-
     </div>
 
     <div class="row mt-2">
@@ -51,7 +49,6 @@
             <button class="btn btn-success" @onclick="OnSave">Save</button>
             <button class="btn btn-danger" @onclick="OnCancel">Cancel</button>
         </div>
-
     </div>
 
 }
@@ -59,6 +56,8 @@
 @code {
     [Parameter] public Guid? Id { get; set; }
     EmployeeCreateDto? Employee { get; set; }
+
+    private List<EmployeeListDto> employeeList = new();
 
     protected override async Task OnInitializedAsync() {
         Employee = new();
@@ -69,13 +68,56 @@
     }
 
     private async Task OnSave() {
-        HttpResponseMessage? response = null;       
-        response = await httpClient.PostAsJsonAsync("employee", Employee);       
+        HttpResponseMessage? response = null;
+        await LoadEmployeesFromServer();
+
+        if (EmployeesHaveCapacity()) {
+            response = await httpClient.PostAsJsonAsync("employee", Employee);
+            try {
+                response.EnsureSuccessStatusCode();
+                navigationManager.NavigateTo("employees");
+            } catch {
+                navigationManager.NavigateTo($"/error/{response.StatusCode}");
+            }
+        } else {
+            var confirm = await jsRuntime.InvokeAsync<bool>("confirm", "There are no available job positions at this moment. Can't proceed with hire");
+            if (confirm) {
+                navigationManager.NavigateTo("employees");
+            } else {
+                navigationManager.NavigateTo("employees");
+            }
+        }             
+    }
+
+    private bool EmployeesHaveCapacity() {
+        int ManagersTotal = 0;
+        int StaffTotal = 0;
+        int CashiersTotal = 0;
+
+        foreach (var employee in employeeList) {
+            if (employee.EmployeeType.Equals(EmployeeType.Manager)) {
+                ManagersTotal++;
+            }
+            else if (employee.EmployeeType.Equals(EmployeeType.Staff)) {
+                StaffTotal++;
+            } 
+            else if (employee.EmployeeType.Equals(EmployeeType.Cashier)){
+                CashiersTotal++;
+            }
+        } 
+
+        if(ManagersTotal > 2 || StaffTotal > 9 || CashiersTotal > 3) {
+            return false;
+        } else {
+            return true;
+        }        
+    }
+
+    private async Task LoadEmployeesFromServer() {
         try {
-            response.EnsureSuccessStatusCode();
-            navigationManager.NavigateTo("employees");
-        } catch {
-            navigationManager.NavigateTo($"/error/{response.StatusCode}");
-        }       
+            employeeList = await httpClient.GetFromJsonAsync<List<EmployeeListDto>>("employee");
+        } catch (Exception ex) {
+            navigationManager.NavigateTo($"/error/{ex.Message}");
+        }
     }
 }
