@@ -24,43 +24,43 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CashierForm));
-            this.btnStaff = new System.Windows.Forms.Button();
-            this.btnManager = new System.Windows.Forms.Button();
+            this.btnTransactions = new System.Windows.Forms.Button();
+            this.btnCustomers = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnStaff
+            // btnTransactions
             // 
-            this.btnStaff.BackColor = System.Drawing.Color.Transparent;
-            this.btnStaff.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnStaff.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnStaff.FlatAppearance.BorderSize = 2;
-            this.btnStaff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStaff.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnStaff.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btnStaff.Location = new System.Drawing.Point(299, 283);
-            this.btnStaff.Name = "btnStaff";
-            this.btnStaff.Size = new System.Drawing.Size(107, 39);
-            this.btnStaff.TabIndex = 9;
-            this.btnStaff.Text = "Transactions";
-            this.btnStaff.UseVisualStyleBackColor = false;
+            this.btnTransactions.BackColor = System.Drawing.Color.Transparent;
+            this.btnTransactions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTransactions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnTransactions.FlatAppearance.BorderSize = 2;
+            this.btnTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransactions.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnTransactions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnTransactions.Location = new System.Drawing.Point(299, 283);
+            this.btnTransactions.Name = "btnTransactions";
+            this.btnTransactions.Size = new System.Drawing.Size(107, 39);
+            this.btnTransactions.TabIndex = 9;
+            this.btnTransactions.Text = "Transactions";
+            this.btnTransactions.UseVisualStyleBackColor = false;
             // 
-            // btnManager
+            // btnCustomers
             // 
-            this.btnManager.BackColor = System.Drawing.Color.Transparent;
-            this.btnManager.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnManager.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
-            this.btnManager.FlatAppearance.BorderSize = 2;
-            this.btnManager.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnManager.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnManager.ForeColor = System.Drawing.Color.Snow;
-            this.btnManager.Location = new System.Drawing.Point(53, 283);
-            this.btnManager.Name = "btnManager";
-            this.btnManager.Size = new System.Drawing.Size(107, 39);
-            this.btnManager.TabIndex = 8;
-            this.btnManager.Text = "Customers";
-            this.btnManager.UseVisualStyleBackColor = false;
+            this.btnCustomers.BackColor = System.Drawing.Color.Transparent;
+            this.btnCustomers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCustomers.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
+            this.btnCustomers.FlatAppearance.BorderSize = 2;
+            this.btnCustomers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCustomers.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCustomers.ForeColor = System.Drawing.Color.Snow;
+            this.btnCustomers.Location = new System.Drawing.Point(53, 283);
+            this.btnCustomers.Name = "btnCustomers";
+            this.btnCustomers.Size = new System.Drawing.Size(107, 39);
+            this.btnCustomers.TabIndex = 8;
+            this.btnCustomers.Text = "Customers";
+            this.btnCustomers.UseVisualStyleBackColor = false;
             // 
             // pictureBox1
             // 
@@ -82,8 +82,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(469, 351);
-            this.Controls.Add(this.btnStaff);
-            this.Controls.Add(this.btnManager);
+            this.Controls.Add(this.btnTransactions);
+            this.Controls.Add(this.btnCustomers);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -97,8 +97,8 @@
 
         #endregion
 
-        private Button btnStaff;
-        private Button btnManager;
+        private Button btnTransactions;
+        private Button btnCustomers;
         private PictureBox pictureBox1;
     }
 }
