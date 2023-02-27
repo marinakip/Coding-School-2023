@@ -60,6 +60,7 @@
             this.btnManager.TabIndex = 1;
             this.btnManager.Text = "Manager";
             this.btnManager.UseVisualStyleBackColor = false;
+            this.btnManager.Click += new System.EventHandler(this.btnManager_Click);
             // 
             // btnStaff
             // 
@@ -76,6 +77,7 @@
             this.btnStaff.TabIndex = 2;
             this.btnStaff.Text = "Staff";
             this.btnStaff.UseVisualStyleBackColor = false;
+            this.btnStaff.Click += new System.EventHandler(this.btnStaff_Click);
             // 
             // btnCashier
             // 
@@ -94,6 +96,7 @@
             this.btnCashier.TabIndex = 3;
             this.btnCashier.Text = "Cashier";
             this.btnCashier.UseVisualStyleBackColor = false;
+            this.btnCashier.Click += new System.EventHandler(this.btnCashier_Click);
             // 
             // pictureBox2
             // 
