@@ -13,5 +13,20 @@ namespace FuelStation.Winforms {
         public ManagerForm() {
             InitializeComponent();
         }
+
+        private void btnCustomers_Click(object sender, EventArgs e) {
+            CustomersForm customersForm = new CustomersForm();  
+            customersForm.ShowDialog();
+        }
+
+        private void btnItems_Click(object sender, EventArgs e) {
+            ItemsForm itemsForm = new ItemsForm();
+            itemsForm.ShowDialog(); 
+        }
+
+        private void btnTransactions_Click(object sender, EventArgs e) {
+            TransactionsForm transactionsForm = new TransactionsForm(); 
+            transactionsForm.ShowDialog();
+        }
     }
 }

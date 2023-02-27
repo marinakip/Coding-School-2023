@@ -50,6 +50,7 @@
             this.btnTransactions.TabIndex = 7;
             this.btnTransactions.Text = "Transactions";
             this.btnTransactions.UseVisualStyleBackColor = false;
+            this.btnTransactions.Click += new System.EventHandler(this.btnTransactions_Click);
             // 
             // btnItems
             // 
@@ -66,6 +67,7 @@
             this.btnItems.TabIndex = 6;
             this.btnItems.Text = "Items";
             this.btnItems.UseVisualStyleBackColor = false;
+            this.btnItems.Click += new System.EventHandler(this.btnItems_Click);
             // 
             // btnCustomers
             // 
@@ -82,6 +84,7 @@
             this.btnCustomers.TabIndex = 5;
             this.btnCustomers.Text = "Customers";
             this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
             // pictureBox1
             // 
