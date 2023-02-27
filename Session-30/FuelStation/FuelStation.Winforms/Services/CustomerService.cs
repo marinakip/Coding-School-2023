@@ -17,22 +17,15 @@ namespace FuelStation.Winforms.Services {
         private readonly HttpClient _httpClient;
         public CustomerService() {
             _httpClient = new HttpClient();
-            // _httpClient.BaseAddress = new Uri("https://localhost:7292/");
-            // _httpClient.BaseAddress = new Uri("http://localhost:5061/");            
-            // _httpClient.DefaultRequestHeaders.Accept.Clear();
-            // _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public async Task<IEnumerable<CustomerListDto>> GetCustomers() {
 
             try {
-                var response = await _httpClient.GetAsync("https://localhost:7292/customer");
+                var response = await _httpClient.GetAsync("http://localhost:5061/customer");
                 var customerList = await response.Content.ReadAsAsync<List<CustomerListDto>>();
-                // List<CustomerListDto> customerList = await _httpClient.GetFromJsonAsync<List<CustomerListDto>>("customer");
                 return customerList;
             } catch (Exception ex) {
-                //TODO: Go to error page
-                //TODO: Implement Error Page
                 MessageBox.Show($"Error in GetCustomers: {ex.Message}");
                 throw new Exception(ex.Message);
             }
@@ -40,6 +33,7 @@ namespace FuelStation.Winforms.Services {
 
         public async Task<CustomerEditDto> GetCustomerById(Guid Id) {
             try {
+                //TODO: CHANGE HTTPCLIENT METHOD HERE TOO LIKE ABOVE
                CustomerEditDto customer = await _httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
                 return customer;
             } catch (Exception ex) {
@@ -49,7 +43,7 @@ namespace FuelStation.Winforms.Services {
         }
 
         public async Task AddCustomer(CustomerCreateDto customer) {
-            HttpResponseMessage? response = null;
+            HttpResponseMessage? response = null;            
             response = await _httpClient.PostAsJsonAsync("customer", customer);
             try {
                 response.EnsureSuccessStatusCode();                
@@ -60,7 +54,7 @@ namespace FuelStation.Winforms.Services {
         }
 
         public async Task UpdateCustomer(CustomerEditDto customer) {
-            HttpResponseMessage? response = null;
+            HttpResponseMessage? response = null;           
             response = await _httpClient.PutAsJsonAsync("customer", customer);
             try {
                 response.EnsureSuccessStatusCode();
@@ -74,7 +68,7 @@ namespace FuelStation.Winforms.Services {
             DialogResult result = MessageBox.Show($"Delete customer {customer.Name} {customer.Surname}. Are you sure?", "Confirmation", MessageBoxButtons.OKCancel);
            
             if (result == DialogResult.OK) {                               
-                try {
+                try {                    
                     var response = await _httpClient.DeleteAsync($"customer/{customer.Id}");
                     response.EnsureSuccessStatusCode();
                 } catch (Exception ex) {
