@@ -23,19 +23,22 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomersForm));
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.grvCustomers = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -61,14 +64,14 @@
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
             // 
-            // dataGridView1
+            // grvCustomers
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(28, 110);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(739, 220);
-            this.dataGridView1.TabIndex = 7;
+            this.grvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grvCustomers.Location = new System.Drawing.Point(28, 110);
+            this.grvCustomers.Name = "grvCustomers";
+            this.grvCustomers.RowTemplate.Height = 25;
+            this.grvCustomers.Size = new System.Drawing.Size(739, 220);
+            this.grvCustomers.TabIndex = 7;
             // 
             // label1
             // 
@@ -136,6 +139,7 @@
             this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
@@ -150,6 +154,7 @@
             this.btnOK.TabIndex = 13;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // CustomersForm
             // 
@@ -163,15 +168,17 @@
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.grvCustomers);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CustomersForm";
             this.Text = "Fuel Pulse Station - Customers";
+            this.Load += new System.EventHandler(this.CustomersForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grvCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -181,12 +188,13 @@
 
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
-        private DataGridView dataGridView1;
+        private DataGridView grvCustomers;
         private Label label1;
         private Button btnUpdate;
         private Button btnDelete;
         private Button btnAdd;
         private Button btnCancel;
         private Button btnOK;
+        private BindingSource bindingSource1;
     }
 }
