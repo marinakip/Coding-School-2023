@@ -1,4 +1,7 @@
 # Coding-School-2023
+
+![Epsilon Net Logo](https://res.epsilonnet.gr/marketing/CodingSchool/images/logo.png)
+
 Epsilon Net's 3rd Coding School - Intensive training on .ΝΕΤ – Web &amp; Desktop technologies
 
 • Full Stack Object Oriented Programming 
