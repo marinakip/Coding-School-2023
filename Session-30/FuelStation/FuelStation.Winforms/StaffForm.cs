@@ -13,5 +13,10 @@ namespace FuelStation.Winforms {
         public StaffForm() {
             InitializeComponent();
         }
+
+        private void btnItems_Click(object sender, EventArgs e) {
+            ItemsForm itemsForm = new ItemsForm();
+            itemsForm.ShowDialog();
+        }
     }
 }

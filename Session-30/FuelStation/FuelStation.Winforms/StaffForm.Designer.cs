@@ -46,6 +46,7 @@
             this.btnItems.TabIndex = 11;
             this.btnItems.Text = "Items";
             this.btnItems.UseVisualStyleBackColor = false;
+            this.btnItems.Click += new System.EventHandler(this.btnItems_Click);
             // 
             // pictureBox1
             // 
