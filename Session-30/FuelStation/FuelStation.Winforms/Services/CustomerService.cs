@@ -10,21 +10,25 @@ using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
 using Microsoft.AspNetCore.Components;
 using System.Net.Http.Json;
 using Microsoft.JSInterop;
+using FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects;
 
 namespace FuelStation.Winforms.Services {
     public class CustomerService {
         private readonly HttpClient _httpClient;
         public CustomerService() {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://localhost:7292/");
-            _httpClient.DefaultRequestHeaders.Accept.Clear();
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            // _httpClient.BaseAddress = new Uri("https://localhost:7292/");
+            // _httpClient.BaseAddress = new Uri("http://localhost:5061/");            
+            // _httpClient.DefaultRequestHeaders.Accept.Clear();
+            // _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         public async Task<IEnumerable<CustomerListDto>> GetCustomers() {
 
             try {
-                List<CustomerListDto> customerList = await _httpClient.GetFromJsonAsync<List<CustomerListDto>>("customer");
+                var response = await _httpClient.GetAsync("https://localhost:7292/customer");
+                var customerList = await response.Content.ReadAsAsync<List<CustomerListDto>>();
+                // List<CustomerListDto> customerList = await _httpClient.GetFromJsonAsync<List<CustomerListDto>>("customer");
                 return customerList;
             } catch (Exception ex) {
                 //TODO: Go to error page
