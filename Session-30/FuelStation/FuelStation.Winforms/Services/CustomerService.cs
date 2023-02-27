@@ -33,9 +33,11 @@ namespace FuelStation.Winforms.Services {
 
         public async Task<CustomerEditDto> GetCustomerById(Guid Id) {
             try {
-                //TODO: CHANGE HTTPCLIENT METHOD HERE TOO LIKE ABOVE
-               CustomerEditDto customer = await _httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
-                return customer;
+                //CustomerEditDto customer = await _httpClient.GetFromJsonAsync<CustomerEditDto>($"customer/{Id}");
+                var response = await _httpClient.GetAsync($"http://localhost:5061/customer/{Id}");
+                var customer = await response.Content.ReadAsAsync<CustomerEditDto>();
+                return customer;             
+                
             } catch (Exception ex) {
                 MessageBox.Show($"Error in GetCustomerById: {ex.Message}");
                 throw new Exception(ex.Message);
