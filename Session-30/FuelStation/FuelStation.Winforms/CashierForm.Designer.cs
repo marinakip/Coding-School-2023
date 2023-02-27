@@ -47,6 +47,7 @@
             this.btnTransactions.TabIndex = 9;
             this.btnTransactions.Text = "Transactions";
             this.btnTransactions.UseVisualStyleBackColor = false;
+            this.btnTransactions.Click += new System.EventHandler(this.btnTransactions_Click);
             // 
             // btnCustomers
             // 
@@ -63,6 +64,7 @@
             this.btnCustomers.TabIndex = 8;
             this.btnCustomers.Text = "Customers";
             this.btnCustomers.UseVisualStyleBackColor = false;
+            this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
             // pictureBox1
             // 
