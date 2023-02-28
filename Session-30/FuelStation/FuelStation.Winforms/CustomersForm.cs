@@ -11,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace FuelStation.Winforms {
     public partial class CustomersForm : Form {
@@ -65,8 +66,10 @@ namespace FuelStation.Winforms {
             return selectedCustomer;
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e) {
-
+        private async void btnUpdate_Click(object sender, EventArgs e) {
+            CustomerListDto selectedCustomer = GetSelectedCustomer();
+            UpdateCustomerForm updateCustomerForm = new UpdateCustomerForm(selectedCustomer);
+            updateCustomerForm.ShowDialog();         
         }
 
         private void btnRefreshList_Click(object sender, EventArgs e) {
