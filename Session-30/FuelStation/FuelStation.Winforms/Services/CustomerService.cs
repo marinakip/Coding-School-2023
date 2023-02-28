@@ -61,7 +61,7 @@ namespace FuelStation.Winforms.Services {
             try {
                 response.EnsureSuccessStatusCode();
             } catch (Exception ex) {
-                MessageBox.Show($"Error in AddCustomer: {ex.Message}");
+                MessageBox.Show($"Error in UpdateCustomer: {ex.Message}");
                 throw new Exception(ex.Message);
             }
         }
