@@ -46,7 +46,7 @@ namespace FuelStation.Winforms.Services {
 
         public async Task AddCustomer(CustomerCreateDto customer) {
             HttpResponseMessage? response = null;            
-            response = await _httpClient.PostAsJsonAsync("customer", customer);
+            response = await _httpClient.PostAsJsonAsync("http://localhost:5061/customer/", customer);
             try {
                 response.EnsureSuccessStatusCode();                
             } catch (Exception ex) {
@@ -57,7 +57,7 @@ namespace FuelStation.Winforms.Services {
 
         public async Task UpdateCustomer(CustomerEditDto customer) {
             HttpResponseMessage? response = null;           
-            response = await _httpClient.PutAsJsonAsync("customer", customer);
+            response = await _httpClient.PutAsJsonAsync("http://localhost:5061/customer/", customer);
             try {
                 response.EnsureSuccessStatusCode();
             } catch (Exception ex) {
@@ -66,12 +66,12 @@ namespace FuelStation.Winforms.Services {
             }
         }
 
-        private async Task DeleteCustomer(CustomerListDto customer) {
+        public async Task DeleteCustomer(CustomerListDto customer) {
             DialogResult result = MessageBox.Show($"Delete customer {customer.Name} {customer.Surname}. Are you sure?", "Confirmation", MessageBoxButtons.OKCancel);
            
             if (result == DialogResult.OK) {                               
                 try {                    
-                    var response = await _httpClient.DeleteAsync($"customer/{customer.Id}");
+                    var response = await _httpClient.DeleteAsync($"http://localhost:5061/customer/{customer.Id}");
                     response.EnsureSuccessStatusCode();
                 } catch (Exception ex) {
                     MessageBox.Show($"Error in DeleteCustomer: {ex.Message}");
