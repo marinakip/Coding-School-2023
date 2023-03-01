@@ -37,6 +37,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxCode = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -46,7 +48,7 @@
             this.comboBoxItemType.FormattingEnabled = true;
             this.comboBoxItemType.Location = new System.Drawing.Point(147, 142);
             this.comboBoxItemType.Name = "comboBoxItemType";
-            this.comboBoxItemType.Size = new System.Drawing.Size(163, 23);
+            this.comboBoxItemType.Size = new System.Drawing.Size(122, 23);
             this.comboBoxItemType.TabIndex = 49;
             this.comboBoxItemType.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemType_SelectedIndexChanged);
             // 
@@ -76,21 +78,21 @@
             // 
             this.textBoxPrice.Location = new System.Drawing.Point(147, 234);
             this.textBoxPrice.Name = "textBoxPrice";
-            this.textBoxPrice.Size = new System.Drawing.Size(93, 23);
+            this.textBoxPrice.Size = new System.Drawing.Size(122, 23);
             this.textBoxPrice.TabIndex = 46;
             // 
             // textBoxCost
             // 
             this.textBoxCost.Location = new System.Drawing.Point(147, 186);
             this.textBoxCost.Name = "textBoxCost";
-            this.textBoxCost.Size = new System.Drawing.Size(93, 23);
+            this.textBoxCost.Size = new System.Drawing.Size(122, 23);
             this.textBoxCost.TabIndex = 45;
             // 
             // txtBoxDescription
             // 
             this.txtBoxDescription.Location = new System.Drawing.Point(147, 98);
             this.txtBoxDescription.Name = "txtBoxDescription";
-            this.txtBoxDescription.Size = new System.Drawing.Size(309, 23);
+            this.txtBoxDescription.Size = new System.Drawing.Size(364, 23);
             this.txtBoxDescription.TabIndex = 44;
             // 
             // label3
@@ -179,12 +181,33 @@
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Location = new System.Drawing.Point(295, 146);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 19);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "Code:";
+            // 
+            // textBoxCode
+            // 
+            this.textBoxCode.Location = new System.Drawing.Point(374, 142);
+            this.textBoxCode.Name = "textBoxCode";
+            this.textBoxCode.ReadOnly = true;
+            this.textBoxCode.Size = new System.Drawing.Size(137, 23);
+            this.textBoxCode.TabIndex = 50;
+            // 
             // UpdateItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(571, 315);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBoxCode);
             this.Controls.Add(this.comboBoxItemType);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -203,6 +226,7 @@
             this.Name = "UpdateItemForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fuel Pulse Station - Update Item";
+            this.Load += new System.EventHandler(this.UpdateItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -225,5 +249,7 @@
         private Label label1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
+        private Label label6;
+        private TextBox textBoxCode;
     }
 }
