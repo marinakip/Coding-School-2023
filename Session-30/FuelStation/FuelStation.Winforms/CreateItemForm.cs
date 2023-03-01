@@ -1,4 +1,5 @@
-﻿using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
+﻿using FuelStation.Model.Enumerations;
+using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
 using FuelStation.Web.Blazor.Shared.ItemDataTransferObjects;
 using FuelStation.Winforms.Services;
 using System;
@@ -10,6 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace FuelStation.Winforms {
     public partial class CreateItemForm : Form {
@@ -23,8 +25,8 @@ namespace FuelStation.Winforms {
            
             _newItem.Description = txtBoxDescription.Text;
             _newItem.Cost = convertToDecimal(textBoxCost.Text);
-            _newItem.Price = convertToDecimal(textBoxPrice.Text); 
-            _newItem.ItemType = (Model.Enumerations.ItemType) comboBoxItemType.SelectedItem;
+            _newItem.Price = convertToDecimal(textBoxPrice.Text);
+           // _newItem.ItemType = (ItemType)Enum.Parse(typeof(ItemType), comboBoxItemType.Text);
             try {
                 await _itemService.AddItem(_newItem);
                 this.Close();
@@ -48,8 +50,20 @@ namespace FuelStation.Winforms {
             this.Close();
         }
 
-        private void comboBoxItemType_SelectedIndexChanged(object sender, EventArgs e) {
-            _newItem.ItemType = (Model.Enumerations.ItemType)comboBoxItemType.SelectedItem;
+
+        private void comboBoxItemType_SelectedIndexChanged(object sender, EventArgs e) {           
+            
+            ItemType selectedItemType;
+            if (Enum.TryParse(comboBoxItemType.SelectedItem.ToString(), out selectedItemType)) {                
+                _newItem.ItemType = selectedItemType;
+            } else {
+                MessageBox.Show("This selection is invalid");
+                throw new Exception("Selected item is not a valid ItemType");
+            }
+        }
+
+        private void CreateItemForm_Load(object sender, EventArgs e) {
+            comboBoxItemType.Items.AddRange(Enum.GetNames(typeof(ItemType)));
         }
     }
 }
