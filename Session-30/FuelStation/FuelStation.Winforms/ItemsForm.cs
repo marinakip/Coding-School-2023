@@ -49,9 +49,14 @@ namespace FuelStation.Winforms {
         }
 
         private ItemListDto GetSelectedItem() {
-            DataGridViewRow selectedRow = grvItems.SelectedRows[0];
-            ItemListDto selectedItem = (ItemListDto)selectedRow.DataBoundItem;
-            return selectedItem;
+            try {
+                DataGridViewRow selectedRow = grvItems.SelectedRows[0];
+                ItemListDto selectedItem = (ItemListDto)selectedRow.DataBoundItem;
+                return selectedItem;
+            } catch (Exception ex) {
+                MessageBox.Show("You should select a row first");
+                throw new Exception(ex.Message);
+            }            
         }
 
         private async void btnDelete_Click(object sender, EventArgs e) {
