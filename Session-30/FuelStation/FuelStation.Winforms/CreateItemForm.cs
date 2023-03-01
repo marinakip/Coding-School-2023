@@ -24,9 +24,8 @@ namespace FuelStation.Winforms {
         private async void btnOK_Click(object sender, EventArgs e) {
            
             _newItem.Description = txtBoxDescription.Text;
-            _newItem.Cost = convertToDecimal(textBoxCost.Text);
-            _newItem.Price = convertToDecimal(textBoxPrice.Text);
-           // _newItem.ItemType = (ItemType)Enum.Parse(typeof(ItemType), comboBoxItemType.Text);
+            _newItem.Cost = ConvertToDecimal(textBoxCost.Text);
+            _newItem.Price =ConvertToDecimal(textBoxPrice.Text);
             try {
                 await _itemService.AddItem(_newItem);
                 this.Close();
@@ -36,7 +35,7 @@ namespace FuelStation.Winforms {
             }
         }
 
-        private decimal convertToDecimal(string text) {
+        private decimal ConvertToDecimal(string text) {
             decimal number;
             if (decimal.TryParse(text, out number)) {
                 return number;
