@@ -52,6 +52,7 @@
             this.comboBoxPaymentMethod.Name = "comboBoxPaymentMethod";
             this.comboBoxPaymentMethod.Size = new System.Drawing.Size(140, 23);
             this.comboBoxPaymentMethod.TabIndex = 72;
+            this.comboBoxPaymentMethod.SelectedIndexChanged += new System.EventHandler(this.comboBoxPaymentMethod_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -71,6 +72,7 @@
             this.comboBoxEmployeeName.Name = "comboBoxEmployeeName";
             this.comboBoxEmployeeName.Size = new System.Drawing.Size(245, 23);
             this.comboBoxEmployeeName.TabIndex = 70;
+            this.comboBoxEmployeeName.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployeeName_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -90,6 +92,7 @@
             this.comboBoxEmployeeSurname.Name = "comboBoxEmployeeSurname";
             this.comboBoxEmployeeSurname.Size = new System.Drawing.Size(245, 23);
             this.comboBoxEmployeeSurname.TabIndex = 68;
+            this.comboBoxEmployeeSurname.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployeeSurname_SelectedIndexChanged);
             // 
             // comboBoxCustomerName
             // 
@@ -98,6 +101,7 @@
             this.comboBoxCustomerName.Name = "comboBoxCustomerName";
             this.comboBoxCustomerName.Size = new System.Drawing.Size(245, 23);
             this.comboBoxCustomerName.TabIndex = 67;
+            this.comboBoxCustomerName.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustomerName_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -117,6 +121,7 @@
             this.comboBoxCustomerSurname.Name = "comboBoxCustomerSurname";
             this.comboBoxCustomerSurname.Size = new System.Drawing.Size(245, 23);
             this.comboBoxCustomerSurname.TabIndex = 65;
+            this.comboBoxCustomerSurname.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustomerSurname_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -135,6 +140,7 @@
             this.textBoxTotalValue.Name = "textBoxTotalValue";
             this.textBoxTotalValue.Size = new System.Drawing.Size(137, 23);
             this.textBoxTotalValue.TabIndex = 63;
+            this.textBoxTotalValue.TextChanged += new System.EventHandler(this.textBoxTotalValue_TextChanged);
             // 
             // label3
             // 
@@ -171,6 +177,7 @@
             this.btnOK.TabIndex = 60;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
@@ -185,6 +192,7 @@
             this.btnCancel.TabIndex = 59;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
             // 
@@ -248,6 +256,7 @@
             this.Name = "UpdateTransactionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fuel Pulse Station - Update Transaction";
+            this.Load += new System.EventHandler(this.UpdateTransactionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
