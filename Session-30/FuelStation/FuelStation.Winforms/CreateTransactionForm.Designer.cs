@@ -180,7 +180,6 @@
             this.textBoxEmployeeName.Name = "textBoxEmployeeName";
             this.textBoxEmployeeName.Size = new System.Drawing.Size(245, 23);
             this.textBoxEmployeeName.TabIndex = 57;
-            this.textBoxEmployeeName.TextChanged += new System.EventHandler(this.textBoxEmployeeName_TextChanged);
             // 
             // textBoxCustomerName
             // 
@@ -188,7 +187,6 @@
             this.textBoxCustomerName.Name = "textBoxCustomerName";
             this.textBoxCustomerName.Size = new System.Drawing.Size(245, 23);
             this.textBoxCustomerName.TabIndex = 58;
-            this.textBoxCustomerName.TextChanged += new System.EventHandler(this.textBoxCustomerName_TextChanged);
             // 
             // textBoxCustomerSurname
             // 
@@ -196,7 +194,6 @@
             this.textBoxCustomerSurname.Name = "textBoxCustomerSurname";
             this.textBoxCustomerSurname.Size = new System.Drawing.Size(245, 23);
             this.textBoxCustomerSurname.TabIndex = 59;
-            this.textBoxCustomerSurname.TextChanged += new System.EventHandler(this.textBoxCustomerSurname_TextChanged);
             // 
             // CreateTransactionForm
             // 
