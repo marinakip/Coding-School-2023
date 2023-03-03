@@ -1,6 +1,7 @@
 ﻿using FuelStation.Model.Enumerations;
 using FuelStation.Web.Blazor.Client.Pages.Customer;
 using FuelStation.Web.Blazor.Shared.CustomerDataTransferObjects;
+using FuelStation.Web.Blazor.Shared.EmployeeDataTranferObjects;
 using FuelStation.Web.Blazor.Shared.TransactionDataTranferObjects;
 using FuelStation.Winforms.Services;
 using System;
@@ -17,10 +18,11 @@ namespace FuelStation.Winforms {
     public partial class UpdateTransactionForm : Form {
         private TransactionService _transactionService = new();
         private CustomerService _customerService = new();
-        //private EmployeeService _employeeService = new();  //TODO Employee Service
+        private EmployeeService _employeeService = new();  
         private TransactionListDto _selectedTransaction { get; set; }
         private TransactionEditDto _updatedTransaction = new();
         private List<CustomerListDto> _customers = new();
+        private List<EmployeeListDto> _employees = new();
       
         public UpdateTransactionForm(TransactionListDto selectedTransaction) {
             _selectedTransaction = selectedTransaction;
@@ -84,33 +86,24 @@ namespace FuelStation.Winforms {
             Close();
         }
 
-        private void UpdateTransactionForm_Load(object sender, EventArgs e) {
+        private async void UpdateTransactionForm_Load(object sender, EventArgs e) {
+            await LoadCustomersAsync();
+            await LoadEmployeesAsync();
             comboBoxCustomerSurname.Text = _selectedTransaction.CustomerSurname;            
-            //comboBoxPaymentMethod.Items.AddRange(GetCustomersSurnames());  //TODO FIX IT IS WRONG
+            comboBoxPaymentMethod.Items.AddRange(_customers.Select(customer => customer.Surname).ToArray()); 
             comboBoxCustomerName.Text = _selectedTransaction.CustomerName;
-            comboBoxPaymentMethod.Items.AddRange(GetCustomersNames());
+            comboBoxPaymentMethod.Items.AddRange(_customers.Select(customer => customer.Name).ToArray());
             comboBoxEmployeeSurname.Text = _selectedTransaction.EmployeeSurname;
-            comboBoxPaymentMethod.Items.AddRange(GetEmployeesSurnames());
+            comboBoxPaymentMethod.Items.AddRange(_employees.Select(employee => employee.Surname).ToArray());
             comboBoxEmployeeName.Text = _selectedTransaction.EmployeeName;
-            comboBoxPaymentMethod.Items.AddRange(GetEmployeesNames());
+            comboBoxPaymentMethod.Items.AddRange(_employees.Select(employee => employee.Name).ToArray());
             comboBoxPaymentMethod.Text = _selectedTransaction.PaymentMethod.ToString();
             comboBoxPaymentMethod.Items.AddRange(Enum.GetNames(typeof(PaymentMethod)));
             textBoxTotalValue.Text = _selectedTransaction.TotalValue.ToString();
             
         }
 
-        //TODO: GetCustomersSurnames etc
-        private async Task<string[]> GetCustomersSurnames() {
-            await LoadCustomersAsync();
-            string[] customerSurnames = _customers.Select(customer => customer.Surname).ToArray();
-            return customerSurnames;
-        }
-
-
-        private string[] GetCustomersNames() {
-            throw new NotImplementedException();
-        }
-
+       
         private async Task LoadCustomersAsync() {
             try {
                 IEnumerable<CustomerListDto> customers = await _customerService.GetCustomers();
@@ -119,17 +112,15 @@ namespace FuelStation.Winforms {
                 MessageBox.Show($"Error loading customers: {ex.Message}");
                 throw new Exception(ex.Message);
             }
+        } 
+        private async Task LoadEmployeesAsync() {
+            try {
+                IEnumerable<EmployeeListDto> employees = await _employeeService.GetEmployees();
+                _employees = employees.ToList();
+            } catch (Exception ex) {
+                MessageBox.Show($"Error loading employees: {ex.Message}");
+                throw new Exception(ex.Message);
+            }
         }
-
-        private string[] GetEmployeesSurnames() {
-            throw new NotImplementedException();
-        }
-
-        private string[] GetEmployeesNames() {
-            throw new NotImplementedException();
-        }
-
-
-
     }
 }
