@@ -12,16 +12,14 @@ using System.Xml.Linq;
 
 namespace FuelStation.Web.Blazor.Shared.TransactionDataTranferObjects {
     public class TransactionCreateDto {
-        
-        //These were not included in TransactionCreateForm, so they are not needed here
 
-        //[Display(Name = "Payment method")]
-        //[Required(AllowEmptyStrings = false, ErrorMessage = "Payment Method is required")]
-        //public PaymentMethod PaymentMethod { get; set; }
+        [Display(Name = "Payment method")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Payment Method is required")]
+        public PaymentMethod PaymentMethod { get; set; }
 
-        //[Display(Name = "Total Value")]
-        //[Required(AllowEmptyStrings = false, ErrorMessage = "Total Value is required")]
-        //public decimal TotalValue { get; set; }
+        [Display(Name = "Total Value")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Total Value is required")]
+        public decimal TotalValue { get; set; }
 
         [Display(Name = "Customer Id")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Customer Id is required")]
