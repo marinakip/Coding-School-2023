@@ -45,5 +45,17 @@ namespace FuelStation.Winforms {
         private void btnCancel_Click(object sender, EventArgs e) {
             Close();
         }
+
+        private void label3_Click(object sender, EventArgs e) {
+
+        }
+
+        private void btnSearchCustomer_Click(object sender, EventArgs e) {
+
+        }
+
+        private void textBoxEmployeeName_TextChanged(object sender, EventArgs e) {
+
+        }
     }
 }

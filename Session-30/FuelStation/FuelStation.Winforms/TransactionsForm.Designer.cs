@@ -34,7 +34,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnSearchCustomer = new System.Windows.Forms.Button();
             this.btnRefreshList = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grvTransactions)).BeginInit();
@@ -162,21 +161,6 @@
             this.btnUpdate.UseVisualStyleBackColor = false;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
-            // btnSearchCustomer
-            // 
-            this.btnSearchCustomer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btnSearchCustomer.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSearchCustomer.FlatAppearance.BorderSize = 2;
-            this.btnSearchCustomer.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSearchCustomer.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnSearchCustomer.Location = new System.Drawing.Point(318, 32);
-            this.btnSearchCustomer.Name = "btnSearchCustomer";
-            this.btnSearchCustomer.Size = new System.Drawing.Size(151, 29);
-            this.btnSearchCustomer.TabIndex = 24;
-            this.btnSearchCustomer.Text = "Search Customer";
-            this.btnSearchCustomer.UseVisualStyleBackColor = false;
-            this.btnSearchCustomer.Click += new System.EventHandler(this.btnSearchCustomer_Click);
-            // 
             // btnRefreshList
             // 
             this.btnRefreshList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
@@ -199,7 +183,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnRefreshList);
-            this.Controls.Add(this.btnSearchCustomer);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
@@ -232,7 +215,6 @@
         private Button btnAdd;
         private Button btnDelete;
         private Button btnUpdate;
-        private Button btnSearchCustomer;
         private Button btnRefreshList;
         private BindingSource bindingSource1;
     }
