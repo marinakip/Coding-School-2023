@@ -24,6 +24,7 @@ namespace FuelStation.Winforms {
         private List<CustomerListDto> _customers = new();
         private List<EmployeeListDto> _employees = new();
       
+        //TODO: REDESIGN AND IMPLEMENT THIS FORM
         public UpdateTransactionForm(TransactionListDto selectedTransaction) {
             _selectedTransaction = selectedTransaction;
             InitializeComponent();

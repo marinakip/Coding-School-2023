@@ -26,21 +26,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateTransactionForm));
             this.comboBoxPaymentMethod = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBoxEmployeeName = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBoxEmployeeSurname = new System.Windows.Forms.ComboBox();
-            this.comboBoxCustomerName = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboBoxCustomerSurname = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBoxTotalValue = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.comboBoxEmployeeName = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxEmployeeSurname = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBoxCustomerName = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxCustomerSurname = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -65,64 +65,6 @@
             this.label7.TabIndex = 71;
             this.label7.Text = "Payment Method:";
             // 
-            // comboBoxEmployeeName
-            // 
-            this.comboBoxEmployeeName.FormattingEnabled = true;
-            this.comboBoxEmployeeName.Location = new System.Drawing.Point(591, 142);
-            this.comboBoxEmployeeName.Name = "comboBoxEmployeeName";
-            this.comboBoxEmployeeName.Size = new System.Drawing.Size(245, 23);
-            this.comboBoxEmployeeName.TabIndex = 70;
-            this.comboBoxEmployeeName.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployeeName_SelectedIndexChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label6.Location = new System.Drawing.Point(452, 142);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 19);
-            this.label6.TabIndex = 69;
-            this.label6.Text = "Employee Name:";
-            // 
-            // comboBoxEmployeeSurname
-            // 
-            this.comboBoxEmployeeSurname.FormattingEnabled = true;
-            this.comboBoxEmployeeSurname.Location = new System.Drawing.Point(191, 142);
-            this.comboBoxEmployeeSurname.Name = "comboBoxEmployeeSurname";
-            this.comboBoxEmployeeSurname.Size = new System.Drawing.Size(245, 23);
-            this.comboBoxEmployeeSurname.TabIndex = 68;
-            this.comboBoxEmployeeSurname.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployeeSurname_SelectedIndexChanged);
-            // 
-            // comboBoxCustomerName
-            // 
-            this.comboBoxCustomerName.FormattingEnabled = true;
-            this.comboBoxCustomerName.Location = new System.Drawing.Point(591, 98);
-            this.comboBoxCustomerName.Name = "comboBoxCustomerName";
-            this.comboBoxCustomerName.Size = new System.Drawing.Size(245, 23);
-            this.comboBoxCustomerName.TabIndex = 67;
-            this.comboBoxCustomerName.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustomerName_SelectedIndexChanged);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(33, 98);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 19);
-            this.label5.TabIndex = 66;
-            this.label5.Text = "Customer Surname:";
-            // 
-            // comboBoxCustomerSurname
-            // 
-            this.comboBoxCustomerSurname.FormattingEnabled = true;
-            this.comboBoxCustomerSurname.Location = new System.Drawing.Point(191, 98);
-            this.comboBoxCustomerSurname.Name = "comboBoxCustomerSurname";
-            this.comboBoxCustomerSurname.Size = new System.Drawing.Size(245, 23);
-            this.comboBoxCustomerSurname.TabIndex = 65;
-            this.comboBoxCustomerSurname.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustomerSurname_SelectedIndexChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -141,28 +83,6 @@
             this.textBoxTotalValue.Size = new System.Drawing.Size(137, 23);
             this.textBoxTotalValue.TabIndex = 63;
             this.textBoxTotalValue.TextChanged += new System.EventHandler(this.textBoxTotalValue_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label3.Location = new System.Drawing.Point(33, 142);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(145, 19);
-            this.label3.TabIndex = 62;
-            this.label3.Text = "Employee Surname:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label2.Location = new System.Drawing.Point(452, 98);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 19);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "Customer Name:";
             // 
             // btnOK
             // 
@@ -228,6 +148,86 @@
             this.pictureBox1.TabIndex = 56;
             this.pictureBox1.TabStop = false;
             // 
+            // comboBoxEmployeeName
+            // 
+            this.comboBoxEmployeeName.FormattingEnabled = true;
+            this.comboBoxEmployeeName.Location = new System.Drawing.Point(591, 142);
+            this.comboBoxEmployeeName.Name = "comboBoxEmployeeName";
+            this.comboBoxEmployeeName.Size = new System.Drawing.Size(245, 23);
+            this.comboBoxEmployeeName.TabIndex = 70;
+            this.comboBoxEmployeeName.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployeeName_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label6.Location = new System.Drawing.Point(452, 142);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(124, 19);
+            this.label6.TabIndex = 69;
+            this.label6.Text = "Employee Name:";
+            // 
+            // comboBoxEmployeeSurname
+            // 
+            this.comboBoxEmployeeSurname.FormattingEnabled = true;
+            this.comboBoxEmployeeSurname.Location = new System.Drawing.Point(191, 142);
+            this.comboBoxEmployeeSurname.Name = "comboBoxEmployeeSurname";
+            this.comboBoxEmployeeSurname.Size = new System.Drawing.Size(245, 23);
+            this.comboBoxEmployeeSurname.TabIndex = 68;
+            this.comboBoxEmployeeSurname.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployeeSurname_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label3.Location = new System.Drawing.Point(33, 142);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(145, 19);
+            this.label3.TabIndex = 62;
+            this.label3.Text = "Employee Surname:";
+            // 
+            // comboBoxCustomerName
+            // 
+            this.comboBoxCustomerName.FormattingEnabled = true;
+            this.comboBoxCustomerName.Location = new System.Drawing.Point(591, 98);
+            this.comboBoxCustomerName.Name = "comboBoxCustomerName";
+            this.comboBoxCustomerName.Size = new System.Drawing.Size(245, 23);
+            this.comboBoxCustomerName.TabIndex = 67;
+            this.comboBoxCustomerName.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustomerName_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(452, 98);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 19);
+            this.label2.TabIndex = 61;
+            this.label2.Text = "Customer Name:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label5.Location = new System.Drawing.Point(33, 98);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(143, 19);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Customer Surname:";
+            // 
+            // comboBoxCustomerSurname
+            // 
+            this.comboBoxCustomerSurname.FormattingEnabled = true;
+            this.comboBoxCustomerSurname.Location = new System.Drawing.Point(191, 98);
+            this.comboBoxCustomerSurname.Name = "comboBoxCustomerSurname";
+            this.comboBoxCustomerSurname.Size = new System.Drawing.Size(245, 23);
+            this.comboBoxCustomerSurname.TabIndex = 65;
+            this.comboBoxCustomerSurname.SelectedIndexChanged += new System.EventHandler(this.comboBoxCustomerSurname_SelectedIndexChanged);
+            // 
             // UpdateTransactionForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -268,20 +268,20 @@
 
         private ComboBox comboBoxPaymentMethod;
         private Label label7;
-        private ComboBox comboBoxEmployeeName;
-        private Label label6;
-        private ComboBox comboBoxEmployeeSurname;
-        private ComboBox comboBoxCustomerName;
-        private Label label5;
-        private ComboBox comboBoxCustomerSurname;
         private Label label4;
         private TextBox textBoxTotalValue;
-        private Label label3;
-        private Label label2;
         private Button btnOK;
         private Button btnCancel;
         private Label label1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox1;
+        private ComboBox comboBoxEmployeeName;
+        private Label label6;
+        private ComboBox comboBoxEmployeeSurname;
+        private Label label3;
+        private ComboBox comboBoxCustomerName;
+        private Label label2;
+        private Label label5;
+        private ComboBox comboBoxCustomerSurname;
     }
 }
