@@ -52,7 +52,6 @@
             this.label3.Size = new System.Drawing.Size(145, 19);
             this.label3.TabIndex = 43;
             this.label3.Text = "Employee Surname:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -189,6 +188,7 @@
             this.textBoxCustomerName.Name = "textBoxCustomerName";
             this.textBoxCustomerName.Size = new System.Drawing.Size(245, 23);
             this.textBoxCustomerName.TabIndex = 58;
+            this.textBoxCustomerName.TextChanged += new System.EventHandler(this.textBoxCustomerName_TextChanged);
             // 
             // textBoxCustomerSurname
             // 
@@ -196,6 +196,7 @@
             this.textBoxCustomerSurname.Name = "textBoxCustomerSurname";
             this.textBoxCustomerSurname.Size = new System.Drawing.Size(245, 23);
             this.textBoxCustomerSurname.TabIndex = 59;
+            this.textBoxCustomerSurname.TextChanged += new System.EventHandler(this.textBoxCustomerSurname_TextChanged);
             // 
             // CreateTransactionForm
             // 
@@ -222,6 +223,7 @@
             this.Name = "CreateTransactionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fuel Pulse Station - Create Transaction";
+            this.Load += new System.EventHandler(this.CreateTransactionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
