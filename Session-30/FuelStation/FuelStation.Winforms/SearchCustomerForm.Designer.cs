@@ -24,30 +24,31 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchCustomerForm));
-            this.btnOK = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lbTransactionLines = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxCardNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnOK
+            // btnSearch
             // 
-            this.btnOK.BackColor = System.Drawing.Color.DarkBlue;
-            this.btnOK.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.btnOK.FlatAppearance.BorderSize = 2;
-            this.btnOK.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnOK.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.btnOK.Location = new System.Drawing.Point(388, 177);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(91, 29);
-            this.btnOK.TabIndex = 30;
-            this.btnOK.Text = "SEARCH";
-            this.btnOK.UseVisualStyleBackColor = false;
+            this.btnSearch.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSearch.FlatAppearance.BorderSize = 2;
+            this.btnSearch.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnSearch.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSearch.Location = new System.Drawing.Point(388, 177);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(91, 29);
+            this.btnSearch.TabIndex = 30;
+            this.btnSearch.Text = "SEARCH";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnCancel
             // 
@@ -62,6 +63,7 @@
             this.btnCancel.TabIndex = 29;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // pictureBox1
             // 
@@ -106,12 +108,13 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Customer\'s Loyalty Card Number:";
             // 
-            // textBox1
+            // textBoxCardNumber
             // 
-            this.textBox1.Location = new System.Drawing.Point(269, 105);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(259, 23);
-            this.textBox1.TabIndex = 34;
+            this.textBoxCardNumber.Location = new System.Drawing.Point(269, 105);
+            this.textBoxCardNumber.Name = "textBoxCardNumber";
+            this.textBoxCardNumber.Size = new System.Drawing.Size(259, 23);
+            this.textBoxCardNumber.TabIndex = 34;
+            this.textBoxCardNumber.TextChanged += new System.EventHandler(this.textBoxCardNumber_TextChanged);
             // 
             // SearchCustomerForm
             // 
@@ -119,15 +122,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(50)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(588, 218);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxCardNumber);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbTransactionLines);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnCancel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SearchCustomerForm";
             this.Text = "Fuel Pulse Station - Search Customer";
+            this.Load += new System.EventHandler(this.SearchCustomerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -137,12 +142,12 @@
 
         #endregion
 
-        private Button btnOK;
+        private Button btnSearch;
         private Button btnCancel;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private Label lbTransactionLines;
         private Label label1;
-        private TextBox textBox1;
+        private TextBox textBoxCardNumber;
     }
 }
