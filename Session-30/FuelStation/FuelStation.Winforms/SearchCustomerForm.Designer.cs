@@ -38,6 +38,7 @@
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.Color.DarkBlue;
+            this.btnSearch.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
             this.btnSearch.FlatAppearance.BorderSize = 2;
             this.btnSearch.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
