@@ -56,8 +56,8 @@ namespace FuelStation.Winforms {
         }
 
         private void btnOK_Click(object sender, EventArgs e) {
-            //TODO GO TO CreateTransactionLine Form 
-            //TODO Create CreateTransactionLine form
+            CreateTransactionLineForm createTransactionLineForm = new CreateTransactionLineForm();
+            createTransactionLineForm.ShowDialog();
             Close();
         }
 

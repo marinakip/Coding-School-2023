@@ -60,6 +60,7 @@
             this.btnOK.TabIndex = 46;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
@@ -74,6 +75,7 @@
             this.btnCancel.TabIndex = 45;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // label1
             // 
@@ -116,6 +118,7 @@
             this.comboBoxItemDescription.Name = "comboBoxItemDescription";
             this.comboBoxItemDescription.Size = new System.Drawing.Size(245, 23);
             this.comboBoxItemDescription.TabIndex = 53;
+            this.comboBoxItemDescription.SelectedIndexChanged += new System.EventHandler(this.comboBoxItemDescription_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -135,6 +138,7 @@
             this.comboBoxQuantity.Name = "comboBoxQuantity";
             this.comboBoxQuantity.Size = new System.Drawing.Size(134, 23);
             this.comboBoxQuantity.TabIndex = 55;
+            this.comboBoxQuantity.SelectedIndexChanged += new System.EventHandler(this.comboBoxQuantity_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -153,6 +157,7 @@
             this.textBoxItemCode.Name = "textBoxItemCode";
             this.textBoxItemCode.Size = new System.Drawing.Size(176, 23);
             this.textBoxItemCode.TabIndex = 59;
+            this.textBoxItemCode.TextChanged += new System.EventHandler(this.textBoxItemCode_TextChanged);
             // 
             // label6
             // 
@@ -171,6 +176,7 @@
             this.textBoxItemPrice.Name = "textBoxItemPrice";
             this.textBoxItemPrice.Size = new System.Drawing.Size(91, 23);
             this.textBoxItemPrice.TabIndex = 63;
+            this.textBoxItemPrice.TextChanged += new System.EventHandler(this.textBoxItemPrice_TextChanged);
             // 
             // label7
             // 
@@ -189,6 +195,7 @@
             this.textBoxDiscountPercent.Name = "textBoxDiscountPercent";
             this.textBoxDiscountPercent.Size = new System.Drawing.Size(134, 23);
             this.textBoxDiscountPercent.TabIndex = 67;
+            this.textBoxDiscountPercent.TextChanged += new System.EventHandler(this.textBoxDiscountPercent_TextChanged);
             // 
             // label4
             // 
@@ -207,6 +214,7 @@
             this.textBoxDiscountValue.Name = "textBoxDiscountValue";
             this.textBoxDiscountValue.Size = new System.Drawing.Size(91, 23);
             this.textBoxDiscountValue.TabIndex = 69;
+            this.textBoxDiscountValue.TextChanged += new System.EventHandler(this.textBoxDiscountValue_TextChanged);
             // 
             // label9
             // 
@@ -268,6 +276,7 @@
             this.Name = "CreateTransactionLineForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fuel Pulse Station - Create New Transaction Line";
+            this.Load += new System.EventHandler(this.CreateTransactionLineForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
